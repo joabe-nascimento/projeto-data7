@@ -9,15 +9,15 @@ import {
   useBreakpointValue,
   Container,
 } from "@chakra-ui/react";
-import GridListWith from "../../components/cards";
-import WithSubnavigation from "../../components/navigation";
+import Cards from "../../components/cards";
+import Navbar from "../../components/navigation";
 import SplitScreen from "../../components/section";
 import Services from "../../components/services";
 
-export default function WithBackgroundImage() {
+export default function Home() {
   return (
     <>
-      <WithSubnavigation />
+      <Navbar />
       <Flex
         w={"full"}
         h={"100vh"}
@@ -68,7 +68,7 @@ export default function WithBackgroundImage() {
         </VStack>
       </Flex>
       <Container maxW={"1200px"} px={4} py={8}>
-        <GridListWith />
+        <Cards />
       </Container>
       <Container maxW={"1200px"} px={4} py={8}>
         <SplitScreen />

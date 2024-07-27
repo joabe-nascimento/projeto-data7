@@ -8,6 +8,7 @@ import {
   Image,
   Stack,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import botdebatepapo from "../../assets/bot-de-bate-papo.gif";
 import codificacao from "../../assets/codificacao.gif";
@@ -64,9 +65,11 @@ const Card = ({ heading, description, iconSrc, mt, mb }) => {
 };
 
 export default function Services() {
+  const cardMarginTop = useBreakpointValue({ base: 0, md: -28 });
+  const cardMarginBottom = useBreakpointValue({ base: 0, md: 28 });
+
   return (
     <Box p={{ base: 4, sm: 6, md: 8, lg: 10 }} bg="white">
-      {" "}
       <Stack spacing={6} as={Container} maxW={"6xl"} textAlign={"left"}>
         <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
           <Text
@@ -88,10 +91,6 @@ export default function Services() {
             Sobre Nós
           </Text>
         </Heading>
-        <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-          obcaecati ut cupiditate pariatur, dignissimos, placeat amet officiis.
-        </Text>
       </Stack>
       <Container maxW={"5xl"} mt={12}>
         <Flex flexWrap="wrap" gap={10} justify="center">
@@ -105,8 +104,8 @@ export default function Services() {
           <Card
             heading={"Criação de Sites"}
             iconSrc={codificacao}
-            mt={-5}
-            mb={5}
+            mt={cardMarginTop}
+            mb={cardMarginBottom}
             description={
               "Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit."
             }
@@ -128,8 +127,8 @@ export default function Services() {
           <Card
             heading={"Rede de Computadores"}
             iconSrc={localnaredeinternet}
-            mt={-5}
-            mb={5}
+            mt={cardMarginTop}
+            mb={cardMarginBottom}
             description={
               "Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit."
             }

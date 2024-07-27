@@ -1,8 +1,8 @@
 import React from "react";
-import CallToActionWithVideo from "./pages/Home";
+import Home from "./pages/Home";
 
 const App = () => {
-  return <CallToActionWithVideo />;
+  return <Home />;
 };
 
 export default App;
