@@ -88,7 +88,7 @@ export default function Services() {
               zIndex: -1,
             }}
           >
-            Sobre Nós
+            Serviços
           </Text>
         </Heading>
       </Stack>

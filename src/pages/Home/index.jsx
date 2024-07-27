@@ -13,6 +13,7 @@ import Cards from "../../components/cards";
 import Navbar from "../../components/navigation";
 import SplitScreen from "../../components/section";
 import Services from "../../components/services";
+import SectionNew from "../../components/sectionnew";
 
 export default function Home() {
   return (
@@ -75,6 +76,9 @@ export default function Home() {
       </Container>
       <Container maxW={"1200px"} px={4} py={16}>
         <Services />
+      </Container>
+      <Container maxW={"100%"} px={0} py={16}>
+        <SectionNew />
       </Container>
     </>
   );
