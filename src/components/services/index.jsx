@@ -16,18 +16,20 @@ import ferramentasdereparacao from "../../assets/ferramentas-de-reparacao.gif";
 import localnaredeinternet from "../../assets/local-na-rede-internet.gif";
 import redenanuvem from "../../assets/rede-na-nuvem.gif";
 
-const Card = ({ heading, description, iconSrc }) => {
+const Card = ({ heading, description, iconSrc, mt, mb }) => {
   return (
     <Box
       maxW={{ base: "full", md: "300px" }}
       w={"full"}
-      borderWidth="2px" // Ajusta a largura da borda
+      borderWidth="1px" // Ajusta a largura da borda
       borderColor="blue.400" // Define a cor da borda
-      borderRadius="15px 0px 15px 0px" // Bordas arredondadas apenas nos cantos esquerdo
+      borderRadius="30px 0px 30px 0px" // Bordas arredondadas apenas nos cantos esquerdo
       overflow="hidden"
       p={5}
       bg="white"
       boxShadow="lg"
+      mt={mt} // Define a margem superior
+      mb={mb} // Define a margem inferior
       _hover={{
         boxShadow: "xl",
         transform: "scale(1.02)",
@@ -103,6 +105,8 @@ export default function Services() {
           <Card
             heading={"Criação de Sites"}
             iconSrc={codificacao}
+            mt={-5}
+            mb={5}
             description={
               "Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit."
             }
@@ -124,6 +128,8 @@ export default function Services() {
           <Card
             heading={"Rede de Computadores"}
             iconSrc={localnaredeinternet}
+            mt={-5}
+            mb={5}
             description={
               "Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit."
             }
