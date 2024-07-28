@@ -1,5 +1,3 @@
-"use client";
-
 import {
   ChevronDownIcon,
   ChevronRightIcon,
@@ -24,41 +22,19 @@ import {
 // Define os itens de navegação
 const NAV_ITEMS = [
   {
-    label: "Inspiration",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Find Work",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Learn Design",
+    label: "Inicio",
     href: "#",
   },
   {
-    label: "Hire Designers",
+    label: "Sobre",
+    href: "#",
+  },
+  {
+    label: "Serviços",
+    href: "#",
+  },
+  {
+    label: "Contatos",
     href: "#",
   },
 ];
@@ -70,20 +46,15 @@ export default function WithSubnavigation() {
   return (
     <Box>
       <Flex
-        position="fixed"
-        top={0}
-        left={0}
-        right={0}
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
+        minH={"6px"}
         py={{ base: 2 }}
-        px={{ base: 4 }}
+        px={{ base: 2 }}
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
-        zIndex={1000} // Garante que a navbar fique sobre outros conteúdos
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -108,8 +79,6 @@ export default function WithSubnavigation() {
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
-      {/* Adiciona um espaçamento para compensar a navbar fixa */}
-      <Box mt={"60px"} />
     </Box>
   );
 }

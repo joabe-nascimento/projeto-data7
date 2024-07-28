@@ -18,7 +18,10 @@ import SectionNew from "../../components/sectionnew";
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <Container maxW={"1200px"} px={4}>
+        <Navbar />{" "}
+      </Container>
+
       <Flex
         w={"full"}
         h={"100vh"}
@@ -38,6 +41,7 @@ export default function Home() {
           <Container maxW={"1200px"} px={12} py={8}>
             <Stack maxW={"2xl"} align={"flex-start"} spacing={6}>
               <Text
+                as="h1"
                 color={"white"}
                 fontWeight={700}
                 lineHeight={1.2}
@@ -47,12 +51,17 @@ export default function Home() {
               </Text>
 
               <Text
+                as="h2"
                 color={"white"}
-                fontWeight={700}
+                fontWeight={300}
                 lineHeight={1.2}
                 fontSize={useBreakpointValue({ base: "1xl", md: "2xl" })}
               >
-                Bem vindos ao TI
+                A Data7 oferece serviços e produtos de TI para diversas
+                empresas. Vendemos e implantamos sistemas ERP, equipamentos SAT
+                e certificados digitais. Também desenvolvemos sites de alto
+                impacto, aplicativos e bots de atendimento ao cliente. Nenhum
+                projeto é grande ou pequeno demais para nós!
               </Text>
               <Stack direction={"row"}>
                 <Button

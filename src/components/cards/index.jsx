@@ -54,11 +54,19 @@ const Card = ({
         )}
         <Box>
           <Heading size="md" color={textColor}>
-            <Text whiteSpace="pre-wrap">{heading}</Text>
+            <Text as="span" whiteSpace="pre-wrap">
+              {heading}
+            </Text>
           </Heading>
-          <Text mt={1} fontSize={"sm"} color={textColor}>
+          <Box
+            textAlign="left" // Justifica o texto
+            mt={5}
+            fontWeight={400}
+            fontSize={"large"}
+            color={"blue.700"}
+          >
             {description}
-          </Text>
+          </Box>
         </Box>
         {showButton && (
           <Button
@@ -97,41 +105,58 @@ export default function GridListWith() {
             heading={"Suporte"}
             iconSrc={assistentevirtual}
             description={
-              "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+              <>
+                Nossa equipe de especialistas de suporte terá o prazer em
+                responder a todas as suas perguntas e desejos em relação aos
+                nossos serviços e produtos.
+                <br />
+                Aqui está uma segunda linha de descrição.
+              </>
             }
             href={"#"}
             borderRadius={"50px 0px 0px"}
             bgColor="white"
-            textColor="black"
+            textColor="blue.800"
             showButton={false}
           />
+
           <Card
             heading={"Segurança"}
             iconSrc={escudo}
             description={
-              "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+              <>
+                Implementamos medidas de segurança físicas para evitar sabotagem
+                interna ou roubo de nossa infraestrutura, o que garante a
+                entrega de serviços confiáveis e seguros a você.
+                <br /> Aqui está uma segunda linha de descrição.
+              </>
             }
             href={"#"}
             bgColor="white"
-            textColor="black"
+            textColor="blue.800"
             showButton={false}
           />
+
           <Card
             heading={"Desenvolvimento"}
             iconSrc={html}
             description={
-              "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+              <>
+                O principal objetivo é criar um processo que possa ser usado
+                como modelo e facilmente replicado em outros departamentos ou
+                divisões, em várias empresas e negócios.
+              </>
             }
             href={"#"}
             borderRadius={"0px 0px 50px"}
             bgColor="white"
-            textColor="black"
+            textColor="blue.800"
             showButton={false}
           />
           <Box ml={6}>
             <Card
               heading={
-                <Text textAlign={"left"}>
+                <Text as="span" textAlign={"left"}>
                   Agendar uma
                   <br />
                   Reunião
