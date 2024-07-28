@@ -9,7 +9,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 
-export default function SectionNew() {
+export default function Contact() {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
