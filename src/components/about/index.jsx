@@ -90,15 +90,7 @@ export default function SplitScreen() {
               color={"white"}
               _hover={{ bg: "blue.500" }}
             >
-              Create Project
-            </Button>
-            <Button
-              rounded={"full"}
-              bg={"blackAlpha.400"}
-              color={"white"}
-              _hover={{ bg: "blackAlpha.500" }}
-            >
-              How It Works
+              Fale Conosco
             </Button>
           </Stack>
         </Stack>
