@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Box,
   Container,
@@ -22,19 +20,21 @@ const Card = ({ heading, description, iconSrc, mt, mb }) => {
     <Box
       maxW={{ base: "full", md: "300px" }}
       w={"full"}
-      borderWidth="1px" // Ajusta a largura da borda
-      borderColor="blue.400" // Define a cor da borda
-      borderRadius="30px 0px 30px 0px" // Bordas arredondadas apenas nos cantos esquerdo
+      borderWidth="1px"
+      borderColor="blue.400"
+      borderRadius="30px 0px 30px 0px"
       overflow="hidden"
       p={5}
       bg="white"
       boxShadow="lg"
-      mt={mt} // Define a margem superior
-      mb={mb} // Define a margem inferior
+      mt={mt}
+      mb={mb}
+      transition="transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease"
       _hover={{
-        boxShadow: "xl",
-        transform: "scale(1.02)",
-        transition: "0.3s",
+        boxShadow: "2xl",
+        transform: "rotate(5deg) scale(1.05) translateY(-10px)",
+        transformOrigin: "center",
+        backgroundColor: "white", // Mantém o fundo branco no hover
       }}
     >
       <Stack align={"start"} spacing={4} h="full">
@@ -44,20 +44,36 @@ const Card = ({ heading, description, iconSrc, mt, mb }) => {
           align={"center"}
           justify={"center"}
           rounded={"full"}
-          bg="transparent" // Remove o fundo cinza do ícone
+          bg="transparent"
+          transition="transform 0.4s ease"
+          _hover={{ transform: "scale(1.1)" }}
         >
           <Image
             src={iconSrc}
             alt="Icon"
             boxSize={{ base: "40px", md: "70px" }}
             objectFit="contain"
+            border="none" // Remove qualquer borda
+            outline="none" // Remove qualquer contorno
           />
         </Flex>
         <Box>
-          <Heading size="md" fontSize={{ base: "lg", md: "larger" }} mb={5}>
+          <Heading
+            size="md"
+            fontSize={{ base: "lg", md: "larger" }}
+            mb={5}
+            transition="color 0.4s ease"
+            _hover={{ color: "blue.500" }}
+          >
             {heading}
           </Heading>
-          <Text fontSize={{ base: "sm", md: "md" }}>{description}</Text>
+          <Text
+            fontSize={{ base: "sm", md: "md" }}
+            transition="color 0.4s ease"
+            _hover={{ color: "gray.600" }}
+          >
+            {description}
+          </Text>
         </Box>
       </Stack>
     </Box>
@@ -98,7 +114,7 @@ export default function Services() {
             heading={"Sistemas ERP"}
             iconSrc={estruturadaweb}
             description={
-              "Desenvolvemos e implementamos sistemas ERP (Enterprise Resource Planning) personalizados que otimizam a gestão empresarial, integrando todos os processos da sua empresa em uma única plataforma eficiente.  "
+              "Desenvolvemos e implementamos sistemas ERP (Enterprise Resource Planning) personalizados que otimizam a gestão empresarial, integrando todos os processos da sua empresa em uma única plataforma eficiente."
             }
           />
           <Card
