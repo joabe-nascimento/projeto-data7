@@ -89,5 +89,6 @@ const styles = {
     cursor: "pointer",
     fontSize: "24px",
     boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
+    zIndex: 1000, // Adicionado zIndex para garantir que o botão esteja no topo
   },
 };
