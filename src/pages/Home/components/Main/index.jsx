@@ -19,7 +19,6 @@ const sections = [
   { component: Avaliacoes, maxW: "1200px", px: 4 },
   { component: SectionAvaliacoes, maxW: "100%", px: 0, py: 16 },
   { component: ContactFormWithSocialButtons, maxW: "100%", px: 0, py: 15 },
-  { component: Footer, maxW: "100%", px: 0, py: 0 },
 ];
 
 const MainContent = () => (
