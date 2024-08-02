@@ -52,14 +52,15 @@ export default function SplitScreen() {
             </Text>
           </Stack>
           <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-            The project board is an exclusive resource for contract work.
-            It&apos;s perfect for freelancers, agencies, and moonlighters.
+            Ser líderes no desenvolvimento de tecnologias que transformam
+            negócios e impulsionam o crescimento sustentável, criando novas
+            possibilidades para empresas de todos os tamanhos.
           </Text>
           <Stack spacing={2} direction="row" align="center">
             <Image
               boxSize="3rem"
               src={foguete} // Substitua pelo URL do seu GIF
-              alt="Visão"
+              alt="Missão"
             />
             <Text
               fontWeight={"600"}
@@ -80,8 +81,10 @@ export default function SplitScreen() {
             </Text>
           </Stack>
           <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-            The project board is an exclusive resource for contract work.
-            It&apos;s perfect for freelancers, agencies, and moonlighters.
+            Entregar soluções tecnológicas que superem as expectativas dos
+            clientes, promovendo inovação contínua e melhorando a eficiência
+            operacional, sendo um recurso essencial para freelancers, agências e
+            empresas.
           </Text>
           <Stack direction={{ base: "column", md: "row" }} spacing={4}>
             <Button
@@ -95,13 +98,16 @@ export default function SplitScreen() {
           </Stack>
         </Stack>
       </Flex>
-      <Flex flex={1}>
+      <Flex flex={1} position="relative">
         <Image
           alt={"Login Image"}
           objectFit={"cover"}
           src={
-            "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            "https://img.freepik.com/fotos-gratis/fundo-de-programacao-com-html_23-2150038861.jpg?t=st=1722556716~exp=1722560316~hmac=d5d9813199f5133c485fa3fad8f6b34378692d326d48dc3410c40e9270e08485&w=740"
           }
+          border="2px solid blue.400 " // Borda mais fina e com opacidade reduzida
+          borderRadius="100px 0px 100px 0px" // Bordas radicais específicas
+          boxShadow="0 0 10px blue.400" // Sombra azul com opacidade reduzida
         />
       </Flex>
     </Stack>

@@ -14,7 +14,7 @@ const HeroSection = () => (
     w={"full"}
     h={"100vh"}
     backgroundImage={
-      "url(https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)"
+      "url(https://img.freepik.com/fotos-gratis/homem-afro-americano-trabalhando-em-computador-criado-com-tecnologia-generative-ai_185193-110054.jpg?t=st=1722556586~exp=1722560186~hmac=9f6222ffb08792a556ae209c6f807a4bbeb3cac516cfd0f973b3bdbdcabf8692&w=826)"
     }
     backgroundSize={"cover"}
     backgroundPosition={"center center"}

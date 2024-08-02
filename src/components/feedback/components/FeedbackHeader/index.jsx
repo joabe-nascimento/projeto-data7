@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Button, Heading, Stack, Text } from "@chakra-ui/react";
 
 const FeedbackHeader = () => {
   return (

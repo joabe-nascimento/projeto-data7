@@ -9,6 +9,7 @@ import {
   FormErrorMessage,
   useToast,
 } from "@chakra-ui/react";
+import emailjs from "emailjs-com";
 
 const Formulario = () => {
   const [formData, setFormData] = useState({
@@ -44,16 +45,53 @@ const Formulario = () => {
     });
   };
 
+  const sendEmail = () => {
+    const templateParams = {
+      from_name: formData.nome,
+      from_contact: formData.contato,
+      message: formData.mensagem,
+    };
+
+    emailjs
+      .send(
+        "service_vmhaqqw",
+        "template_ltxyr3s",
+        templateParams,
+        "DyAJLKDUMpsFJ-M-T"
+      )
+      .then(
+        (response) => {
+          console.log(
+            "Email enviado com sucesso!",
+            response.status,
+            response.text
+          );
+          toast({
+            title: "Formulário enviado.",
+            description: "Obrigado pelo seu contato! Entraremos em breve.",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+          });
+        },
+        (error) => {
+          console.log("Erro ao enviar email:", error);
+          toast({
+            title: "Erro ao enviar formulário.",
+            description:
+              "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.",
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+          });
+        }
+      );
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validate()) {
-      toast({
-        title: "Formulário enviado.",
-        description: "Obrigado pelo seu contato! Entraremos em breve.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
+      sendEmail();
       setFormData({
         nome: "",
         contato: "",
