@@ -8,23 +8,40 @@ import {
   useBreakpointValue,
   Container,
 } from "@chakra-ui/react";
+import videoSrc from "../../../../assets/videoheader.mp4"; // Altere o caminho conforme necessário
 
 const HeroSection = () => (
-  <Flex
-    w={"full"}
-    h={"100vh"}
-    backgroundImage={
-      "url(https://img.freepik.com/fotos-gratis/homem-afro-americano-trabalhando-em-computador-criado-com-tecnologia-generative-ai_185193-110054.jpg?t=st=1722556586~exp=1722560186~hmac=9f6222ffb08792a556ae209c6f807a4bbeb3cac516cfd0f973b3bdbdcabf8692&w=826)"
-    }
-    backgroundSize={"cover"}
-    backgroundPosition={"center center"}
-  >
+  <Flex w={"full"} h={"100vh"} position={"relative"} overflow={"hidden"}>
+    {/* Vídeo de fundo */}
+    <video
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto" // Garante que o vídeo é carregado automaticamente
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        zIndex: -1, // Garantindo que o vídeo fique atrás dos outros elementos
+      }}
+    >
+      <source src={videoSrc} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    {/* Conteúdo principal */}
     <VStack
       w={"full"}
       alignItems={"left"}
       justify={"center"}
       px={useBreakpointValue({ base: 4, md: 8 })}
       bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
+      position={"relative"}
+      zIndex={1} // Garantindo que o conteúdo fique sobre o vídeo
     >
       <Container maxW={"1200px"} px={12} py={8}>
         <Stack maxW={"2xl"} align={"flex-start"} spacing={6}>
@@ -35,7 +52,7 @@ const HeroSection = () => (
             lineHeight={1.2}
             fontSize={useBreakpointValue({ base: "3xl", md: "6xl" })}
           >
-            Bem vindos <br /> a Data7
+            Bem vindos <br /> a DATA7
           </Text>
 
           <Text

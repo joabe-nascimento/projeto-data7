@@ -1,6 +1,8 @@
+"use client";
 import { Button, Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import foguete from "../../assets/foguete.gif";
 import observador from "../../assets/observador.gif";
+import meuVideo from "../../assets/videoabout.mp4"; // Importa o vídeo da pasta de assets
 
 export default function SplitScreen() {
   return (
@@ -98,17 +100,29 @@ export default function SplitScreen() {
           </Stack>
         </Stack>
       </Flex>
-      <Flex flex={1} position="relative">
-        <Image
-          alt={"Login Image"}
-          objectFit={"cover"}
-          src={
-            "https://img.freepik.com/fotos-gratis/fundo-de-programacao-com-html_23-2150038861.jpg?t=st=1722556716~exp=1722560316~hmac=d5d9813199f5133c485fa3fad8f6b34378692d326d48dc3410c40e9270e08485&w=740"
-          }
-          border="2px solid blue.400 " // Borda mais fina e com opacidade reduzida
-          borderRadius="100px 0px 100px 0px" // Bordas radicais específicas
-          boxShadow="0 0 10px blue.400" // Sombra azul com opacidade reduzida
-        />
+      <Flex flex={1} position="relative" zIndex={1}>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            borderRadius: "100px 0px 100px 0px", // Mantém o formato da borda
+            border: "2px solid blue.400", // Borda do vídeo
+            boxShadow: "0 0 10px blue.400", // Sombra azul
+          }}
+        >
+          <source
+            src={meuVideo} // Usa o vídeo importado
+            type="video/mp4"
+          />
+        </video>
       </Flex>
     </Stack>
   );

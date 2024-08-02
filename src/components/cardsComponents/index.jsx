@@ -36,6 +36,8 @@ const Card = ({
       border="1px solid rgba(255, 255, 255, 0.3)"
       boxShadow="0 2px 5px rgba(0, 0, 0, 0.1)"
       mb={16}
+      position="relative"
+      zIndex={2} // Garantindo que o cartão esteja sobre o vídeo
     >
       <Stack align={"start"} spacing={4} textAlign="left">
         {iconSrc && (
@@ -91,10 +93,10 @@ const Card = ({
 
 export default function GridListWith() {
   return (
-    <Box p={4}>
+    <Box p={4} position="relative" zIndex={1}>
       <Container maxW={"1xl"} mt={8}>
         <Flex
-          position={"static"}
+          position={"relative"} // Ajustado para permitir o zIndex do contêiner
           marginTop={"-150px"}
           flexWrap="wrap"
           gap={0}
