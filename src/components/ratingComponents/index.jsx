@@ -1,5 +1,4 @@
-"use client";
-
+import { useEffect, useState } from "react";
 import {
   Box,
   Container,
@@ -9,7 +8,8 @@ import {
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa"; // Importando ícones de aspas
+import { FaQuoteLeft } from "react-icons/fa"; // Importando ícones de aspas
+import axios from "axios"; // Importando axios
 
 const Card = ({ description, mt, mb }) => {
   return (
@@ -52,8 +52,23 @@ const Card = ({ description, mt, mb }) => {
 };
 
 export default function Avaliacoes() {
+  const [feedbacks, setFeedbacks] = useState([]);
   const cardMarginTop = useBreakpointValue({ base: 0, md: -15 });
   const cardMarginBottom = useBreakpointValue({ base: 0, md: 15 });
+
+  useEffect(() => {
+    const fetchFeedbacks = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/api/feedback");
+        // Limita os feedbacks a 3
+        setFeedbacks(response.data.slice(0, 3));
+      } catch (error) {
+        console.error("Erro ao buscar feedbacks:", error);
+      }
+    };
+
+    fetchFeedbacks();
+  }, []);
 
   return (
     <Box p={{ base: 4, sm: 6, md: 8, lg: 10 }} bg="white">
@@ -81,23 +96,14 @@ export default function Avaliacoes() {
       </Stack>
       <Container maxW={"5xl"} mt={12}>
         <Flex flexWrap="wrap" gap={10} justify="center">
-          <Card
-            description={
-              "Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit."
-            }
-          />
-          <Card
-            mt={cardMarginTop}
-            mb={cardMarginBottom}
-            description={
-              "Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit."
-            }
-          />
-          <Card
-            description={
-              "Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit. Lorem ipsum dolor sit amet catetur, adipisicing elit."
-            }
-          />
+          {feedbacks.map((feedback) => (
+            <Card
+              key={feedback._id} // Use o ID gerado pelo MongoDB
+              mt={cardMarginTop}
+              mb={cardMarginBottom}
+              description={feedback.feedback}
+            />
+          ))}
         </Flex>
       </Container>
     </Box>

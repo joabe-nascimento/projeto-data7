@@ -1,14 +1,13 @@
 "use client";
 import { Container } from "@chakra-ui/react";
-import AboutSection from "../../../../components/about";
-import Avaliacoes from "../../../../components/avaliacoes";
-import Cards from "../../../../components/cards";
-import Contact from "../../../../components/contact";
-import SectionAvaliacoes from "../../../../components/faleconoscosecond";
-import Feedback from "../../../../components/feedback";
-import Services from "../../../../components/services";
-import Footer from "../Footer";
-import ContactFormWithSocialButtons from "../../../../components/formcontact";
+import AboutSection from "../../../../components/aboutComponents";
+import Avaliacoes from "../../../../components/ratingComponents";
+import Cards from "../../../../components/cardsComponents";
+import Contact from "../../../../components/connectmessageComponents";
+import SectionAvaliacoes from "../../../../components/contactbackgroundComponents";
+import Feedback from "../../../../components/opportunityComponents";
+import ContactFormWithSocialButtons from "../../../../components/formcontactComponents";
+import Services from "../../../../components/servicesComponents";
 
 const sections = [
   { component: Cards, maxW: "1200px", px: 4, py: 8 },
