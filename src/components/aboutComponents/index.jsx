@@ -107,7 +107,7 @@ export default function SplitScreen() {
           loop
           playsInline
           style={{
-            position: "absolute",
+            position: "relative",
             top: 0,
             left: 0,
             width: "100%",
