@@ -3,7 +3,6 @@ import { Button, Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import foguete from "../../assets/foguete.gif";
 import observador from "../../assets/observador.gif";
 import meuVideo from "../../assets/videoabout.mp4"; // Importa o vídeo da pasta de assets
-import tecnologia from "../../assets/tecnologia.png"; // Importe o ícone que você deseja usar
 
 export default function SplitScreen() {
   return (
@@ -108,6 +107,9 @@ export default function SplitScreen() {
           loop
           playsInline
           style={{
+            position: "relative", 
+            top: 0,
+            left: 0,
             width: "100%",
             height: "100%",
             objectFit: "cover",
@@ -121,15 +123,6 @@ export default function SplitScreen() {
             type="video/mp4"
           />
         </video>
-        <Image
-          src={tecnologia} // Substitua pelo URL do seu ícone
-          alt="Ícone"
-          position="absolute" // Alterado para absolute para estar em relação ao pai
-          bottom="500px"
-          right="500px"
-          boxSize="100px"
-          zIndex={2} // Garante que o ícone fique acima do vídeo
-        />
       </Flex>
     </Stack>
   );
