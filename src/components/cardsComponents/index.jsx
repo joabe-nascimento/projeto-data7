@@ -22,6 +22,7 @@ const Card = ({
   textColor,
   showButton,
   minW,
+  isCenterAligned, // Novo prop para centralizar
 }) => {
   return (
     <Box
@@ -38,6 +39,7 @@ const Card = ({
       mb={16}
       position="relative"
       zIndex={2} // Garantindo que o cartão esteja sobre o vídeo
+      mx={isCenterAligned ? "auto" : "initial"} // Centralizar horizontalmente se for necessário
     >
       <Stack align={"start"} spacing={4} textAlign="left">
         {iconSrc && (
@@ -155,24 +157,23 @@ export default function GridListWith() {
             textColor="blue.800"
             showButton={false}
           />
-          <Box ml={6}>
-            <Card
-              heading={
-                <Text as="span" textAlign={"left"}>
-                  Agendar uma
-                  <br />
-                  Reunião
-                </Text>
-              }
-              href={"#"}
-              borderRadius={"30px 0px 30px 0px"}
-              minW={{ base: "full", md: "250px" }} // Define a largura mínima do cartão
-              bgColor="blue.400"
-              textColor="white"
-              description=""
-              showButton={true}
-            />
-          </Box>
+          <Card
+            heading={
+              <Text as="span" textAlign={"left"}>
+                Agendar uma
+                <br />
+                Reunião
+              </Text>
+            }
+            href={"#"}
+            borderRadius={"30px 0px 30px 0px"}
+            minW={{ base: "full", md: "250px" }} // Define a largura mínima do cartão
+            bgColor="blue.400"
+            textColor="white"
+            description=""
+            showButton={true}
+            isCenterAligned={true} // Adiciona prop para centralizar
+          />
         </Flex>
       </Container>
     </Box>
