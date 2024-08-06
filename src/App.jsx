@@ -1,8 +1,9 @@
+// src/App.js
 import React from "react";
-import Home from "./pages/Home";
+import AppRoutes from "./routes/routes"; // Importa o arquivo de rotas
 
 const App = () => {
-  return <Home />;
+  return <AppRoutes />;
 };
 
 export default App;

@@ -1,14 +1,33 @@
-"use client";
 import { Button, Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import foguete from "../../assets/foguete.gif";
 import observador from "../../assets/observador.gif";
-import meuVideo from "../../assets/videoabout.mp4"; // Importa o vídeo da pasta de assets
+import meuVideo from "../../assets/videoabout.mp4";
 
 export default function SplitScreen() {
   return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
-      <Flex p={8} flex={1} align={"center"} justify={"center"}>
-        <Stack spacing={6} w={"full"} maxW={"lg"}>
+    <Stack
+      minH={"100vh"}
+      direction={{ base: "column", md: "row" }}
+      pt={{ base: "20", md: "24" }} // Ajusta o padding-top para adicionar mais espaço nas telas menores
+      spacing={{ base: 4, md: 8 }} // Adiciona espaçamento entre as colunas
+      maxW={"1200px"} // Define a largura máxima do Stack
+      mx="auto" // Centraliza o Stack horizontalmente
+      px={{ base: "4", md: "8" }} // Adiciona padding horizontal ao Stack
+      py={{ base: "8", md: "16" }} // Adiciona padding vertical ao Stack
+    >
+      <Flex
+        p={{ base: 4, md: 8 }}
+        flex={1}
+        align={"center"}
+        justify={"center"}
+        mt={{ base: "55", md: "0" }} // Adiciona margem superior para empurrar o conteúdo para baixo em telas menores
+      >
+        <Stack
+          spacing={6}
+          w={"full"}
+          maxW={"lg"}
+          paddingTop={{ base: "40px", md: "90px" }} // Ajusta o padding-top do Stack interno para telas menores
+        >
           <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
             <Text
               color={"gray.700"}
@@ -30,11 +49,7 @@ export default function SplitScreen() {
             <br />{" "}
           </Heading>
           <Stack spacing={2} direction="row" align="center">
-            <Image
-              boxSize="3rem"
-              src={observador} // Substitua pelo URL do seu GIF
-              alt="Visão"
-            />
+            <Image boxSize="3rem" src={observador} alt="Visão" />
             <Text
               fontWeight={"600"}
               fontSize={"20"}
@@ -59,11 +74,7 @@ export default function SplitScreen() {
             possibilidades para empresas de todos os tamanhos.
           </Text>
           <Stack spacing={2} direction="row" align="center">
-            <Image
-              boxSize="3rem"
-              src={foguete} // Substitua pelo URL do seu GIF
-              alt="Missão"
-            />
+            <Image boxSize="3rem" src={foguete} alt="Missão" />
             <Text
               fontWeight={"600"}
               fontSize={"20"}
@@ -100,28 +111,30 @@ export default function SplitScreen() {
           </Stack>
         </Stack>
       </Flex>
-      <Flex flex={1} position="relative" zIndex={1}>
+      <Flex
+        flex={1}
+        position="relative"
+        zIndex={1}
+        justify={"center"}
+        align={"center"}
+        py={{ base: "10", md: "0" }} // Adiciona padding vertical para telas menores
+        mt={{ base: "10", md: "0" }} // Adiciona margem superior para empurrar o vídeo para baixo em telas menores
+      >
         <video
           autoPlay
           muted
           loop
           playsInline
           style={{
-            position: "relative",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            borderRadius: "100px 0px 100px 0px", // Mantém o formato da borda
-            border: "2px solid blue.400", // Borda do vídeo
-            boxShadow: "0 0 10px blue.400", // Sombra azul
+            width: "100%", // Ajusta a largura do vídeo
+            height: "auto", // Mantém a proporção do vídeo
+            maxWidth: "800px", // Define a largura máxima do vídeo
+            borderRadius: "100px 0px 100px 0px",
+            border: "2px solid blue.400",
+            boxShadow: "0 0 10px blue.400",
           }}
         >
-          <source
-            src={meuVideo} // Usa o vídeo importado
-            type="video/mp4"
-          />
+          <source src={meuVideo} type="video/mp4" />
         </video>
       </Flex>
     </Stack>
