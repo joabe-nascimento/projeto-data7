@@ -91,7 +91,7 @@ export default function Contact() {
               </Button>
               <Flex
                 border={"6px solid white"}
-                zIndex={9999} // Ajustado para um valor mais baixo que a navbar
+{/*                 zIndex={9999} */}
                 align={"center"}
                 justify={"center"}
                 w={"40px"}
