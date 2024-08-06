@@ -23,7 +23,7 @@ export default function WithSubnavigation() {
       right={0}
       borderRadius={"30px"}
       boxShadow={"lg"}
-      zIndex={9999}  // Ajustado para um valor mais alto
+      zIndex={10000} // Ajustado para um valor mais alto
       margin={4}
       transition={"all 0.3s ease"}
     >
