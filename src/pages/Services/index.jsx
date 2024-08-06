@@ -81,7 +81,7 @@ const Card = ({ heading, description, iconSrc, mt, mb }) => {
 };
 
 export default function Services() {
-  const cardMarginTop = useBreakpointValue({ base: 0, md: 28 });
+  const cardMarginTop = useBreakpointValue({ base: 0, md: -28 });
   const cardMarginBottom = useBreakpointValue({ base: 0, md: 28 });
 
   return (
@@ -91,7 +91,7 @@ export default function Services() {
         as={Container}
         maxW={"6xl"}
         textAlign={"left"}
-        paddingTop={"140px"}
+        paddingTop={"130px"}
       >
         <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
           <Text
