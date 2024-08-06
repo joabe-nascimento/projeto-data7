@@ -90,8 +90,8 @@ export default function Contact() {
                 Ligue Agora
               </Button>
               <Flex
-                border={"6px solid white "}
-                zIndex={99999}
+                border={"6px solid white"}
+{/*                 zIndex={9999} */}
                 align={"center"}
                 justify={"center"}
                 w={"40px"}
@@ -100,7 +100,7 @@ export default function Contact() {
                 color={"black"}
                 rounded={"full"}
                 fontWeight={"bold"}
-                mx={-2} // Adjust spacing between buttons
+                mx={-2} // Ajuste de espaço entre os botões
               >
                 OU
               </Flex>
