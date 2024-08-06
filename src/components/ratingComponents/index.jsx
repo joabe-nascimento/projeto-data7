@@ -59,7 +59,7 @@ export default function Avaliacoes() {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/feedback");
+        const response = await axios.get("https://api-data7.onrender.com/api/feedback");
         // Limita os feedbacks a 3
         setFeedbacks(response.data.slice(0, 3));
       } catch (error) {
