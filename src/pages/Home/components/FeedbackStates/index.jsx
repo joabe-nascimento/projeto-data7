@@ -13,7 +13,7 @@ import {
   Textarea,
   useDisclosure,
 } from "@chakra-ui/react";
-import axios from "axios"; // Importando axios
+import axios from "axios";
 
 export default function FeedbackButton() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -31,10 +31,13 @@ export default function FeedbackButton() {
       });
 
       console.log("Feedback enviado:", response.data);
-      setFeedback(""); // Limpa o feedback após o envio
+      setFeedback(""); // Clear the feedback after submission
       onClose();
     } catch (error) {
-      console.error("Erro ao enviar feedback:", error);
+      console.error(
+        "Erro ao enviar feedback:",
+        error.response || error.message
+      );
     }
   };
 
@@ -89,6 +92,6 @@ const styles = {
     cursor: "pointer",
     fontSize: "24px",
     boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
-    zIndex: 1000, // Adicionado zIndex para garantir que o botão esteja no topo
+    zIndex: 1000,
   },
 };

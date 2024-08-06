@@ -8,23 +8,23 @@ import {
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaQuoteLeft } from "react-icons/fa"; // Importando ícones de aspas
-import axios from "axios"; // Importando axios
+import { FaQuoteLeft } from "react-icons/fa";
+import axios from "axios";
 
 const Card = ({ description, mt, mb }) => {
   return (
     <Box
       maxW={{ base: "full", md: "300px" }}
       w={"full"}
-      borderWidth="1px" // Ajusta a largura da borda
-      borderColor="blue.400" // Define a cor da borda
-      borderRadius="30px 0px 30px 0px" // Bordas arredondadas apenas nos cantos esquerdo
+      borderWidth="1px"
+      borderColor="blue.400"
+      borderRadius="30px 0px 30px 0px"
       overflow="hidden"
       p={5}
       bg="blue.600"
       boxShadow="lg"
-      mt={mt} // Define a margem superior
-      mb={mb} // Define a margem inferior
+      mt={mt}
+      mb={mb}
       _hover={{
         boxShadow: "xl",
         transform: "scale(1.02)",
@@ -39,8 +39,7 @@ const Card = ({ description, mt, mb }) => {
             mb={5}
             color={"white"}
           >
-            <FaQuoteLeft style={{ fontSize: "2em" }} />{" "}
-            {/* Aumentando o tamanho do ícone */}
+            <FaQuoteLeft style={{ fontSize: "2em" }} />
           </Heading>
           <Text fontSize={{ base: "sm", md: "md" }} color={"white"}>
             {description}
@@ -60,10 +59,12 @@ export default function Avaliacoes() {
     const fetchFeedbacks = async () => {
       try {
         const response = await axios.get("http://localhost:3001/api/feedback");
-        // Limita os feedbacks a 3
         setFeedbacks(response.data.slice(0, 3));
       } catch (error) {
-        console.error("Erro ao buscar feedbacks:", error);
+        console.error(
+          "Erro ao buscar feedbacks:",
+          error.response || error.message
+        );
       }
     };
 
@@ -98,7 +99,7 @@ export default function Avaliacoes() {
         <Flex flexWrap="wrap" gap={10} justify="center">
           {feedbacks.map((feedback) => (
             <Card
-              key={feedback._id} // Use o ID gerado pelo MongoDB
+              key={feedback._id}
               mt={cardMarginTop}
               mb={cardMarginBottom}
               description={feedback.feedback}
