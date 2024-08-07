@@ -26,7 +26,7 @@ export default function FeedbackButton() {
     }
 
     try {
-      const response = await axios.post("http://localhost:3001/api/feedback", {
+      const response = await axios.post("https://api-data7.onrender.com/api/feedback", {
         feedback: feedback.trim(),
       });
 
