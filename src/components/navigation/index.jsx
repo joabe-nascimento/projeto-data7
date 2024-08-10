@@ -19,8 +19,8 @@ export default function WithSubnavigation() {
     <Box
       position={"fixed"}
       top={0}
-      left={{ base: 0, md: 24 }} // Ajustado para deixar o espaço maior no desktop
-      right={{ base: 0, md: 24 }} // Ajustado para deixar o espaço maior no desktop
+      left={{ base: 0, md: 24 }}
+      right={{ base: 0, md: 24 }}
       borderRadius={"30px"}
       boxShadow={"lg"}
       zIndex={99999999}
@@ -28,12 +28,12 @@ export default function WithSubnavigation() {
       transition={"all 0.3s ease"}
     >
       <Flex
-        maxH={"100px"}
+        maxH={{ base: "20px", md: "100px" }} // Altura máxima reduzida no responsivo
         bg={useColorModeValue("rgba(255, 255, 255, 0.8)", "rgba(0, 0, 0, 0.8)")}
         color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
-        py={{ base: 4 }}
-        px={{ base: 4, md: 8 }} // Ajustado para padding lateral maior no desktop
+        minH={{ base: "50px", md: "60px" }} // Altura mínima reduzida no responsivo
+        py={{ base: 2, md: 4 }} // Padding vertical reduzido no responsivo
+        px={{ base: 3, md: 8 }} // Ajustado para padding lateral menor no responsivo
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
@@ -57,7 +57,7 @@ export default function WithSubnavigation() {
             <Image
               src={data71}
               alt="Logo"
-              height={{ base: "150px", md: "250px" }}
+              height={{ base: "120px", md: "250px" }} // Altura da logo reduzida no responsivo
               objectFit={"contain"}
             />
           </Flex>
