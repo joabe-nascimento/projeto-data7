@@ -11,6 +11,7 @@ import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { DesktopNav } from "../../components/navigation/components/DesktopNav";
 import { MobileNav } from "../../components/navigation/components/MobileNav";
 import data71 from "../../assets/data71.png";
+import { Link } from "react-router-dom"; // Import do Link do React Router
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -54,12 +55,14 @@ export default function WithSubnavigation() {
             justify={{ base: "center", md: "start" }}
             flex={{ base: "auto", md: 1 }}
           >
-            <Image
-              src={data71}
-              alt="Logo"
-              height={{ base: "120px", md: "250px" }} // Altura da logo reduzida no responsivo
-              objectFit={"contain"}
-            />
+            <Link to="/">
+              <Image
+                src={data71}
+                alt="Logo"
+                height={{ base: "120px", md: "250px" }} // Altura da logo reduzida no responsivo
+                objectFit={"contain"}
+              />
+            </Link>
           </Flex>
 
           <Flex
