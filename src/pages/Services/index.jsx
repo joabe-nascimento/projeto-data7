@@ -91,7 +91,8 @@ export default function Services() {
         as={Container}
         maxW={"6xl"}
         textAlign={"left"}
-        paddingTop={"130px"}
+        paddingTop={"145px"}
+        paddingLeft={"45px"}
       >
         <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
           <Text

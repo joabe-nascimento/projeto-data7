@@ -8,9 +8,11 @@ import {
   Box,
   FormErrorMessage,
   useToast,
+  Heading,
+  useColorModeValue,
+  Text,
 } from "@chakra-ui/react";
 import emailjs from "emailjs-com";
-
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -102,42 +104,75 @@ const Contact = () => {
   };
 
   return (
-    <Box maxW="2xl" mx="auto" p={4} mt={2}>
+    <Box maxW="lg" mx="auto" p={4} mt={32} mb={8}>
+      {" "}
+      {/* Aumentar a margem superior e inferior */}
+      <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+        <Text
+          color={"gray.700"}
+          fontWeight={"800"}
+          as={"span"}
+          position={"relative"}
+          _after={{
+            content: "''",
+            width: "full",
+            position: "absolute",
+            bottom: 1,
+            left: 0,
+            bg: "blue.400",
+            zIndex: -1,
+          }}
+        >
+       Entre em Contato
+        </Text>
+        <br />{" "}
+      </Heading>
       <form onSubmit={handleSubmit}>
         <FormControl id="nome" mb={4} isInvalid={errors.nome}>
+          {" "}
+          {/* Aumentar a margem inferior */}
           <FormLabel>Nome</FormLabel>
           <Input
             type="text"
             placeholder="Seu nome"
             value={formData.nome}
             onChange={handleChange}
+            size="sm" // Tamanho do input
           />
           {errors.nome && <FormErrorMessage>{errors.nome}</FormErrorMessage>}
         </FormControl>
         <FormControl id="contato" mb={4} isInvalid={errors.contato}>
+          {" "}
+          {/* Aumentar a margem inferior */}
           <FormLabel>E-mail ou WhatsApp</FormLabel>
           <Input
             type="text"
             placeholder="Seu e-mail ou WhatsApp"
             value={formData.contato}
             onChange={handleChange}
+            size="sm" // Tamanho do input
           />
           {errors.contato && (
             <FormErrorMessage>{errors.contato}</FormErrorMessage>
           )}
         </FormControl>
         <FormControl id="mensagem" mb={4} isInvalid={errors.mensagem}>
+          {" "}
+          {/* Aumentar a margem inferior */}
           <FormLabel>Mensagem</FormLabel>
           <Textarea
             placeholder="Sua mensagem"
             value={formData.mensagem}
             onChange={handleChange}
+            size="sm" // Tamanho do textarea
           />
           {errors.mensagem && (
             <FormErrorMessage>{errors.mensagem}</FormErrorMessage>
           )}
         </FormControl>
-        <Button colorScheme="teal" type="submit" w="full">
+        <Button colorScheme="teal" type="submit" w="full" size="sm">
+          {" "}
+          {/* Tamanho do botão */}
           Enviar
         </Button>
       </form>
