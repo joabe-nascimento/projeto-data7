@@ -11,7 +11,8 @@ import {
 } from "@chakra-ui/react";
 import emailjs from "emailjs-com";
 
-const Formulario = () => {
+
+const Contact = () => {
   const [formData, setFormData] = useState({
     nome: "",
     contato: "",
@@ -144,4 +145,4 @@ const Formulario = () => {
   );
 };
 
-export default Formulario;
+export default Contact;

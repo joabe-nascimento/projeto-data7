@@ -3,7 +3,6 @@ import { Container } from "@chakra-ui/react";
 import Cards from "../../../../components/cardsComponents";
 import Contact from "../../../../components/connectmessageComponents";
 import SectionAvaliacoes from "../../../../components/contactbackgroundComponents";
-import ContactFormWithSocialButtons from "../../../../components/formcontactComponents";
 import WithSubnavigation from "../../../../components/navigation";
 import Feedback from "../../../../components/opportunityComponents";
 import Avaliacoes from "../../../../components/ratingComponents";
@@ -15,7 +14,6 @@ const sections = [
   { component: Feedback, maxW: "100%", px: 0, py: 16 },
   { component: Avaliacoes, maxW: "1200px", px: 4 },
   { component: SectionAvaliacoes, maxW: "100%", px: 0, py: 16 },
-  { component: ContactFormWithSocialButtons, maxW: "100%", px: 0, py: 15 },
   { component: WithSubnavigation, maxW: "100%", px: 0, py: 15 },
 
 ];

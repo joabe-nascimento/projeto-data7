@@ -19,11 +19,11 @@ export default function WithSubnavigation() {
     <Box
       position={"fixed"}
       top={0}
-      left={0}
-      right={0}
+      left={{ base: 0, md: 24 }} // Ajustado para deixar o espaço maior no desktop
+      right={{ base: 0, md: 24 }} // Ajustado para deixar o espaço maior no desktop
       borderRadius={"30px"}
       boxShadow={"lg"}
-      zIndex={99999999} // Ajustado para um valor mais alto
+      zIndex={99999999}
       margin={4}
       transition={"all 0.3s ease"}
     >
@@ -33,7 +33,7 @@ export default function WithSubnavigation() {
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 4 }}
-        px={{ base: 4 }}
+        px={{ base: 4, md: 8 }} // Ajustado para padding lateral maior no desktop
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}

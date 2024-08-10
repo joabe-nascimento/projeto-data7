@@ -126,8 +126,8 @@ export default function Services() {
           <Card
             heading={"Criação de Sites"}
             iconSrc={codificacao}
-            mt={cardMarginTop}
-            mb={cardMarginBottom}
+            // mt={cardMarginTop}
+            // mb={cardMarginBottom}
             description={
               "Oferecemos serviços completos de criação de sites, desenvolvendo páginas responsivas, otimizadas para SEO e com design moderno, atendendo às necessidades específicas do seu negócio."
             }
@@ -149,8 +149,8 @@ export default function Services() {
           <Card
             heading={"Rede de Computadores"}
             iconSrc={localnaredeinternet}
-            mt={cardMarginTop}
-            mb={cardMarginBottom}
+            // mt={cardMarginTop}
+            // mb={cardMarginBottom}
             description={
               "Projetamos, instalamos e mantemos redes de computadores eficientes e seguras, garantindo conectividade estável e alta performance para sua empresa."
             }
