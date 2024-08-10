@@ -9,13 +9,12 @@ import Avaliacoes from "../../../../components/ratingComponents";
 
 const sections = [
   { component: Cards, maxW: "1200px", px: 4, py: 8 },
- 
+
   { component: Contact, maxW: "100%", px: 0, py: 16 },
   { component: Feedback, maxW: "100%", px: 0, py: 16 },
   { component: Avaliacoes, maxW: "1200px", px: 4 },
   { component: SectionAvaliacoes, maxW: "100%", px: 0, py: 16 },
   { component: WithSubnavigation, maxW: "100%", px: 0, py: 15 },
-
 ];
 
 const MainContent = () => (

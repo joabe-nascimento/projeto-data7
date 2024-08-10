@@ -9,7 +9,6 @@ import {
   FormErrorMessage,
   useToast,
   Heading,
-  useColorModeValue,
   Text,
 } from "@chakra-ui/react";
 import emailjs from "emailjs-com";
@@ -105,8 +104,6 @@ const Contact = () => {
 
   return (
     <Box maxW="lg" mx="auto" p={4} mt={32} mb={8}>
-      {" "}
-      {/* Aumentar a margem superior e inferior */}
       <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
         <Text
           color={"gray.700"}
@@ -123,56 +120,62 @@ const Contact = () => {
             zIndex: -1,
           }}
         >
-       Entre em Contato
+          Entre em Contato
         </Text>
-        <br />{" "}
       </Heading>
       <form onSubmit={handleSubmit}>
         <FormControl id="nome" mb={4} isInvalid={errors.nome}>
-          {" "}
-          {/* Aumentar a margem inferior */}
           <FormLabel>Nome</FormLabel>
           <Input
             type="text"
             placeholder="Seu nome"
             value={formData.nome}
             onChange={handleChange}
-            size="sm" // Tamanho do input
+            size="sm"
           />
           {errors.nome && <FormErrorMessage>{errors.nome}</FormErrorMessage>}
         </FormControl>
         <FormControl id="contato" mb={4} isInvalid={errors.contato}>
-          {" "}
-          {/* Aumentar a margem inferior */}
           <FormLabel>E-mail ou WhatsApp</FormLabel>
           <Input
             type="text"
             placeholder="Seu e-mail ou WhatsApp"
             value={formData.contato}
             onChange={handleChange}
-            size="sm" // Tamanho do input
+            size="sm"
           />
           {errors.contato && (
             <FormErrorMessage>{errors.contato}</FormErrorMessage>
           )}
         </FormControl>
         <FormControl id="mensagem" mb={4} isInvalid={errors.mensagem}>
-          {" "}
-          {/* Aumentar a margem inferior */}
           <FormLabel>Mensagem</FormLabel>
           <Textarea
             placeholder="Sua mensagem"
             value={formData.mensagem}
             onChange={handleChange}
-            size="sm" // Tamanho do textarea
+            size="sm"
           />
           {errors.mensagem && (
             <FormErrorMessage>{errors.mensagem}</FormErrorMessage>
           )}
         </FormControl>
-        <Button colorScheme="teal" type="submit" w="full" size="sm">
-          {" "}
-          {/* Tamanho do botão */}
+        <Button
+          colorScheme="blue"
+          type="submit"
+          w="full"
+          size="lg"
+          borderRadius="30px 0px 30px 0px "
+          boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+          transition="background-color 0.3s ease, transform 0.3s ease"
+          _hover={{
+            backgroundColor: "#0056b3",
+            transform: "scale(1.05)",
+          }}
+          _focus={{
+            boxShadow: "outline",
+          }}
+        >
           Enviar
         </Button>
       </form>
