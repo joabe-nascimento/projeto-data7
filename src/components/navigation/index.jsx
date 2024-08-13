@@ -20,7 +20,7 @@ export default function WithSubnavigation() {
     <Box
       position={"fixed"}
       top={0}
-      left={{ base: 0, md: "50%" }} // No desktop, centraliza a navbar
+      left={{ base: 0, md: "50%" }} // Centraliza no desktop
       transform={{ base: "none", md: "translateX(-50%)" }} // Ajuste de centralização no desktop
       width={{ base: "100%", md: "calc(100% - 48px)" }} // Largura responsiva, fixa no desktop
       maxWidth={{ md: "1200px" }} // Limita a largura máxima no desktop
@@ -31,12 +31,12 @@ export default function WithSubnavigation() {
       transition={"all 0.3s ease"}
     >
       <Flex
-        maxH={{ base: "none", md: "100px" }} // Altura máxima ajustada para modo desktop e responsivo
+        maxH={{ base: "20px", md: "100px" }} // Altura máxima ajustada para modo desktop e responsivo
         bg={useColorModeValue("rgba(255, 255, 255, 0.8)", "rgba(0, 0, 0, 0.8)")}
         color={useColorModeValue("gray.600", "white")}
         minH={{ base: "50px", md: "60px" }} // Altura mínima ajustada para modo desktop e responsivo
         py={{ base: 2, md: 4 }} // Padding vertical ajustado para modo desktop e responsivo
-        px={{ base: 3, md: 4 }} // Padding lateral ajustado para modo desktop e responsivo
+        px={{ base: 3, md: 8 }} // Padding lateral ajustado para modo desktop e responsivo
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
@@ -62,7 +62,7 @@ export default function WithSubnavigation() {
               <Image
                 src={data71}
                 alt="Logo"
-                height={{ base: "50px", md: "250px" }} // Altura da logo ajustada
+                height={{ base: "120px", md: "250px" }} // Altura da logo ajustada
                 objectFit={"contain"}
               />
             </Link>
