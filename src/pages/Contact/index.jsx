@@ -12,6 +12,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import emailjs from "emailjs-com";
+import Footer from "../Home/components/Footer"; // Importe o Footer
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -103,82 +104,89 @@ const Contact = () => {
   };
 
   return (
-    <Box maxW="lg" mx="auto" p={4} mt={32} mb={8}>
-      <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-        <Text
-          color={"gray.700"}
-          fontWeight={"800"}
-          as={"span"}
-          position={"relative"}
-          _after={{
-            content: "''",
-            width: "full",
-            position: "absolute",
-            bottom: 1,
-            left: 0,
-            bg: "blue.400",
-            zIndex: -1,
-          }}
-        >
-          Entre em Contato
-        </Text>
-      </Heading>
-      <form onSubmit={handleSubmit}>
-        <FormControl id="nome" mb={4} isInvalid={errors.nome}>
-          <FormLabel>Nome</FormLabel>
-          <Input
-            type="text"
-            placeholder="Seu nome"
-            value={formData.nome}
-            onChange={handleChange}
-            size="sm"
-          />
-          {errors.nome && <FormErrorMessage>{errors.nome}</FormErrorMessage>}
-        </FormControl>
-        <FormControl id="contato" mb={4} isInvalid={errors.contato}>
-          <FormLabel>E-mail ou WhatsApp</FormLabel>
-          <Input
-            type="text"
-            placeholder="Seu e-mail ou WhatsApp"
-            value={formData.contato}
-            onChange={handleChange}
-            size="sm"
-          />
-          {errors.contato && (
-            <FormErrorMessage>{errors.contato}</FormErrorMessage>
-          )}
-        </FormControl>
-        <FormControl id="mensagem" mb={4} isInvalid={errors.mensagem}>
-          <FormLabel>Mensagem</FormLabel>
-          <Textarea
-            placeholder="Sua mensagem"
-            value={formData.mensagem}
-            onChange={handleChange}
-            size="sm"
-          />
-          {errors.mensagem && (
-            <FormErrorMessage>{errors.mensagem}</FormErrorMessage>
-          )}
-        </FormControl>
-        <Button
-          colorScheme="blue"
-          type="submit"
-          w="full"
-          size="lg"
-          borderRadius="30px 0px 30px 0px "
-          boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
-          transition="background-color 0.3s ease, transform 0.3s ease"
-          _hover={{
-            backgroundColor: "#0056b3",
-            transform: "scale(1.05)",
-          }}
-          _focus={{
-            boxShadow: "outline",
-          }}
-        >
-          Enviar
-        </Button>
-      </form>
+    <Box
+      minH="100vh" // Garante que o container principal ocupe a altura total da tela
+      display="flex"
+      flexDirection="column"
+    >
+      <Box maxW="lg" mx="auto" p={4} mt={32} mb={8} flex="1">
+        <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+          <Text
+            color={"gray.700"}
+            fontWeight={"800"}
+            as={"span"}
+            position={"relative"}
+            _after={{
+              content: "''",
+              width: "full",
+              position: "absolute",
+              bottom: 1,
+              left: 0,
+              bg: "blue.400",
+              zIndex: -1,
+            }}
+          >
+            Entre em Contato
+          </Text>
+        </Heading>
+        <form onSubmit={handleSubmit}>
+          <FormControl id="nome" mb={4} isInvalid={errors.nome}>
+            <FormLabel>Nome</FormLabel>
+            <Input
+              type="text"
+              placeholder="Seu nome"
+              value={formData.nome}
+              onChange={handleChange}
+              size="sm"
+            />
+            {errors.nome && <FormErrorMessage>{errors.nome}</FormErrorMessage>}
+          </FormControl>
+          <FormControl id="contato" mb={4} isInvalid={errors.contato}>
+            <FormLabel>E-mail ou WhatsApp</FormLabel>
+            <Input
+              type="text"
+              placeholder="Seu e-mail ou WhatsApp"
+              value={formData.contato}
+              onChange={handleChange}
+              size="sm"
+            />
+            {errors.contato && (
+              <FormErrorMessage>{errors.contato}</FormErrorMessage>
+            )}
+          </FormControl>
+          <FormControl id="mensagem" mb={4} isInvalid={errors.mensagem}>
+            <FormLabel>Mensagem</FormLabel>
+            <Textarea
+              placeholder="Sua mensagem"
+              value={formData.mensagem}
+              onChange={handleChange}
+              size="sm"
+            />
+            {errors.mensagem && (
+              <FormErrorMessage>{errors.mensagem}</FormErrorMessage>
+            )}
+          </FormControl>
+          <Button
+            colorScheme="blue"
+            type="submit"
+            w="full"
+            size="lg"
+            borderRadius="30px 0px 30px 0px "
+            boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+            transition="background-color 0.3s ease, transform 0.3s ease"
+            _hover={{
+              backgroundColor: "#0056b3",
+              transform: "scale(1.05)",
+            }}
+            _focus={{
+              boxShadow: "outline",
+            }}
+          >
+            Enviar
+          </Button>
+        </form>
+      </Box>
+      <Footer /> {/* Adicione o Footer aqui */}
     </Box>
   );
 };

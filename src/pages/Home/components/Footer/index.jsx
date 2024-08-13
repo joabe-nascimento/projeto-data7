@@ -9,11 +9,11 @@ import {
   useColorModeValue,
   VisuallyHidden,
   Link,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import data71 from "../../../../assets/data71.png";
 
-// Substitua 'logo.png' pelo caminho correto da sua imagem de logotipo.
 const Logo = (props) => {
   return <img src={data71} alt="Logo" width={150} height={32} {...props} />;
 };
@@ -44,6 +44,14 @@ const SocialButton = ({ children, label, href }) => {
   );
 };
 
+// Links da navbar
+const NAV_ITEMS = [
+  { label: "Inicio", href: "/" },
+  { label: "Sobre", href: "/about" },
+  { label: "Serviços", href: "/services" },
+  { label: "Contatos", href: "/contact" },
+];
+
 const Footer = () => {
   return (
     <Box
@@ -55,10 +63,26 @@ const Footer = () => {
       <Container maxW="container.lg">
         <Stack spacing={6} align="center" justify="center">
           <Logo />
-          <Text fontSize="sm" textAlign="center">
-            © {new Date().getFullYear()} Your Company. All rights reserved.
-          </Text>
-          <Stack direction="row" spacing={8}>
+
+          <SimpleGrid columns={[2, 2, 4]} spacing={4}>
+            {NAV_ITEMS.map((navItem) => (
+              <Link
+                key={navItem.label}
+                href={navItem.href}
+                fontSize="md"
+                color={useColorModeValue("blue.500", "blue.300")}
+                _hover={{
+                  textDecoration: "underline",
+                  transform: "scale(1.1)",
+                }}
+                transition="all 0.2s ease"
+              >
+                {navItem.label}
+              </Link>
+            ))}
+          </SimpleGrid>
+
+          <Stack direction="row" spacing={8} justify="center">
             <SocialButton label="Twitter" href="https://twitter.com">
               <FaTwitter size={20} />
             </SocialButton>
@@ -69,6 +93,7 @@ const Footer = () => {
               <FaYoutube size={20} />
             </SocialButton>
           </Stack>
+
           <Text fontSize="sm" textAlign="center">
             <Link
               href="/privacy"
@@ -83,6 +108,10 @@ const Footer = () => {
             >
               Terms of Service
             </Link>
+          </Text>
+
+          <Text fontSize="sm" textAlign="center">
+            © {new Date().getFullYear()} Your Company. All rights reserved.
           </Text>
         </Stack>
       </Container>
