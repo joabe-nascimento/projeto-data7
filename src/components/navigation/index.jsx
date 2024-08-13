@@ -17,13 +17,13 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-   <Box
+  <Box
   position={"fixed"}
   top={0}
-  left={"50%"}
-  transform={"translateX(-50%)"} // Centraliza horizontalmente
-  width={{ base: "100%", md: "calc(100% - 48px)" }} // Largura fixa e limitada
-  maxWidth={"1200px"} // Largura máxima para evitar expansão em telas grandes
+  left={{ base: 0, md: "50%" }}  // No desktop, centraliza a navbar
+  transform={{ base: "none", md: "translateX(-50%)" }}  // Ajuste de centralização no desktop
+  width={{ base: "100%", md: "calc(100% - 48px)" }}  // Largura responsiva, fixa no desktop
+  maxWidth={{ md: "1200px" }}  // Limita a largura máxima no desktop
   borderRadius={"30px"}
   boxShadow={"lg"}
   zIndex={99999999}
@@ -31,12 +31,12 @@ export default function WithSubnavigation() {
   transition={"all 0.3s ease"}
 >
   <Flex
-    maxH={{ base: "20px", md: "100px" }} // Altura máxima reduzida no responsivo
+    maxH={{ base: "20px", md: "100px" }}  // Altura máxima ajustada para modo desktop e responsivo
     bg={useColorModeValue("rgba(255, 255, 255, 0.8)", "rgba(0, 0, 0, 0.8)")}
     color={useColorModeValue("gray.600", "white")}
-    minH={{ base: "50px", md: "60px" }} // Altura mínima reduzida no responsivo
-    py={{ base: 2, md: 4 }} // Padding vertical reduzido no responsivo
-    px={{ base: 3, md: 8 }} // Ajustado para padding lateral menor no responsivo
+    minH={{ base: "50px", md: "60px" }}  // Altura mínima ajustada para modo desktop e responsivo
+    py={{ base: 2, md: 4 }}  // Padding vertical ajustado para modo desktop e responsivo
+    px={{ base: 3, md: 8 }}  // Padding lateral ajustado para modo desktop e responsivo
     borderBottom={1}
     borderStyle={"solid"}
     borderColor={useColorModeValue("gray.200", "gray.900")}
@@ -44,7 +44,7 @@ export default function WithSubnavigation() {
     justify={"center"}
     backdropFilter={"blur(10px)"}
     borderRadius={"30px"}
-    width={"100%"} // Garante que o Flex ocupe toda a largura do Box
+    width={"100%"}  // Garante que o Flex ocupe toda a largura do Box
   >
         <Flex
           flex={{ base: 1 }}
