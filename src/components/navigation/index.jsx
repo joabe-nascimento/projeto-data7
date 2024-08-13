@@ -20,9 +20,9 @@ export default function WithSubnavigation() {
     <Box
       position={"fixed"}
       top={0}
-      left={{ base: 0, md: "50%" }} // Centraliza no desktop
-      transform={{ base: "none", md: "translateX(-50%)" }} // Ajusta a centralização no desktop
-      width={{ base: "100%", md: "calc(100% - 48px)" }} // Largura responsiva com ajuste para desktop
+      left={{ base: 0, md: "50%" }} // No desktop, centraliza a navbar
+      transform={{ base: "none", md: "translateX(-50%)" }} // Ajuste de centralização no desktop
+      width={{ base: "100%", md: "calc(100% - 48px)" }} // Largura responsiva, fixa no desktop
       maxWidth={{ md: "1200px" }} // Limita a largura máxima no desktop
       borderRadius={"30px"}
       boxShadow={"lg"}
