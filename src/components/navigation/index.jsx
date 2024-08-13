@@ -36,7 +36,7 @@ export default function WithSubnavigation() {
         color={useColorModeValue("gray.600", "white")}
         minH={{ base: "50px", md: "60px" }} // Altura mínima ajustada para modo desktop e responsivo
         py={{ base: 2, md: 4 }} // Padding vertical ajustado para modo desktop e responsivo
-        px={{ base: 3, md: 8 }} // Padding lateral ajustado para modo desktop e responsivo
+        px={{ base: 3, md: 4 }} // Padding lateral ajustado para modo desktop e responsivo
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
