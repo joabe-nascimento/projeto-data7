@@ -140,7 +140,6 @@ export default function SplitScreen() {
           </video>
         </Flex>
       </Stack>
-      {/* Footer adicionado aqui */}
       <Footer />
     </>
   );

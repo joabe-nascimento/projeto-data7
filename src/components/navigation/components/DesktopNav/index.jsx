@@ -16,6 +16,8 @@ const NAV_ITEMS = [
   { label: "Serviços", href: "/services" },
   {
     label: "Contatos",
+    href: "/contact",
+
     children: [
       {
         label: "Telefone",
