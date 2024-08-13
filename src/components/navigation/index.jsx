@@ -17,32 +17,35 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box
-      position={"fixed"}
-      top={0}
-      left={{ base: 0, md: 24 }}
-      right={{ base: 0, md: 24 }}
-      borderRadius={"30px"}
-      boxShadow={"lg"}
-      zIndex={99999999}
-      margin={4}
-      transition={"all 0.3s ease"}
-    >
-      <Flex
-        maxH={{ base: "20px", md: "100px" }} // Altura máxima reduzida no responsivo
-        bg={useColorModeValue("rgba(255, 255, 255, 0.8)", "rgba(0, 0, 0, 0.8)")}
-        color={useColorModeValue("gray.600", "white")}
-        minH={{ base: "50px", md: "60px" }} // Altura mínima reduzida no responsivo
-        py={{ base: 2, md: 4 }} // Padding vertical reduzido no responsivo
-        px={{ base: 3, md: 8 }} // Ajustado para padding lateral menor no responsivo
-        borderBottom={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"}
-        justify={"center"}
-        backdropFilter={"blur(10px)"}
-        borderRadius={"30px"}
-      >
+   <Box
+  position={"fixed"}
+  top={0}
+  left={"50%"}
+  transform={"translateX(-50%)"} // Centraliza horizontalmente
+  width={{ base: "100%", md: "calc(100% - 48px)" }} // Largura fixa e limitada
+  maxWidth={"1200px"} // Largura máxima para evitar expansão em telas grandes
+  borderRadius={"30px"}
+  boxShadow={"lg"}
+  zIndex={99999999}
+  margin={4}
+  transition={"all 0.3s ease"}
+>
+  <Flex
+    maxH={{ base: "20px", md: "100px" }} // Altura máxima reduzida no responsivo
+    bg={useColorModeValue("rgba(255, 255, 255, 0.8)", "rgba(0, 0, 0, 0.8)")}
+    color={useColorModeValue("gray.600", "white")}
+    minH={{ base: "50px", md: "60px" }} // Altura mínima reduzida no responsivo
+    py={{ base: 2, md: 4 }} // Padding vertical reduzido no responsivo
+    px={{ base: 3, md: 8 }} // Ajustado para padding lateral menor no responsivo
+    borderBottom={1}
+    borderStyle={"solid"}
+    borderColor={useColorModeValue("gray.200", "gray.900")}
+    align={"center"}
+    justify={"center"}
+    backdropFilter={"blur(10px)"}
+    borderRadius={"30px"}
+    width={"100%"} // Garante que o Flex ocupe toda a largura do Box
+  >
         <Flex
           flex={{ base: 1 }}
           justify={{ base: "center", md: "space-between" }}
