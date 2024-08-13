@@ -70,7 +70,7 @@ export default function WithSubnavigation() {
 
           <Flex
             flex={{ base: 1, md: "auto" }}
-            ml={{ base: -2 }}
+            ml={{ base: 0 }}
             display={{ base: "flex", md: "none" }}
             justify={"flex-end"}
           >
