@@ -13,7 +13,8 @@ const sections = [
   { component: Feedback, maxW: "100%", px: 0, py: 16 },
   { component: Avaliacoes, maxW: "1200px", px: 4 },
   { component: SectionAvaliacoes, maxW: "100%", px: 0, py: 16 },
-  { component: WithSubnavigation, maxW: "100%", px: 0, py: 15 },
+  // { component: WithSubnavigation, maxW: "100%", px: 0, py: 15 },
+    { component: WithSubnavigation, maxW: "1200px", px: 4, py: 8 },
 ];
 
 const MainContent = () => (
