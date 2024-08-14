@@ -118,7 +118,7 @@ export default function Contact() {
                   padding: "0 30px",
                 }}
               >
-                Mandar Mensagem
+                Mandar Mensagedm
               </Button>
             </Stack>
           )}

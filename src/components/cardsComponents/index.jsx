@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Button,
@@ -76,6 +78,8 @@ const Card = ({
           <Button
             as="a"
             href={href}
+            target="_blank" // Abre o link em uma nova aba
+            rel="noopener noreferrer" // Boa prática de segurança
             variant={"solid"}
             colorScheme={"blue"}
             size={"sm"}
@@ -165,7 +169,7 @@ export default function GridListWith() {
                 Reunião
               </Text>
             }
-            href={"#"}
+            href={"https://meet.google.com/your-meet-id"} // Substitua pelo link da reunião do Google Meet
             borderRadius={"30px 0px 30px 0px"}
             minW={{ base: "full", md: "250px" }} // Define a largura mínima do cartão
             bgColor="blue.400"

@@ -12,6 +12,9 @@ import {
 export default function Contact() {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
+  const phoneNumber = "+5575991016263"; // Substitua pelo número de telefone desejado
+  const whatsappMessage = "Olá, gostaria de conversar sobre os serviços."; // Mensagem padrão do WhatsApp
+
   return (
     <Flex
       w={"full"}
@@ -41,6 +44,8 @@ export default function Contact() {
           {isMobile ? (
             <Stack direction={"column"} align={"center"}>
               <Button
+                as="a"
+                href={`tel:${phoneNumber}`}
                 bg={"blue.400"}
                 rounded={"full"}
                 color={"white"}
@@ -56,6 +61,10 @@ export default function Contact() {
                 Ligue Agora
               </Button>
               <Button
+                as="a"
+                href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+                  whatsappMessage
+                )}`}
                 bg={"blue.900"}
                 rounded={"full"}
                 color={"white"}
@@ -74,6 +83,8 @@ export default function Contact() {
           ) : (
             <Stack direction={"row"} align={"center"}>
               <Button
+                as="a"
+                href={`tel:${phoneNumber}`}
                 marginRight={"-20px"}
                 bg={"blue.400"}
                 rounded={"30px 0px 0px 30px"}
@@ -90,7 +101,7 @@ export default function Contact() {
                 Ligue Agora
               </Button>
               <Flex
-                border={"6px solid white "}
+                border={"6px solid white"}
                 zIndex={99999}
                 align={"center"}
                 justify={"center"}
@@ -100,11 +111,15 @@ export default function Contact() {
                 color={"black"}
                 rounded={"full"}
                 fontWeight={"bold"}
-                mx={-2} // Adjust spacing between buttons
+                mx={-2} // Ajuste de espaço entre os botões
               >
                 OU
               </Flex>
               <Button
+                as="a"
+                href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+                  whatsappMessage
+                )}`}
                 paddingRight={30}
                 marginLeft={"-20px"}
                 bg={"blue.900"}

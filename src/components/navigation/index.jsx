@@ -43,8 +43,7 @@ export default function WithSubnavigation() {
           borderColor={useColorModeValue("gray.200", "gray.900")}
           align={"center"}
           justify={"center"}
-          backdropFilter={"blur(10px)"}
-          borderRadius={"30px"}
+          borderRadius={"60px"}
         >
           <Flex
             flex={{ base: 1 }}
