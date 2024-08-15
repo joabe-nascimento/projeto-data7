@@ -115,22 +115,24 @@ const Contact = () => {
       <Box
         maxW="6xl"
         mx="auto"
-        p={20}
-        mt={32}
+        p={6}
+        mt={40} // Aumenta a margem superior
         mb={8}
         flex="1"
         display="flex"
         flexDirection={layout}
         gap={6}
+        flexWrap="wrap" // Permite o wrap do conteúdo em telas menores
       >
         {/* Informações de Contato à esquerda */}
         <Box
-          flex="1"
+          flex={{ base: "1 1 100%", md: "1" }}
           p={4}
           borderWidth={1}
           borderRadius="lg"
           boxShadow="md"
           bg="gray.50"
+          mb={{ base: 6, md: 0 }} // Adiciona margem inferior no mobile
         >
           <Heading fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }} mb={4}>
             Informações de Contato
@@ -140,7 +142,7 @@ const Contact = () => {
               <Icon as={FaEnvelope} color="blue.500" boxSize={6} />
               <Text
                 fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
-                color="gray.600" // Ajuste a cor aqui
+                color="gray.600"
               >
                 Email: contato@example.com
               </Text>
@@ -149,7 +151,7 @@ const Contact = () => {
               <Icon as={FaPhone} color="blue.500" boxSize={6} />
               <Text
                 fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
-                color="gray.600" // Ajuste a cor aqui
+                color="gray.600"
               >
                 Telefone: +55 11 98765-4321
               </Text>
@@ -158,7 +160,7 @@ const Contact = () => {
               <Icon as={FaMapMarkerAlt} color="blue.500" boxSize={6} />
               <Text
                 fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
-                color="gray.600" // Ajuste a cor aqui
+                color="gray.600"
               >
                 Endereço: Rua Exemplo, 123 - São Paulo, SP
               </Text>
@@ -166,7 +168,7 @@ const Contact = () => {
           </VStack>
         </Box>
         {/* Formulário à direita */}
-        <Box flex="1">
+        <Box flex={{ base: "1 1 100%", md: "1" }} p={4}>
           <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
             <Text
               color={"gray.700"}
