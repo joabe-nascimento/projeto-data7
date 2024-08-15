@@ -10,9 +10,15 @@ import {
   useToast,
   Heading,
   Text,
+  VStack,
+  HStack,
+  Icon,
+  useBreakpointValue,
 } from "@chakra-ui/react";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import emailjs from "emailjs-com";
-import Footer from "../Home/components/Footer"; // Importe o Footer
+import Footer from "../Home/components/Footer";
+import MapComponent from "../../components/mapsComponents";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +28,7 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const toast = useToast();
+  const layout = useBreakpointValue({ base: "column", md: "row" });
 
   const validate = () => {
     const newErrors = {};
@@ -104,89 +111,147 @@ const Contact = () => {
   };
 
   return (
-    <Box
-      minH="100vh" // Garante que o container principal ocupe a altura total da tela
-      display="flex"
-      flexDirection="column"
-    >
-      <Box maxW="lg" mx="auto" p={4} mt={32} mb={8} flex="1">
-        <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-          <Text
-            color={"gray.700"}
-            fontWeight={"800"}
-            as={"span"}
-            position={"relative"}
-            _after={{
-              content: "''",
-              width: "full",
-              position: "absolute",
-              bottom: 1,
-              left: 0,
-              bg: "blue.400",
-              zIndex: -1,
-            }}
-          >
-            Entre em Contato
-          </Text>
-        </Heading>
-        <form onSubmit={handleSubmit}>
-          <FormControl id="nome" mb={4} isInvalid={errors.nome}>
-            <FormLabel>Nome</FormLabel>
-            <Input
-              type="text"
-              placeholder="Seu nome"
-              value={formData.nome}
-              onChange={handleChange}
-              size="sm"
-            />
-            {errors.nome && <FormErrorMessage>{errors.nome}</FormErrorMessage>}
-          </FormControl>
-          <FormControl id="contato" mb={4} isInvalid={errors.contato}>
-            <FormLabel>E-mail ou WhatsApp</FormLabel>
-            <Input
-              type="text"
-              placeholder="Seu e-mail ou WhatsApp"
-              value={formData.contato}
-              onChange={handleChange}
-              size="sm"
-            />
-            {errors.contato && (
-              <FormErrorMessage>{errors.contato}</FormErrorMessage>
-            )}
-          </FormControl>
-          <FormControl id="mensagem" mb={4} isInvalid={errors.mensagem}>
-            <FormLabel>Mensagem</FormLabel>
-            <Textarea
-              placeholder="Sua mensagem"
-              value={formData.mensagem}
-              onChange={handleChange}
-              size="sm"
-            />
-            {errors.mensagem && (
-              <FormErrorMessage>{errors.mensagem}</FormErrorMessage>
-            )}
-          </FormControl>
-          <Button
-            colorScheme="blue"
-            type="submit"
-            w="full"
-            size="lg"
-            borderRadius="30px 0px 30px 0px "
-            boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
-            transition="background-color 0.3s ease, transform 0.3s ease"
-            _hover={{
-              backgroundColor: "#0056b3",
-              transform: "scale(1.05)",
-            }}
-            _focus={{
-              boxShadow: "outline",
-            }}
-          >
-            Enviar
-          </Button>
-        </form>
+    <Box minH="100vh" display="flex" flexDirection="column">
+      <Box
+        maxW="6xl"
+        mx="auto"
+        p={20}
+        mt={32}
+        mb={8}
+        flex="1"
+        display="flex"
+        flexDirection={layout}
+        gap={6}
+      >
+        {/* Informações de Contato à esquerda */}
+        <Box
+          flex="1"
+          p={4}
+          borderWidth={1}
+          borderRadius="lg"
+          boxShadow="md"
+          bg="gray.50"
+        >
+          <Heading fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }} mb={4}>
+            Informações de Contato
+          </Heading>
+          <VStack spacing={4} align="start">
+            <HStack spacing={3}>
+              <Icon as={FaEnvelope} color="blue.500" boxSize={6} />
+              <Text
+                fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+                color="gray.600" // Ajuste a cor aqui
+              >
+                Email: contato@example.com
+              </Text>
+            </HStack>
+            <HStack spacing={3}>
+              <Icon as={FaPhone} color="blue.500" boxSize={6} />
+              <Text
+                fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+                color="gray.600" // Ajuste a cor aqui
+              >
+                Telefone: +55 11 98765-4321
+              </Text>
+            </HStack>
+            <HStack spacing={3}>
+              <Icon as={FaMapMarkerAlt} color="blue.500" boxSize={6} />
+              <Text
+                fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+                color="gray.600" // Ajuste a cor aqui
+              >
+                Endereço: Rua Exemplo, 123 - São Paulo, SP
+              </Text>
+            </HStack>
+          </VStack>
+        </Box>
+        {/* Formulário à direita */}
+        <Box flex="1">
+          <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+            <Text
+              color={"gray.700"}
+              fontWeight={"800"}
+              as={"span"}
+              position={"relative"}
+              _after={{
+                content: "''",
+                width: "full",
+                position: "absolute",
+                bottom: 1,
+                left: 0,
+                bg: "blue.400",
+                zIndex: -1,
+              }}
+            >
+              Entre em Contato
+            </Text>
+          </Heading>
+          <form onSubmit={handleSubmit}>
+            <FormControl id="nome" mb={4} isInvalid={errors.nome}>
+              <FormLabel fontSize="lg">Nome</FormLabel>
+              <Input
+                type="text"
+                placeholder="Seu nome"
+                value={formData.nome}
+                onChange={handleChange}
+                size="md"
+              />
+              {errors.nome && (
+                <FormErrorMessage fontSize="sm">{errors.nome}</FormErrorMessage>
+              )}
+            </FormControl>
+            <FormControl id="contato" mb={4} isInvalid={errors.contato}>
+              <FormLabel fontSize="lg">E-mail ou WhatsApp</FormLabel>
+              <Input
+                type="text"
+                placeholder="Seu e-mail ou WhatsApp"
+                value={formData.contato}
+                onChange={handleChange}
+                size="md"
+              />
+              {errors.contato && (
+                <FormErrorMessage fontSize="sm">
+                  {errors.contato}
+                </FormErrorMessage>
+              )}
+            </FormControl>
+            <FormControl id="mensagem" mb={4} isInvalid={errors.mensagem}>
+              <FormLabel fontSize="lg">Mensagem</FormLabel>
+              <Textarea
+                placeholder="Sua mensagem"
+                value={formData.mensagem}
+                onChange={handleChange}
+                size="md"
+              />
+              {errors.mensagem && (
+                <FormErrorMessage fontSize="sm">
+                  {errors.mensagem}
+                </FormErrorMessage>
+              )}
+            </FormControl>
+            <Button
+              colorScheme="blue"
+              type="submit"
+              w="full"
+              size="lg"
+              borderRadius="30px 0px 30px 0px"
+              boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+              transition="background-color 0.3s ease, transform 0.3s ease"
+              _hover={{
+                backgroundColor: "#0056b3",
+                transform: "scale(1.05)",
+              }}
+              _focus={{
+                boxShadow: "outline",
+              }}
+            >
+              Enviar
+            </Button>
+          </form>
+        </Box>
       </Box>
-      <Footer /> {/* Adicione o Footer aqui */}
+      <MapComponent />
+      <Footer />
     </Box>
   );
 };
