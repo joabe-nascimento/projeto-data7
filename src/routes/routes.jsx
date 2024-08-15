@@ -1,19 +1,21 @@
+// src/routes/index.js
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import NotFound from "../pages/NofFound";
+import WithSubnavigation from "../components/navigation";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
+import Home from "../pages/Home";
+import Services from "../pages/Services";
 
 const AppRoutes = () => {
   return (
     <Router>
-      {/* <WithSubnavigation /> */}
+      <WithSubnavigation />{" "}
       <Routes>
-        {/* Define a rota "Not Found" como principal, redirecionando todas as outras rotas para ela */}
-        <Route path="*" element={<NotFound />} />
-        {/* As rotas originais ainda estão definidas, mas não serão alcançadas
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );
