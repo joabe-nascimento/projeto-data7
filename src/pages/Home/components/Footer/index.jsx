@@ -11,7 +11,7 @@ import {
   Link,
   SimpleGrid,
 } from "@chakra-ui/react";
-import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+// import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import data71 from "../../../../assets/data71.png";
 
 const Logo = (props) => {
@@ -82,7 +82,7 @@ const Footer = () => {
             ))}
           </SimpleGrid>
 
-          <Stack direction="row" spacing={8} justify="center">
+{/*           <Stack direction="row" spacing={8} justify="center">
             <SocialButton label="Twitter" href="https://twitter.com">
               <FaTwitter size={20} />
             </SocialButton>
@@ -93,8 +93,8 @@ const Footer = () => {
               <FaYoutube size={20} />
             </SocialButton>
           </Stack>
-
-          <Text fontSize="sm" textAlign="center">
+ */}
+{/*           <Text fontSize="sm" textAlign="center">
             <Link
               href="/privacy"
               color={useColorModeValue("blue.500", "blue.300")}
@@ -108,7 +108,7 @@ const Footer = () => {
             >
               Terms of Service
             </Link>
-          </Text>
+          </Text> */}
 
           <Text fontSize="sm" textAlign="center">
             © {new Date().getFullYear()} Your Company. All rights reserved.
