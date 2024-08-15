@@ -5,8 +5,8 @@ import AppRoutesNotFound from "./routes/routesnotfound"; // Importa o arquivo de
 const App = () => {
   return (
     <>
-{/* <AppRoutesNotFound />*/}
-    <AppRoutes />  
+ <AppRoutesNotFound />
+{/*<AppRoutes /> */}
     </>
   );
 };
