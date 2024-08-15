@@ -21,15 +21,18 @@ export default function SectionAvaliacoes() {
     >
       <Flex
         w={"full"}
-        h={"50vh"}
-        backgroundSize={"cover"}
-        backgroundPosition={"center center"}
+        h={isMobile ? "40vh" : "50vh"} // Ajusta a altura para dispositivos móveis
+        backgroundSize={"cover"} // Garante que a imagem cubra a área sem esticar
+        backgroundPosition={"center center"} // Centraliza a imagem
+        backgroundRepeat={"no-repeat"} // Evita a repetição da imagem
       >
         <VStack
           w={"full"}
           justify={"center"}
           px={useBreakpointValue({ base: 4, md: 8 })}
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
+          h={"full"} // Garante que o gradiente cubra a altura total
+          align={"center"} // Centraliza o conteúdo
         >
           <Stack maxW={"2xl"} align={"center"} spacing={6}>
             <Text
