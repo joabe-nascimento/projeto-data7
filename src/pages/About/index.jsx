@@ -1,6 +1,7 @@
 import { Button, Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import foguete from "../../assets/foguete.gif";
 import observador from "../../assets/observador.gif";
+import valor from "../../assets/valor.gif";
 import meuVideo from "../../assets/videoabout.mp4";
 import Footer from "../Home/components/Footer"; // Certifique-se de que o caminho do Footer esteja correto
 
@@ -100,6 +101,33 @@ export default function SplitScreen() {
               clientes, promovendo inovação contínua e melhorando a eficiência
               operacional, sendo um recurso essencial para freelancers, agências
               e empresas.
+            </Text>
+            {/* Nova Seção para Valores */}
+            <Stack spacing={2} direction="row" align="center">
+              <Image boxSize="3rem" src={valor} alt="Valores" />
+              <Text
+                fontWeight={"600"}
+                fontSize={"20"}
+                as={"span"}
+                position={"relative"}
+                _after={{
+                  content: "''",
+                  width: "full",
+                  position: "absolute",
+                  bottom: 1,
+                  left: 0,
+                  bg: "blue.400",
+                  zIndex: -1,
+                }}
+              >
+                Nossos Valores
+              </Text>
+            </Stack>
+            <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
+              Integridade, inovação e colaboração são os pilares que sustentam
+              nosso trabalho. Acreditamos que atuar com ética, buscar
+              constantemente soluções criativas e trabalhar em equipe são
+              fundamentais para alcançar nossos objetivos e superar os desafios.
             </Text>
             <Stack direction={{ base: "column", md: "row" }} spacing={4}>
               <Button

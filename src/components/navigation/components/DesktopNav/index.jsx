@@ -30,7 +30,7 @@ const NAV_ITEMS = [
       },
       {
         label: "Suporte",
-        href: "https://glpi.exemplo.com",
+        href: "http://data7.ddns.com.br/glpi/",
         icon: FaHeadset,
       },
     ],
