@@ -6,6 +6,15 @@ import meuVideo from "../../assets/videoabout.mp4";
 import Footer from "../Home/components/Footer"; // Certifique-se de que o caminho do Footer esteja correto
 
 export default function SplitScreen() {
+  // Número de telefone e mensagem
+  const whatsappNumber = "+5575999194533"; // Substitua pelo número do WhatsApp desejado
+  const whatsappMessage = "Olá, gostaria de saber mais sobre seus serviços.";
+
+  // Link para o WhatsApp com o número e a mensagem
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    whatsappMessage
+  )}`;
+
   return (
     <>
       <Stack
@@ -131,6 +140,10 @@ export default function SplitScreen() {
             </Text>
             <Stack direction={{ base: "column", md: "row" }} spacing={4}>
               <Button
+                as="a"
+                href={whatsappLink}
+                target="_blank" // Abre o link em uma nova aba
+                rel="noopener noreferrer"
                 bg={"blue.400"}
                 rounded={"15px 0px 15px"}
                 color={"white"}

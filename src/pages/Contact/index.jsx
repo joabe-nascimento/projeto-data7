@@ -141,28 +141,19 @@ const Contact = () => {
             <HStack spacing={3}>
               <Icon as={FaEnvelope} color="blue.500" boxSize={6} />
               <Text
-                fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+                fontSize={{ base: "lg", md: "xl", lg: "1xl" }}
                 color="gray.600"
               >
-                Email: contato@example.com
+                Email: geovan.bastos@data7ti.com.br
               </Text>
             </HStack>
             <HStack spacing={3}>
               <Icon as={FaPhone} color="blue.500" boxSize={6} />
               <Text
-                fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+                fontSize={{ base: "lg", md: "xl", lg: "1xl" }}
                 color="gray.600"
               >
-                Telefone: +55 11 98765-4321
-              </Text>
-            </HStack>
-            <HStack spacing={3}>
-              <Icon as={FaMapMarkerAlt} color="blue.500" boxSize={6} />
-              <Text
-                fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
-                color="gray.600"
-              >
-                Endereço: Rua Exemplo, 123 - São Paulo, SP
+                Telefone: +55 75 99919-4533
               </Text>
             </HStack>
           </VStack>
