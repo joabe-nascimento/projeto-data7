@@ -7,7 +7,9 @@ import {
   Text,
   useColorModeValue,
   Divider,
+  Button,
 } from "@chakra-ui/react";
+import { FaWhatsapp } from "react-icons/fa";
 import data71 from "../../../../assets/data71.png";
 
 const Logo = (props) => {
@@ -63,7 +65,20 @@ const Footer = () => {
             </Text>
             <Text fontSize="md">Telefone: +55 75 99919-4533</Text>
             <Text fontSize="md">Email: geovan.bastos@data7ti.com.br</Text>
-            {/* <Text fontSize="md">Endereço: Rua Exemplo, 123 - São Paulo, SP</Text> */}
+            <Button
+              as="a"
+              href="https://wa.me/5575999194533"
+              target="_blank"
+              rel="noopener noreferrer"
+              colorScheme="whatsapp"
+              leftIcon={<FaWhatsapp />}
+              size="md"
+              borderRadius="full"
+              _hover={{ transform: "scale(1.05)", bg: "green.500" }}
+              transition="all 0.3s ease"
+            >
+              Fale Conosco no WhatsApp
+            </Button>
           </Stack>
 
           {/* Seção de Horário de Funcionamento */}
