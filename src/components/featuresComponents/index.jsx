@@ -81,7 +81,7 @@ export default function GridListWithHeading() {
       animation={`${gradientAnimation} 15s ease infinite`}
     >
       <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-        <Heading fontSize={"3xl"}>Nossas Soluções</Heading>
+        {/* <Heading fontSize={"3xl"}>Nossas Soluções</Heading> */}
         <Text color={"gray.600"} fontSize={"xl"}>
           Descubra como nossas soluções podem transformar seu negócio, trazendo
           inovação e eficiência.
