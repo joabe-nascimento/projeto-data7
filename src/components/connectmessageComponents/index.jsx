@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Stack,
   Flex,
@@ -50,10 +48,10 @@ export default function Contact() {
                 <Button
                   as="a"
                   href={`tel:${phoneNumber}`}
-                  bg={"blue.400"}
+                  bgGradient="linear(to-r, blue.300, blue.500)"
                   rounded={"full"}
                   color={"white"}
-                  _hover={{ bg: "blue.500" }}
+                  _hover={{ bgGradient: "linear(to-r, blue.400, blue.600)" }}
                   height={"50px"}
                   fontSize={"lg"}
                   style={{
@@ -69,10 +67,10 @@ export default function Contact() {
                   href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(
                     whatsappMessage
                   )}`}
-                  bg={"blue.900"}
+                  bgGradient="linear(to-r, blue.800, blue.900)"
                   rounded={"full"}
                   color={"white"}
-                  _hover={{ bg: "blue.700" }}
+                  _hover={{ bgGradient: "linear(to-r, blue.900, blue.700)" }}
                   height={"50px"}
                   fontSize={"lg"}
                   style={{
@@ -90,10 +88,10 @@ export default function Contact() {
                   as="a"
                   href={`tel:${phoneNumber}`}
                   marginRight={"-20px"}
-                  bg={"blue.400"}
+                  bgGradient="linear(to-r, blue.300, blue.500)"
                   rounded={"30px 0px 0px 30px"}
                   color={"white"}
-                  _hover={{ bg: "blue.500" }}
+                  _hover={{ bgGradient: "linear(to-r, blue.400, blue.600)" }}
                   height={"60px"}
                   fontSize={"lg"}
                   style={{
@@ -126,10 +124,10 @@ export default function Contact() {
                   )}`}
                   paddingRight={30}
                   marginLeft={"-20px"}
-                  bg={"blue.900"}
+                  bgGradient="linear(to-r, blue.800, blue.900)"
                   rounded={"0px 30px 30px 0px"}
                   color={"white"}
-                  _hover={{ bg: "blue.700" }}
+                  _hover={{ bgGradient: "linear(to-r, blue.900, blue.700)" }}
                   height={"60px"}
                   fontSize={"lg"}
                   style={{
