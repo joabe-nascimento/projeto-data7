@@ -1,52 +1,21 @@
-"use client";
-
 import {
   Box,
-  chakra,
   Container,
+  Link,
+  SimpleGrid,
   Stack,
   Text,
   useColorModeValue,
-  VisuallyHidden,
-  Link,
-  SimpleGrid,
+  Divider,
 } from "@chakra-ui/react";
-// import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import data71 from "../../../../assets/data71.png";
 
 const Logo = (props) => {
-  return <img src={data71} alt="Logo" width={150} height={32} {...props} />;
+  return <img src={data71} alt="Logo" width={180} height={45} {...props} />;
 };
 
-const SocialButton = ({ children, label, href }) => {
-  return (
-    <chakra.button
-      bg={useColorModeValue("gray.200", "gray.800")}
-      borderRadius="full"
-      w={10}
-      h={10}
-      cursor="pointer"
-      as="a"
-      href={href}
-      display="inline-flex"
-      alignItems="center"
-      justifyContent="center"
-      transition="all 0.3s ease"
-      _hover={{
-        bg: useColorModeValue("gray.300", "gray.700"),
-        transform: "scale(1.1)",
-      }}
-      aria-label={label}
-    >
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </chakra.button>
-  );
-};
-
-// Links da navbar
 const NAV_ITEMS = [
-  { label: "Inicio", href: "/" },
+  { label: "Início", href: "/" },
   { label: "Sobre", href: "/about" },
   { label: "Serviços", href: "/services" },
   { label: "Contatos", href: "/contact" },
@@ -55,63 +24,66 @@ const NAV_ITEMS = [
 const Footer = () => {
   return (
     <Box
-      bg={useColorModeValue("gray.100", "gray.900")}
-      color={useColorModeValue("gray.700", "gray.200")}
-      py={6}
-      px={8}
+      bg={useColorModeValue("#001F3F", "#001F3F")}
+      color="gray.200"
+      py={12}
+      px={6}
+      mt={20}
     >
-      <Container maxW="container.lg">
-        <Stack spacing={6} align="center" justify="center">
-          <Logo />
+      <Container maxW="container.xl">
+        <Stack align="center" mb={10}>
+          <Text fontSize="2xl" fontWeight="bold" color="white">
+            Site Institucional
+          </Text>
+        </Stack>
 
-          <SimpleGrid columns={[2, 2, 4]} spacing={4}>
+        <SimpleGrid columns={[1, 3, 3]} spacing={10} mb={10}>
+          {/* Seção de Links Rápidos */}
+          <Stack spacing={4}>
+            <Text fontSize="lg" fontWeight="bold" color="white">
+              Links Rápidos
+            </Text>
             {NAV_ITEMS.map((navItem) => (
               <Link
                 key={navItem.label}
                 href={navItem.href}
                 fontSize="md"
-                color={useColorModeValue("blue.500", "blue.300")}
-                _hover={{
-                  textDecoration: "underline",
-                  transform: "scale(1.1)",
-                }}
-                transition="all 0.2s ease"
+                _hover={{ color: "cyan.400", textDecoration: "none" }}
+                transition="color 0.3s ease"
               >
                 {navItem.label}
               </Link>
             ))}
-          </SimpleGrid>
-
-{/*           <Stack direction="row" spacing={8} justify="center">
-            <SocialButton label="Twitter" href="https://twitter.com">
-              <FaTwitter size={20} />
-            </SocialButton>
-            <SocialButton label="Instagram" href="https://instagram.com">
-              <FaInstagram size={20} />
-            </SocialButton>
-            <SocialButton label="YouTube" href="https://youtube.com">
-              <FaYoutube size={20} />
-            </SocialButton>
           </Stack>
- */}
-{/*           <Text fontSize="sm" textAlign="center">
-            <Link
-              href="/privacy"
-              color={useColorModeValue("blue.500", "blue.300")}
-            >
-              Privacy Policy
-            </Link>
-            {" | "}
-            <Link
-              href="/terms"
-              color={useColorModeValue("blue.500", "blue.300")}
-            >
-              Terms of Service
-            </Link>
-          </Text> */}
 
-          <Text fontSize="sm" textAlign="center">
-            © {new Date().getFullYear()} Your Company. All rights reserved.
+          {/* Seção de Contato */}
+          <Stack spacing={4}>
+            <Text fontSize="lg" fontWeight="bold" color="white">
+              Contato
+            </Text>
+            <Text fontSize="md">Telefone: +55 75 99919-4533</Text>
+            <Text fontSize="md">Email: geovan.bastos@data7ti.com.br</Text>
+            {/* <Text fontSize="md">Endereço: Rua Exemplo, 123 - São Paulo, SP</Text> */}
+          </Stack>
+
+          {/* Seção de Horário de Funcionamento */}
+          <Stack spacing={4}>
+            <Text fontSize="lg" fontWeight="bold" color="white">
+              Horário de Funcionamento
+            </Text>
+            <Text fontSize="md">Segunda a Sexta: 8:00 - 18:00</Text>
+            <Text fontSize="md">Sábado: 8:00 - 12:00</Text>
+            <Text fontSize="md">Domingo: Fechado</Text>
+          </Stack>
+        </SimpleGrid>
+
+        <Divider borderColor="gray.600" mb={8} />
+
+        {/* Logo e Direitos Autorais */}
+        <Stack spacing={4} align="center">
+          <Logo />
+          <Text fontSize="sm" color="gray.400">
+            © {new Date().getFullYear()} Data7. Todos os direitos reservados.
           </Text>
         </Stack>
       </Container>
