@@ -2,7 +2,6 @@
 import {
   Box,
   Container,
-  Heading,
   SimpleGrid,
   Icon,
   Text,
@@ -79,9 +78,13 @@ export default function GridListWithHeading() {
       bgGradient="linear(to-r, blue.50, blue.200, blue.400)"
       backgroundSize="200% 200%"
       animation={`${gradientAnimation} 15s ease infinite`}
+      position="relative"
+      overflow="hidden"
+      // Remover a borda e borda arredondada
+      boxShadow="none" // Removendo a sombra
+      borderRadius="0" // Removendo a borda arredondada
     >
       <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-        {/* <Heading fontSize={"3xl"}>Nossas Soluções</Heading> */}
         <Text color={"gray.600"} fontSize={"xl"}>
           Descubra como nossas soluções podem transformar seu negócio, trazendo
           inovação e eficiência.
@@ -91,12 +94,35 @@ export default function GridListWithHeading() {
       <Container maxW={"6xl"} mt={10}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} spacing={8}>
           {features.map((feature) => (
-            <HStack key={feature.id} align={"start"} spacing={4} p={4}>
-              <Box color={"blue.400"}>
+            <HStack
+              key={feature.id}
+              align={"start"}
+              spacing={4}
+              p={4}
+              bg="white"
+              borderRadius="10" // Removendo a borda arredondada dos itens
+              boxShadow="lg" // Aplique uma sombra leve aos itens da lista
+              transition="transform 0.3s ease, box-shadow 0.3s ease"
+              _hover={{
+                transform: "translateY(-5px)",
+                boxShadow: "xl",
+                bgGradient: "linear(to-r, blue.100, blue.300)",
+              }}
+            >
+              <Box
+                color={"blue.400"}
+                transition="color 0.3s ease"
+                _hover={{ color: "blue.600" }}
+              >
                 <Icon as={CheckIcon} boxSize={6} />
               </Box>
               <VStack align={"start"} spacing={2}>
-                <Text fontWeight={600} fontSize={"lg"}>
+                <Text
+                  fontWeight={600}
+                  fontSize={"lg"}
+                  transition="color 0.3s ease"
+                  _hover={{ color: "blue.600" }}
+                >
                   {feature.title}
                 </Text>
                 <Text color={"gray.600"} fontSize={"md"}>
