@@ -14,9 +14,9 @@ import estruturadaweb from "../../assets/estrutura-da-web.gif";
 import ferramentasdereparacao from "../../assets/ferramentas-de-reparacao.gif";
 import localnaredeinternet from "../../assets/local-na-rede-internet.gif";
 import redenanuvem from "../../assets/rede-na-nuvem.gif";
-import Footer from "../Home/components/Footer"; // Importe o Footer
 import GridListWithHeading from "../../components/featuresComponents";
 import SectionSoluctions from "../../components/featuresComponents/components/soluctionsbackgroundComponents";
+import Footer from "../Home/components/Footer"; // Importe o Footer
 
 const Card = ({ heading, description, iconSrc, mt, mb }) => {
   return (
@@ -170,8 +170,8 @@ export default function Services() {
           </Flex>
         </Container>
       </Box>
-      <SectionSoluctions/>
-      <GridListWithHeading/>
+      <SectionSoluctions />
+      <GridListWithHeading />
       <Footer /> {/* Adicione o Footer aqui */}
     </Box>
   );

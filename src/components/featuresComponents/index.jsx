@@ -11,6 +11,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { CheckIcon } from "@chakra-ui/icons";
+import { keyframes } from "@emotion/react";
 
 // Dados de exemplo, substitua pelos reais
 const features = [
@@ -56,13 +57,28 @@ const features = [
   },
 ];
 
+// Definição da animação de ondulação do gradiente
+const gradientAnimation = keyframes`
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+`;
+
 export default function GridListWithHeading() {
   return (
     <Box
-    marginBottom={"140px"}
+      marginBottom={"140px"}
       marginTop={"50px"}
       p={16}
-      bgGradient="linear(to-r, gray.100, gray.300)"
+      bgGradient="linear(to-r, blue.50, blue.200, blue.400)"
+      backgroundSize="200% 200%"
+      animation={`${gradientAnimation} 15s ease infinite`}
     >
       <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
         <Heading fontSize={"3xl"}>Nossas Soluções</Heading>
