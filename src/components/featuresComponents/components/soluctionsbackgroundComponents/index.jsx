@@ -9,13 +9,13 @@ import {
 } from "@chakra-ui/react";
 import { Parallax } from "react-parallax";
 
-export default function SectionAvaliacoes() {
+export default function SectionSoluctions() {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
     <Parallax
       blur={0}
-      bgImage="https://images.pexels.com/photos/6803551/pexels-photo-6803551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      bgImage="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA2fHx0ZWNub2xvZ2lhJTIwZGlnaXRhbHxlbnwwfDB8MHx8fDA%3D"
       bgImageAlt="Imagem de fundo"
       strength={900} // Ajuste o valor para controlar a intensidade do efeito de paralaxe
     >
@@ -42,7 +42,7 @@ export default function SectionAvaliacoes() {
               lineHeight={1.2}
               fontSize={useBreakpointValue({ base: "3xl", md: "5xl" })}
             >
-              Fale Conosco
+              Nossas Soluções
             </Text>
           </Stack>
         </VStack>
