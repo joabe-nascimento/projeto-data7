@@ -17,7 +17,7 @@ export default function SectionAvaliacoes() {
       blur={0}
       bgImage="https://images.pexels.com/photos/6803551/pexels-photo-6803551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       bgImageAlt="Imagem de fundo"
-      strength={900} // Ajuste o valor para controlar a intensidade do efeito de paralaxe
+      strength={500} // Ajuste o valor para controlar a intensidade do efeito de paralaxe
     >
       <Flex
         w={"full"}
