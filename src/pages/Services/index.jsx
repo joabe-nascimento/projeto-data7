@@ -16,7 +16,7 @@ import localnaredeinternet from "../../assets/local-na-rede-internet.gif";
 import redenanuvem from "../../assets/rede-na-nuvem.gif";
 import GridListWithHeading from "../../components/featuresComponents";
 import SectionSoluctions from "../../components/featuresComponents/components/soluctionsbackgroundComponents";
-import Footer from "../Home/components/Footer"; // Importe o Footer
+import Footer from "../Home/components/Footer";
 
 const Card = ({ heading, description, iconSrc, mt, mb }) => {
   return (
@@ -88,11 +88,7 @@ export default function Services() {
   const cardMarginBottom = useBreakpointValue({ base: 0, md: 28 });
 
   return (
-    <Box
-      minH="100vh" // Garante que o container principal ocupe a altura total da tela
-      display="flex"
-      flexDirection="column"
-    >
+    <Box minH="100vh" display="flex" flexDirection="column">
       <Box p={{ base: 4, sm: 6, md: 8, lg: 10 }} bg="white" flex="1">
         <Stack
           spacing={6}
@@ -100,7 +96,7 @@ export default function Services() {
           maxW={"6xl"}
           textAlign={"left"}
           paddingTop={"145px"}
-          paddingLeft={"45px"}
+          paddingLeft={{ base: "4", sm: "6", md: "9", lg: "10" }}
         >
           <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
             <Text
@@ -172,7 +168,7 @@ export default function Services() {
       </Box>
       <SectionSoluctions />
       <GridListWithHeading />
-      <Footer /> {/* Adicione o Footer aqui */}
+      <Footer />
     </Box>
   );
 }
