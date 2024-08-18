@@ -1,12 +1,14 @@
 "use client";
 
 import {
+  Button,
   Flex,
   Stack,
   Text,
   VStack,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Parallax } from "react-parallax";
 
 export default function SectionAvaliacoes() {
@@ -16,23 +18,23 @@ export default function SectionAvaliacoes() {
     <Parallax
       blur={0}
       bgImage="https://images.pexels.com/photos/6803551/pexels-photo-6803551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-      bgImageAlt="Imagem de fundo"
-      strength={500} // Ajuste o valor para controlar a intensidade do efeito de paralaxe
+      bgImageAlt="Imagem de fundo com efeito parallax"
+      strength={500}
     >
       <Flex
         w={"full"}
-        h={isMobile ? "40vh" : "50vh"} // Ajusta a altura para dispositivos móveis
-        backgroundSize={"cover"} // Garante que a imagem cubra a área sem esticar
-        backgroundPosition={"center center"} // Centraliza a imagem
-        backgroundRepeat={"no-repeat"} // Evita a repetição da imagem
+        h={isMobile ? "40vh" : "50vh"}
+        backgroundSize={"cover"}
+        backgroundPosition={"center center"}
+        backgroundRepeat={"no-repeat"}
       >
         <VStack
           w={"full"}
+          h={"full"}
           justify={"center"}
           px={useBreakpointValue({ base: 4, md: 8 })}
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
-          h={"full"} // Garante que o gradiente cubra a altura total
-          align={"center"} // Centraliza o conteúdo
+          align={"center"}
         >
           <Stack maxW={"2xl"} align={"center"} spacing={6}>
             <Text
@@ -44,6 +46,24 @@ export default function SectionAvaliacoes() {
             >
               Fale Conosco
             </Text>
+            <Button
+              as="a"
+              href="https://wa.me/5575999194533"
+              target="_blank"
+              rel="noopener noreferrer"
+              colorScheme="whatsapp"
+              leftIcon={<FaWhatsapp />}
+              size="md"
+              borderRadius="full"
+              _hover={{
+                transform: "scale(1.1)",
+                bg: "green.600",
+              }}
+              transition="all 0.3s ease-in-out"
+              aria-label="Fale Conosco no WhatsApp"
+            >
+              Fale Conosco no WhatsApp
+            </Button>
           </Stack>
         </VStack>
       </Flex>

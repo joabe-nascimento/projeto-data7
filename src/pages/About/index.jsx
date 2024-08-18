@@ -4,6 +4,7 @@ import observador from "../../assets/observador.gif";
 import valor from "../../assets/valor.gif";
 import meuVideo from "../../assets/videoabout.mp4";
 import Footer from "../Home/components/Footer"; // Certifique-se de que o caminho do Footer esteja correto
+import SectioParallelImage from "./components/aboutbackgroundComponents";
 
 export default function SplitScreen() {
   // Número de telefone e mensagem
@@ -181,6 +182,7 @@ export default function SplitScreen() {
           </video>
         </Flex>
       </Stack>
+      <SectioParallelImage />
       <Footer />
     </>
   );
