@@ -15,10 +15,10 @@ import {
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 
 // Importe suas imagens
-import imageheaderum from "../../../../assets/imageheaderum.jpg";
-import immageheaderdois from "../../../../assets/immageheaderdois.jpg";
+import carroselimg1 from "../../../../assets/carroselimg1.webp";
+import carroselimg2 from "../../../../assets/carroselimg2.webp";
 
-const images = [imageheaderum, immageheaderdois]; // Array com suas imagens
+const images = [carroselimg1, carroselimg2]; // Array com suas imagens
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
