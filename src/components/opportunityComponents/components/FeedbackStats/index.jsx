@@ -1,5 +1,5 @@
 import { Flex, Heading, Icon, Stack, Text } from "@chakra-ui/react";
-import { StarIcon } from "@chakra-ui/icons";
+import { StarIcon, CheckCircleIcon, TimeIcon, AtSignIcon } from "@chakra-ui/icons";
 
 const FeedbackStats = () => {
   return (
@@ -14,47 +14,46 @@ const FeedbackStats = () => {
         spacing={1}
         textAlign={{ base: "center", md: "left" }}
         mb={{ base: 2, md: 4 }}
+        align="center"
       >
-        <Heading fontSize={{ base: "md", md: "2xl", lg: "3xl" }} mt={1}>
-          + 300
+        <Icon as={CheckCircleIcon} boxSize={{ base: 6, md: 12 }} color="teal.400" />
+        <Heading fontSize={{ base: "lg", md: "2xl", lg: "3xl" }} mt={1}>
+          Atendimento Personalizado
         </Heading>
-        <Text color="gray.600">Clientes Satisfeitos</Text>
+        <Text color="gray.600">Foco total nas necessidades do cliente</Text>
       </Stack>
       <Stack
         spacing={1}
         textAlign={{ base: "center", md: "left" }}
         mb={{ base: 2, md: 4 }}
+        align="center"
       >
-        <Heading fontSize={{ base: "md", md: "2xl", lg: "3xl" }} mt={1}>
-          + 19 anos
+        <Icon as={TimeIcon} boxSize={{ base: 6, md: 12 }} color="orange.400" />
+        <Heading fontSize={{ base: "lg", md: "2xl", lg: "3xl" }} mt={1}>
+          Anos de Experiência
         </Heading>
-        <Text color="gray.600">de Qualidade</Text>
+        <Text color="gray.600">História marcada por qualidade e confiança</Text>
       </Stack>
       <Stack
         spacing={1}
         textAlign={{ base: "center", md: "left" }}
         mb={{ base: 2, md: 4 }}
+        align="center"
       >
-        <Heading fontSize={{ base: "md", md: "2xl", lg: "3xl" }} mt={1}>
-          100%
+        <Icon as={AtSignIcon} boxSize={{ base: 6, md: 12 }} color="blue.400" />
+        <Heading fontSize={{ base: "lg", md: "2xl", lg: "3xl" }} mt={1}>
+          Padrão de Excelência
         </Heading>
-        <Text color="gray.600">de Profissionalismo</Text>
+        <Text color="gray.600">Compromisso com resultados superiores</Text>
       </Stack>
-      <Stack spacing={1} textAlign="center" mb={{ base: 2, md: 4 }}>
+      <Stack spacing={1} textAlign="center" mb={{ base: 2, md: 4 }} align="center">
         <Flex align="center" justify={{ base: "center", md: "left" }}>
-          <Heading fontSize={{ base: "md", md: "2xl", lg: "3xl" }} mt={1}>
-            5
+          <Icon as={StarIcon} boxSize={{ base: 6, md: 12 }} color="yellow.400" />
+          <Heading fontSize={{ base: "lg", md: "2xl", lg: "3xl" }} mt={1} ml={2}>
+            Avaliação de Clientes
           </Heading>
-          <Icon
-            paddingLeft={2}
-            mt={1}
-            as={StarIcon}
-            color="yellow.400"
-            mr={1}
-            boxSize={{ base: 4, md: 9 }}
-          />
         </Flex>
-        <Text color="gray.600">Nota máxima</Text>
+        <Text color="gray.600">Confiança e satisfação garantidas</Text>
       </Stack>
     </Flex>
   );
