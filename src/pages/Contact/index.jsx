@@ -15,7 +15,7 @@ import {
   Icon,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaPhone } from "react-icons/fa";
 import emailjs from "emailjs-com";
 import Footer from "../Home/components/Footer";
 import MapComponent from "../../components/mapsComponents";
@@ -116,7 +116,7 @@ const Contact = () => {
         maxW="6xl"
         mx="auto"
         p={6}
-        mt={40} // Aumenta a margem superior
+        mt={{ base: 10, md: 20 }} // Ajuste a margem superior para telas menores
         mb={8}
         flex="1"
         display="flex"
