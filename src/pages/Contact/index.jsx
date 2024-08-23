@@ -15,7 +15,7 @@ import {
   Icon,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import emailjs from "emailjs-com";
 import Footer from "../Home/components/Footer";
 import MapComponent from "../../components/mapsComponents";
@@ -115,42 +115,42 @@ const Contact = () => {
       <Box
         maxW="6xl"
         mx="auto"
-        p={{ base: 4, md: 6 }} // Ajusta o padding para telas menores
-        mt={{ base: 6, md: 10 }} // Ajusta a margem superior
-        mb={{ base: 4, md: 6 }} // Ajusta a margem inferior
+        p={6}
+        mt={40} // Aumenta a margem superior
+        mb={8}
         flex="1"
         display="flex"
         flexDirection={layout}
-        gap={{ base: 4, md: 6 }} // Ajusta o gap entre os itens
+        gap={6}
         flexWrap="wrap" // Permite o wrap do conteúdo em telas menores
       >
         {/* Informações de Contato à esquerda */}
         <Box
           flex={{ base: "1 1 100%", md: "1" }}
-          p={{ base: 4, md: 6 }} // Ajusta o padding interno
+          p={4}
           borderWidth={1}
           borderRadius="lg"
           boxShadow="md"
           bg="gray.50"
-          mb={{ base: 4, md: 0 }} // Adiciona margem inferior no mobile
+          mb={{ base: 6, md: 0 }} // Adiciona margem inferior no mobile
         >
-          <Heading fontSize={{ base: "xl", md: "2xl", lg: "3xl" }} mb={3}>
+          <Heading fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }} mb={4}>
             Informações de Contato
           </Heading>
-          <VStack spacing={3} align="start">
-            <HStack spacing={2}>
-              <Icon as={FaEnvelope} color="blue.500" boxSize={5} />
+          <VStack spacing={4} align="start">
+            <HStack spacing={3}>
+              <Icon as={FaEnvelope} color="blue.500" boxSize={6} />
               <Text
-                fontSize={{ base: "sm", md: "md", lg: "lg" }}
+                fontSize={{ base: "lg", md: "xl", lg: "1xl" }}
                 color="gray.600"
               >
                 Email: geovan.bastos@data7ti.com.br
               </Text>
             </HStack>
-            <HStack spacing={2}>
-              <Icon as={FaPhone} color="blue.500" boxSize={5} />
+            <HStack spacing={3}>
+              <Icon as={FaPhone} color="blue.500" boxSize={6} />
               <Text
-                fontSize={{ base: "sm", md: "md", lg: "lg" }}
+                fontSize={{ base: "lg", md: "xl", lg: "1xl" }}
                 color="gray.600"
               >
                 Telefone: +55 75 99919-4533
@@ -159,8 +159,8 @@ const Contact = () => {
           </VStack>
         </Box>
         {/* Formulário à direita */}
-        <Box flex={{ base: "1 1 100%", md: "1" }} p={{ base: 4, md: 6 }}>
-          <Heading fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }} mb={4}>
+        <Box flex={{ base: "1 1 100%", md: "1" }} p={4}>
+          <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
             <Text
               color={"gray.700"}
               fontWeight={"800"}
@@ -180,27 +180,27 @@ const Contact = () => {
             </Text>
           </Heading>
           <form onSubmit={handleSubmit}>
-            <FormControl id="nome" mb={3} isInvalid={errors.nome}>
-              <FormLabel fontSize="md">Nome</FormLabel>
+            <FormControl id="nome" mb={4} isInvalid={errors.nome}>
+              <FormLabel fontSize="lg">Nome</FormLabel>
               <Input
                 type="text"
                 placeholder="Seu nome"
                 value={formData.nome}
                 onChange={handleChange}
-                size="sm" // Reduz o tamanho do input
+                size="md"
               />
               {errors.nome && (
                 <FormErrorMessage fontSize="sm">{errors.nome}</FormErrorMessage>
               )}
             </FormControl>
-            <FormControl id="contato" mb={3} isInvalid={errors.contato}>
-              <FormLabel fontSize="md">E-mail ou WhatsApp</FormLabel>
+            <FormControl id="contato" mb={4} isInvalid={errors.contato}>
+              <FormLabel fontSize="lg">E-mail ou WhatsApp</FormLabel>
               <Input
                 type="text"
                 placeholder="Seu e-mail ou WhatsApp"
                 value={formData.contato}
                 onChange={handleChange}
-                size="sm" // Reduz o tamanho do input
+                size="md"
               />
               {errors.contato && (
                 <FormErrorMessage fontSize="sm">
@@ -208,13 +208,13 @@ const Contact = () => {
                 </FormErrorMessage>
               )}
             </FormControl>
-            <FormControl id="mensagem" mb={3} isInvalid={errors.mensagem}>
-              <FormLabel fontSize="md">Mensagem</FormLabel>
+            <FormControl id="mensagem" mb={4} isInvalid={errors.mensagem}>
+              <FormLabel fontSize="lg">Mensagem</FormLabel>
               <Textarea
                 placeholder="Sua mensagem"
                 value={formData.mensagem}
                 onChange={handleChange}
-                size="sm" // Reduz o tamanho do textarea
+                size="md"
               />
               {errors.mensagem && (
                 <FormErrorMessage fontSize="sm">
@@ -226,9 +226,9 @@ const Contact = () => {
               colorScheme="blue"
               type="submit"
               w="full"
-              size="md" // Reduz o tamanho do botão
-              borderRadius="30px"
-              boxShadow="0px 0px 8px rgba(0, 0, 0, 0.1)"
+              size="lg"
+              borderRadius="30px 0px 30px 0px"
+              boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
               transition="background-color 0.3s ease, transform 0.3s ease"
               _hover={{
                 backgroundColor: "#0056b3",
