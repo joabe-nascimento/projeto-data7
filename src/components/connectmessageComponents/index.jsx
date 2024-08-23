@@ -20,17 +20,19 @@ export default function Contact() {
       bgImage="https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=800"
       bgImageAlt="Imagem de fundo"
       strength={500} // Ajuste o valor para controlar a intensidade do efeito de paralaxe
+      bgImageStyle={{ objectFit: 'cover' }} // Ajuste a imagem de fundo
     >
       <Flex
         w={"full"}
-        h={"70vh"}
+        h={useBreakpointValue({ base: "50vh", md: "60vh", lg: "70vh" })} // Altura ajustada para diferentes tamanhos de tela
         backgroundSize={"cover"}
         backgroundPosition={"center center"}
+        backgroundAttachment={"fixed"} // Mantém a imagem de fundo fixa durante o scroll
       >
         <VStack
           w={"full"}
           justify={"center"}
-          px={useBreakpointValue({ base: 4, md: 8 })}
+          px={useBreakpointValue({ base: 4, md: 6, lg: 8 })}
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
         >
           <Stack maxW={"2xl"} align={"center"} spacing={6}>
@@ -39,7 +41,7 @@ export default function Contact() {
               color={"white"}
               fontWeight={800}
               lineHeight={1.2}
-              fontSize={useBreakpointValue({ base: "3xl", md: "5xl" })}
+              fontSize={useBreakpointValue({ base: "3xl", md: "4xl", lg: "5xl" })}
             >
               Vamos conversar e entender as suas necessidades?
             </Text>
