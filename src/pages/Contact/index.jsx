@@ -15,7 +15,7 @@ import {
   Icon,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaPhone } from "react-icons/fa";
 import emailjs from "emailjs-com";
 import Footer from "../Home/components/Footer";
 import MapComponent from "../../components/mapsComponents";
@@ -116,7 +116,7 @@ const Contact = () => {
         maxW="6xl"
         mx="auto"
         p={6}
-        mt={40} // Aumenta a margem superior
+        mt={40} // Mantém a margem superior para desktop
         mb={8}
         flex="1"
         display="flex"
@@ -127,7 +127,7 @@ const Contact = () => {
         {/* Informações de Contato à esquerda */}
         <Box
           flex={{ base: "1 1 100%", md: "1" }}
-          p={4}
+          p={{ base: 3, md: 4 }} // Ajusta o padding interno para telas menores
           borderWidth={1}
           borderRadius="lg"
           boxShadow="md"
@@ -137,20 +137,20 @@ const Contact = () => {
           <Heading fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }} mb={4}>
             Informações de Contato
           </Heading>
-          <VStack spacing={4} align="start">
-            <HStack spacing={3}>
-              <Icon as={FaEnvelope} color="blue.500" boxSize={6} />
+          <VStack spacing={{ base: 4, md: 4 }} align="start">
+            <HStack spacing={{ base: 3, md: 3 }}>
+              <Icon as={FaEnvelope} color="blue.500" boxSize={{ base: 5, md: 6 }} />
               <Text
-                fontSize={{ base: "lg", md: "xl", lg: "1xl" }}
+                fontSize={{ base: "sm", md: "lg", lg: "xl" }} // Diminuindo a fonte para telas menores
                 color="gray.600"
               >
                 Email: geovan.bastos@data7ti.com.br
               </Text>
             </HStack>
-            <HStack spacing={3}>
-              <Icon as={FaPhone} color="blue.500" boxSize={6} />
+            <HStack spacing={{ base: 3, md: 3 }}>
+              <Icon as={FaPhone} color="blue.500" boxSize={{ base: 5, md: 6 }} />
               <Text
-                fontSize={{ base: "lg", md: "xl", lg: "1xl" }}
+                fontSize={{ base: "sm", md: "lg", lg: "xl" }} // Diminuindo a fonte para telas menores
                 color="gray.600"
               >
                 Telefone: +55 75 99919-4533
@@ -159,8 +159,8 @@ const Contact = () => {
           </VStack>
         </Box>
         {/* Formulário à direita */}
-        <Box flex={{ base: "1 1 100%", md: "1" }} p={4}>
-          <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+        <Box flex={{ base: "1 1 100%", md: "1" }} p={{ base: 3, md: 4 }}>
+          <Heading fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }} mb={4}>
             <Text
               color={"gray.700"}
               fontWeight={"800"}
@@ -181,26 +181,26 @@ const Contact = () => {
           </Heading>
           <form onSubmit={handleSubmit}>
             <FormControl id="nome" mb={4} isInvalid={errors.nome}>
-              <FormLabel fontSize="lg">Nome</FormLabel>
+              <FormLabel fontSize={{ base: "md", md: "lg" }}>Nome</FormLabel>
               <Input
                 type="text"
                 placeholder="Seu nome"
                 value={formData.nome}
                 onChange={handleChange}
-                size="md"
+                size={{ base: "sm", md: "md" }}
               />
               {errors.nome && (
                 <FormErrorMessage fontSize="sm">{errors.nome}</FormErrorMessage>
               )}
             </FormControl>
             <FormControl id="contato" mb={4} isInvalid={errors.contato}>
-              <FormLabel fontSize="lg">E-mail ou WhatsApp</FormLabel>
+              <FormLabel fontSize={{ base: "md", md: "lg" }}>E-mail ou WhatsApp</FormLabel>
               <Input
                 type="text"
                 placeholder="Seu e-mail ou WhatsApp"
                 value={formData.contato}
                 onChange={handleChange}
-                size="md"
+                size={{ base: "sm", md: "md" }}
               />
               {errors.contato && (
                 <FormErrorMessage fontSize="sm">
@@ -209,12 +209,12 @@ const Contact = () => {
               )}
             </FormControl>
             <FormControl id="mensagem" mb={4} isInvalid={errors.mensagem}>
-              <FormLabel fontSize="lg">Mensagem</FormLabel>
+              <FormLabel fontSize={{ base: "md", md: "lg" }}>Mensagem</FormLabel>
               <Textarea
                 placeholder="Sua mensagem"
                 value={formData.mensagem}
                 onChange={handleChange}
-                size="md"
+                size={{ base: "sm", md: "md" }}
               />
               {errors.mensagem && (
                 <FormErrorMessage fontSize="sm">
@@ -226,9 +226,9 @@ const Contact = () => {
               colorScheme="blue"
               type="submit"
               w="full"
-              size="lg"
-              borderRadius="30px 0px 30px 0px"
-              boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+              size={{ base: "md", md: "lg" }} // Ajusta o tamanho do botão para telas menores
+              borderRadius="30px"
+              boxShadow="0px 0px 8px rgba(0, 0, 0, 0.1)"
               transition="background-color 0.3s ease, transform 0.3s ease"
               _hover={{
                 backgroundColor: "#0056b3",
