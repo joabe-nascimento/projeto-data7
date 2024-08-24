@@ -31,7 +31,7 @@ export default function WithSubnavigation() {
         <Flex
           maxH={{ base: "50px", md: "60px" }} // Altura máxima reduzida
           bg={useColorModeValue(
-            "rgba(255, 255, 255, 0.6)", // Modo claro com mais transparência
+            "rgba(255, 255, 255, 0.7)", // Modo claro com mais transparência
             "rgba(0, 0, 0, 0.5)" // Modo escuro com mais transparência
           )}
           color={useColorModeValue("gray.600", "white")}
