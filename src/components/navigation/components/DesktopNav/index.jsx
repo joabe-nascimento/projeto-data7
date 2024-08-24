@@ -41,15 +41,18 @@ export const DesktopNav = () => {
   const navigate = useNavigate();
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
-  const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  
+  // Ajuste a transparência do fundo do Popover
+  const popoverContentBgColor = useColorModeValue(
+    "rgba(255, 255, 255, 0.9)", // Cor de fundo com mais opacidade para o modo claro
+    "rgba(0, 0, 0, 0.9)"       // Cor de fundo com mais opacidade para o modo escuro
+  );
 
   const handleClick = (href) => {
     if (href.startsWith("/")) {
-      // Navegar para a rota interna e rolar para o topo
       navigate(href);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      // Lidar com links externos ou ações especiais
       window.location.href = href;
     }
   };
@@ -61,19 +64,19 @@ export const DesktopNav = () => {
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Box
-                p={2}
-                fontSize={"lg"}
+                p={1}
+                fontSize={"md"}
                 fontWeight={600}
                 color={linkColor}
                 position="relative"
-                cursor="pointer" // Mostra a mãozinha
+                cursor="pointer"
                 _before={{
                   content: "''",
                   position: "absolute",
-                  bottom: "-4px",
+                  bottom: "-2px",
                   left: "0",
                   width: "100%",
-                  height: "2px",
+                  height: "1px",
                   backgroundColor: linkHoverColor,
                   transform: "scaleX(0)",
                   transformOrigin: "bottom right",
@@ -98,7 +101,7 @@ export const DesktopNav = () => {
               <PopoverContent
                 border={0}
                 boxShadow={"xl"}
-                bg={popoverContentBgColor}
+                bg={popoverContentBgColor} // Aplica a cor de fundo ajustada
                 p={4}
                 rounded={"xl"}
                 minW={"sm"}
@@ -107,20 +110,20 @@ export const DesktopNav = () => {
                   {navItem.children.map((child) => (
                     <Box
                       p={2}
-                      fontSize={"lg"}
+                      fontSize={"md"}
                       fontWeight={600}
                       color={linkColor}
                       display={"flex"}
                       alignItems={"center"}
                       position="relative"
-                      cursor="pointer" // Mostra a mãozinha
+                      cursor="pointer"
                       _before={{
                         content: "''",
                         position: "absolute",
-                        bottom: "-4px",
+                        bottom: "-2px",
                         left: "0",
                         width: "100%",
-                        height: "2px",
+                        height: "1px",
                         backgroundColor: linkHoverColor,
                         transform: "scaleX(0)",
                         transformOrigin: "bottom right",

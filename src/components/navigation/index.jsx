@@ -18,44 +18,41 @@ export default function WithSubnavigation() {
 
   return (
     <Box
-      position="fixed"
+      position={"fixed"}
       top={0}
       left={0}
       right={0}
-      borderRadius="30px"
+      borderRadius={"30px"}
       zIndex={99999999}
       margin={4}
-      transition="all 0.3s ease"
+      transition={"all 0.3s ease"}
     >
-      <Box
-        maxW={{ base: "100%", md: "1000px" }} // Define a largura máxima menor para telas maiores
-        mx="auto"
-      >
+      <Box maxW="1100px" mx="auto">
         <Flex
-          maxH={{ base: "50px", md: "60px" }} // Altura máxima
+          maxH={{ base: "50px", md: "60px" }} // Altura máxima reduzida
           bg={useColorModeValue(
-            "rgba(255, 255, 255, 0.7)", // Modo claro com mais transparência
+            "rgba(255, 255, 255, 0.6)", // Modo claro com mais transparência
             "rgba(0, 0, 0, 0.5)" // Modo escuro com mais transparência
           )}
           color={useColorModeValue("gray.600", "white")}
-          minH={{ base: "40px", md: "50px" }} // Altura mínima
-          py={{ base: 1, md: 2 }} // Padding vertical
-          px={{ base: 3, md: 0 }} // Padding lateral
+          minH={{ base: "40px", md: "50px" }} // Altura mínima reduzida
+          py={{ base: 1, md: 2 }} // Padding vertical reduzido
+          px={{ base: 3, md: 2 }} // Padding lateral mantido
           borderBottom={1}
-          borderStyle="solid"
+          borderStyle={"solid"}
           borderColor={useColorModeValue("gray.200", "gray.900")}
-          align="center"
-          justify="center"
-          borderRadius="60px"
+          align={"center"}
+          justify={"center"}
+          borderRadius={"60px"}
         >
           <Flex
             flex={{ base: 1 }}
             justify={{ base: "center", md: "space-between" }}
-            align="center"
-            w="100%"
+            align={"center"}
+            w={"100%"}
           >
             <Flex
-              align="center"
+              align={"center"}
               justify={{ base: "center", md: "start" }}
               flex={{ base: "auto", md: 1 }}
             >
@@ -63,8 +60,8 @@ export default function WithSubnavigation() {
                 <Image
                   src={data71}
                   alt="Logo"
-                  height={{ base: "80px", md: "200px" }} // Altura da logo ajustada
-                  objectFit="contain"
+                  height={{ base: "80px", md: "150px" }} // Altura da logo ajustada
+                  objectFit={"contain"}
                 />
               </Link>
             </Flex>
@@ -73,7 +70,7 @@ export default function WithSubnavigation() {
               flex={{ base: 1, md: "auto" }}
               ml={{ base: -2 }}
               display={{ base: "flex", md: "none" }}
-              justify="flex-end"
+              justify={"flex-end"}
             >
               <IconButton
                 onClick={onToggle}
@@ -84,17 +81,17 @@ export default function WithSubnavigation() {
                     <HamburgerIcon w={6} h={6} />
                   )
                 }
-                variant="ghost"
-                aria-label="Toggle Navigation"
+                variant={"ghost"}
+                aria-label={"Toggle Navigation"}
                 _hover={{ bg: useColorModeValue("gray.100", "gray.700") }}
-                transition="background 0.3s ease"
+                transition={"background 0.3s ease"}
               />
             </Flex>
 
             <Flex
               flex={{ base: 1 }}
               justify={{ base: "center", md: "center" }}
-              align="center"
+              align={"center"}
               display={{ base: "none", md: "flex" }}
             >
               <Flex ml={10}>
