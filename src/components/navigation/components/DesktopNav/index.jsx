@@ -41,11 +41,11 @@ export const DesktopNav = () => {
   const navigate = useNavigate();
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
-  
-  // Ajuste a transparência do fundo do Popover
+
+  // Defina a cor de fundo do PopoverContent como sólida (sem transparência)
   const popoverContentBgColor = useColorModeValue(
-    "rgba(255, 255, 255, 0.9)", // Cor de fundo com mais opacidade para o modo claro
-    "rgba(0, 0, 0, 0.9)"       // Cor de fundo com mais opacidade para o modo escuro
+    "white", // Cor sólida para o modo claro
+    "black" // Cor sólida para o modo escuro
   );
 
   const handleClick = (href) => {
@@ -101,7 +101,7 @@ export const DesktopNav = () => {
               <PopoverContent
                 border={0}
                 boxShadow={"xl"}
-                bg={popoverContentBgColor} // Aplica a cor de fundo ajustada
+                bg={popoverContentBgColor} // Cor sólida
                 p={4}
                 rounded={"xl"}
                 minW={"sm"}
