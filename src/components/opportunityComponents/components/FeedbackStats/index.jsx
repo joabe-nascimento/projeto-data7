@@ -15,7 +15,7 @@ const FeedbackStats = () => {
         spacing={3}
         align="center"
       >
-        <Icon as={CheckCircleIcon} boxSize={{ base: 8, md: 12 }} color="teal.400" />
+        <Icon as={CheckCircleIcon} boxSize={{ base: 8, md: 12 }} color="white" />
         <Heading fontSize={{ base: "lg", md: "xl" }}>
           Atendimento Personalizado
         </Heading>
@@ -28,7 +28,7 @@ const FeedbackStats = () => {
         spacing={3}
         align="center"
       >
-        <Icon as={TimeIcon} boxSize={{ base: 8, md: 12 }} color="orange.400" />
+        <Icon as={TimeIcon} boxSize={{ base: 8, md: 12 }} color="white" />
         <Heading fontSize={{ base: "lg", md: "xl" }}>
           Anos de Experiência
         </Heading>
@@ -41,7 +41,7 @@ const FeedbackStats = () => {
         spacing={3}
         align="center"
       >
-        <Icon as={AtSignIcon} boxSize={{ base: 8, md: 12 }} color="blue.400" />
+        <Icon as={AtSignIcon} boxSize={{ base: 8, md: 12 }} color="white" />
         <Heading fontSize={{ base: "lg", md: "xl" }}>
           Padrão de Excelência
         </Heading>
@@ -54,7 +54,7 @@ const FeedbackStats = () => {
         spacing={3}
         align="center"
       >
-        <Icon as={StarIcon} boxSize={{ base: 8, md: 12 }} color="yellow.400" />
+        <Icon as={StarIcon} boxSize={{ base: 8, md: 12 }} color="white" />
         <Heading fontSize={{ base: "lg", md: "xl" }}>
           Avaliação de Clientes
         </Heading>
