@@ -7,24 +7,25 @@ import {
   Stack,
   Text,
   useBreakpointValue,
+  IconButton
 } from "@chakra-ui/react";
-import { FaQuoteLeft } from "react-icons/fa"; // Importando ícones de aspas
-import axios from "axios"; // Importando axios
+import { FaQuoteLeft, FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import axios from "axios";
 
 const Card = ({ description, mt, mb }) => {
   return (
     <Box
       maxW={{ base: "full", md: "300px" }}
       w={"full"}
-      borderWidth="1px" // Ajusta a largura da borda
-      borderColor="blue.400" // Define a cor da borda
-      borderRadius="30px 0px 30px 0px" // Bordas arredondadas apenas nos cantos esquerdo
+      borderWidth="1px"
+      borderColor="blue.400"
+      borderRadius="30px 0px 30px 0px"
       overflow="hidden"
       p={5}
       bg="blue.600"
       boxShadow="lg"
-      mt={mt} // Define a margem superior
-      mb={mb} // Define a margem inferior
+      mt={mt}
+      mb={mb}
       _hover={{
         boxShadow: "xl",
         transform: "scale(1.02)",
@@ -39,8 +40,7 @@ const Card = ({ description, mt, mb }) => {
             mb={5}
             color={"white"}
           >
-            <FaQuoteLeft style={{ fontSize: "2em" }} />{" "}
-            {/* Aumentando o tamanho do ícone */}
+            <FaQuoteLeft style={{ fontSize: "2em" }} />
           </Heading>
           <Text fontSize={{ base: "sm", md: "md" }} color={"white"}>
             {description}
@@ -53,17 +53,15 @@ const Card = ({ description, mt, mb }) => {
 
 export default function Avaliacoes() {
   const [feedbacks, setFeedbacks] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const cardMarginTop = useBreakpointValue({ base: 0, md: -15 });
   const cardMarginBottom = useBreakpointValue({ base: 0, md: 15 });
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get(
-          "https://api-data7.onrender.com/api/feedback"
-        );
-        // Limita os feedbacks a 3
-        setFeedbacks(response.data.slice(0, 3));
+        const response = await axios.get("https://api-data7.onrender.com/api/feedback");
+        setFeedbacks(response.data);
       } catch (error) {
         console.error("Erro ao buscar feedbacks:", error);
       }
@@ -71,6 +69,21 @@ export default function Avaliacoes() {
 
     fetchFeedbacks();
   }, []);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex + 3 >= feedbacks.length ? 0 : prevIndex + 3
+    );
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex - 3 < 0 ? Math.max(feedbacks.length - 3, 0) : prevIndex - 3
+    );
+  };
+
+  // Slice feedbacks to show only 3 cards at a time
+  const visibleFeedbacks = feedbacks.slice(currentIndex, currentIndex + 3);
 
   return (
     <Box p={{ base: 4, sm: 6, md: 8, lg: 10 }} bg="white">
@@ -96,17 +109,35 @@ export default function Avaliacoes() {
           </Text>
         </Heading>
       </Stack>
-      <Container maxW={"5xl"} mt={12}>
+      <Container maxW={"5xl"} mt={12} position="relative">
         <Flex flexWrap="wrap" gap={10} justify="center">
-          {feedbacks.map((feedback) => (
+          {visibleFeedbacks.map((feedback) => (
             <Card
-              key={feedback._id} // Use o ID gerado pelo MongoDB
+              key={feedback._id}
               mt={cardMarginTop}
               mb={cardMarginBottom}
               description={feedback.feedback}
             />
           ))}
         </Flex>
+        <IconButton
+          icon={<FaArrowLeft />}
+          aria-label="Previous"
+          position="absolute"
+          left="0"
+          top="50%"
+          transform="translateY(-50%)"
+          onClick={handlePrev}
+        />
+        <IconButton
+          icon={<FaArrowRight />}
+          aria-label="Next"
+          position="absolute"
+          right="0"
+          top="50%"
+          transform="translateY(-50%)"
+          onClick={handleNext}
+        />
       </Container>
     </Box>
   );
