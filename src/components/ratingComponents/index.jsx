@@ -7,7 +7,7 @@ import {
   Stack,
   Text,
   useBreakpointValue,
-  IconButton
+  IconButton,
 } from "@chakra-ui/react";
 import { FaQuoteLeft, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import axios from "axios";
@@ -60,7 +60,9 @@ export default function Avaliacoes() {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get("https://api-data7.onrender.com/api/feedback");
+        const response = await axios.get(
+          "https://api-data7.onrender.com/api/feedback"
+        );
         setFeedbacks(response.data);
       } catch (error) {
         console.error("Erro ao buscar feedbacks:", error);
@@ -71,19 +73,24 @@ export default function Avaliacoes() {
   }, []);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + 3 >= feedbacks.length ? 0 : prevIndex + 3
-    );
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex + 3;
+      return newIndex >= feedbacks.length ? prevIndex : newIndex;
+    });
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex - 3 < 0 ? Math.max(feedbacks.length - 3, 0) : prevIndex - 3
-    );
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex - 3;
+      return newIndex < 0 ? 0 : newIndex;
+    });
   };
 
   // Slice feedbacks to show only 3 cards at a time
   const visibleFeedbacks = feedbacks.slice(currentIndex, currentIndex + 3);
+
+  // Determine if the right arrow should be disabled
+  const isNextDisabled = currentIndex + 3 >= feedbacks.length;
 
   return (
     <Box p={{ base: 4, sm: 6, md: 8, lg: 10 }} bg="white">
@@ -128,6 +135,7 @@ export default function Avaliacoes() {
           top="50%"
           transform="translateY(-50%)"
           onClick={handlePrev}
+          isDisabled={currentIndex === 0} // Disable button when on the first page
         />
         <IconButton
           icon={<FaArrowRight />}
@@ -137,6 +145,7 @@ export default function Avaliacoes() {
           top="50%"
           transform="translateY(-50%)"
           onClick={handleNext}
+          isDisabled={isNextDisabled} // Disable button if no more feedbacks to show
         />
       </Container>
     </Box>
