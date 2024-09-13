@@ -26,9 +26,12 @@ export default function FeedbackButton() {
     }
 
     try {
-      const response = await axios.post("https://api-data7.onrender.com/api/feedback", {
-        feedback: feedback.trim(),
-      });
+      const response = await axios.post(
+        "https://api-data7.onrender.com/api/feedback",
+        {
+          feedback: feedback.trim(),
+        }
+      );
 
       console.log("Feedback enviado:", response.data);
       setFeedback(""); // Limpa o feedback após o envio

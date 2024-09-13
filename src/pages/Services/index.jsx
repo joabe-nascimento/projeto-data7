@@ -17,6 +17,7 @@ import redenanuvem from "../../assets/rede-na-nuvem.gif";
 import GridListWithHeading from "../../components/featuresComponents";
 import SectionSoluctions from "../../components/featuresComponents/components/soluctionsbackgroundComponents";
 import Footer from "../Home/components/Footer";
+import Orcamentos from "../../components/orcamentosComponents";
 
 const Card = ({ heading, description, iconSrc, mt, mb }) => {
   return (
@@ -168,6 +169,7 @@ export default function Services() {
       </Box>
       <SectionSoluctions />
       <GridListWithHeading />
+      <Orcamentos />
       <Footer />
     </Box>
   );

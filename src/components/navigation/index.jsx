@@ -23,7 +23,7 @@ export default function WithSubnavigation() {
       left={0}
       right={0}
       borderRadius={"30px"}
-      zIndex={99999999}
+      zIndex={999}
       margin={4}
       transition={"all 0.3s ease"}
     >

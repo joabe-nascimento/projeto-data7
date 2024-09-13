@@ -20,7 +20,7 @@ export default function Contact() {
       bgImage="https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=800"
       bgImageAlt="Imagem de fundo"
       strength={400} // Ajuste o valor para controlar a intensidade do efeito de paralaxe
-      bgImageStyle={{ objectFit: 'cover' }} // Ajuste a imagem de fundo
+      bgImageStyle={{ objectFit: "cover" }} // Ajuste a imagem de fundo
     >
       <Flex
         w={"full"}
@@ -41,7 +41,11 @@ export default function Contact() {
               color={"white"}
               fontWeight={800}
               lineHeight={1.2}
-              fontSize={useBreakpointValue({ base: "3xl", md: "4xl", lg: "5xl" })}
+              fontSize={useBreakpointValue({
+                base: "3xl",
+                md: "4xl",
+                lg: "5xl",
+              })}
             >
               Vamos conversar e entender as suas necessidades?
             </Text>
@@ -106,7 +110,7 @@ export default function Contact() {
                 </Button>
                 <Flex
                   border={"6px solid white"}
-                  zIndex={99999}
+                  zIndex={999}
                   align={"center"}
                   justify={"center"}
                   w={"40px"}
