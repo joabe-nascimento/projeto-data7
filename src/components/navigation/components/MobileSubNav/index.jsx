@@ -29,7 +29,8 @@ export const MobileNavItem = ({ label, children, href, onToggle }) => {
         py={2}
         justifyContent="space-between"
         alignItems="center"
-        borderRadius={"md"}
+        rounded={"15px 0px 15px"}
+        //borderRadius={"md"}
         _hover={{
           textDecoration: "none",
           transform: "scale(1.05)",
