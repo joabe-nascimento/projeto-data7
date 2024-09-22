@@ -18,6 +18,8 @@ import GridListWithHeading from "../../components/featuresComponents";
 import SectionSoluctions from "../../components/featuresComponents/components/soluctionsbackgroundComponents";
 import Footer from "../Home/components/Footer";
 import Orcamentos from "../../components/orcamentosComponents";
+import ScrollToTopButton from "../Home/components/ScrollToTopButton";
+import FeedbackButton from "../Home/components/FeedbackStates";
 
 const Card = ({ heading, description, iconSrc, mt, mb }) => {
   return (
@@ -171,6 +173,8 @@ export default function Services() {
       <GridListWithHeading />
       <Orcamentos />
       <Footer />
+      <FeedbackButton />
+      <ScrollToTopButton /> {/* Adicionar o botão de "subir" */}
     </Box>
   );
 }

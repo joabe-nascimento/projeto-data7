@@ -5,6 +5,8 @@ import valor from "../../assets/valor.gif";
 import meuVideo from "../../assets/videoabout.mp4";
 import Footer from "../Home/components/Footer"; // Certifique-se de que o caminho do Footer esteja correto
 import SectioParallelImage from "./components/aboutbackgroundComponents";
+import ScrollToTopButton from "../Home/components/ScrollToTopButton";
+import FeedbackButton from "../Home/components/FeedbackStates";
 
 export default function SplitScreen() {
   // Número de telefone e mensagem
@@ -184,6 +186,8 @@ export default function SplitScreen() {
       </Stack>
       <SectioParallelImage />
       <Footer />
+      <FeedbackButton />
+      <ScrollToTopButton /> {/* Adicionar o botão de "subir" */}
     </>
   );
 }

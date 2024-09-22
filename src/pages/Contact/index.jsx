@@ -19,6 +19,8 @@ import { FaEnvelope, FaPhone } from "react-icons/fa";
 import emailjs from "emailjs-com";
 import Footer from "../Home/components/Footer";
 import MapComponent from "../../components/mapsComponents";
+import ScrollToTopButton from "../Home/components/ScrollToTopButton";
+import FeedbackButton from "../Home/components/FeedbackStates";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -139,7 +141,11 @@ const Contact = () => {
           </Heading>
           <VStack spacing={{ base: 4, md: 4 }} align="start">
             <HStack spacing={{ base: 3, md: 3 }}>
-              <Icon as={FaEnvelope} color="blue.500" boxSize={{ base: 5, md: 6 }} />
+              <Icon
+                as={FaEnvelope}
+                color="blue.500"
+                boxSize={{ base: 5, md: 6 }}
+              />
               <Text
                 fontSize={{ base: "sm", md: "lg", lg: "xl" }} // Diminuindo a fonte para telas menores
                 color="gray.600"
@@ -148,7 +154,11 @@ const Contact = () => {
               </Text>
             </HStack>
             <HStack spacing={{ base: 3, md: 3 }}>
-              <Icon as={FaPhone} color="blue.500" boxSize={{ base: 5, md: 6 }} />
+              <Icon
+                as={FaPhone}
+                color="blue.500"
+                boxSize={{ base: 5, md: 6 }}
+              />
               <Text
                 fontSize={{ base: "sm", md: "lg", lg: "xl" }} // Diminuindo a fonte para telas menores
                 color="gray.600"
@@ -194,7 +204,9 @@ const Contact = () => {
               )}
             </FormControl>
             <FormControl id="contato" mb={4} isInvalid={errors.contato}>
-              <FormLabel fontSize={{ base: "md", md: "lg" }}>E-mail ou WhatsApp</FormLabel>
+              <FormLabel fontSize={{ base: "md", md: "lg" }}>
+                E-mail ou WhatsApp
+              </FormLabel>
               <Input
                 type="text"
                 placeholder="Seu e-mail ou WhatsApp"
@@ -209,7 +221,9 @@ const Contact = () => {
               )}
             </FormControl>
             <FormControl id="mensagem" mb={4} isInvalid={errors.mensagem}>
-              <FormLabel fontSize={{ base: "md", md: "lg" }}>Mensagem</FormLabel>
+              <FormLabel fontSize={{ base: "md", md: "lg" }}>
+                Mensagem
+              </FormLabel>
               <Textarea
                 placeholder="Sua mensagem"
                 value={formData.mensagem}
@@ -245,6 +259,8 @@ const Contact = () => {
       </Box>
       <MapComponent />
       <Footer />
+      <FeedbackButton />
+      <ScrollToTopButton /> {/* Adicionar o botão de "subir" */}
     </Box>
   );
 };

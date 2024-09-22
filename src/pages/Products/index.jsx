@@ -19,6 +19,8 @@ import {
   FaCogs,
 } from "react-icons/fa";
 import Footer from "../Home/components/Footer";
+import ScrollToTopButton from "../Home/components/ScrollToTopButton";
+import FeedbackButton from "../Home/components/FeedbackStates";
 
 const ProductCard = ({ heading, description, features, icon, mt, mb }) => {
   return (
@@ -236,6 +238,8 @@ const Products = () => {
         </Container>
       </Box>
       <Footer />
+      <FeedbackButton />
+      <ScrollToTopButton /> {/* Adicionar o botão de "subir" */}
     </Box>
   );
 };
