@@ -44,7 +44,8 @@ export default function WithSubnavigation() {
           borderColor={useColorModeValue("gray.200", "gray.900")}
           align={"center"}
           justify={"center"}
-          borderRadius={"60px"}
+          rounded={"15px 0px 15px"}
+          //borderRadius={"60px"}
         >
           <Flex
             flex={{ base: 1 }}
