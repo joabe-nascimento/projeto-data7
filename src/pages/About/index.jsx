@@ -146,7 +146,7 @@ export default function SplitScreen() {
                 target="_blank" // Abre o link em uma nova aba
                 rel="noopener noreferrer"
                 bg={"blue.400"}
-                rounded={"15px 0px 15px"}
+                rounded={"30px 30px 30px 30px"}
                 color={"white"}
                 _hover={{ bg: "blue.500" }}
               >
