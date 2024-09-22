@@ -134,7 +134,7 @@ const HeroSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 bg={"blue.400"}
-                rounded={"15px 0px 15px"}
+                rounded={"15px 15px 15px 15px"}
                 color={"white"}
                 _hover={{ bg: "blue.500" }}
               >
