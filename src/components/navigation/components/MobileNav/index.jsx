@@ -14,7 +14,7 @@ export const MobileNav = ({ onToggle }) => {
     <Stack
       bg={useColorModeValue("white", "gray.800")}
       p={4}
-      borderRadius={"30px"}
+      rounded={"15px 15px 15px"}
       mt={2}
       display={{ md: "none" }}
       spacing={4}
