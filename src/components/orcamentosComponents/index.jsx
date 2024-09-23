@@ -172,7 +172,9 @@ const Orcamentos = () => {
                   onChange={handleChange}
                 />
               </FormControl>
-              <Button colorScheme="blue" size="lg" fontSize="md" type="submit">
+              <Button 
+          rounded={"15px 0px 15px"}
+colorScheme="blue" size="lg" fontSize="md" type="submit">
                 Enviar Solicitação
               </Button>
             </Stack>
