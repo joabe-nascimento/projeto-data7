@@ -241,7 +241,7 @@ const Contact = () => {
               type="submit"
               w="full"
               size={{ base: "md", md: "lg" }} // Ajusta o tamanho do botão para telas menores
-              borderRadius="30px"
+                        rounded={"15px 0px 15px"}
               boxShadow="0px 0px 8px rgba(0, 0, 0, 0.1)"
               transition="background-color 0.3s ease, transform 0.3s ease"
               _hover={{
