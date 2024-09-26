@@ -5,8 +5,8 @@ import AppRoutesNotFound from "./routes/routesnotfound";
 const App = () => {
   return (
     <>
-     <AppRoutesNotFound /> 
-{/*       <AppRoutes /> */}
+{/*      <AppRoutesNotFound />  */}
+      <AppRoutes />
     </>
   );
 };
