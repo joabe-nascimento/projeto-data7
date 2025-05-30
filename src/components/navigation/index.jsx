@@ -121,13 +121,7 @@ export default function WithSubnavigation() {
           >
             <Link to="/">
               <Flex align="center">
-                <Image
-                  src={data71}
-                  alt="Logo DATA7"
-                  height={logoSize}
-                  objectFit={"contain"}
-                  transition="all 0.3s ease"
-                />
+               
                 <Text
                   fontWeight="bold"
                   fontSize={{base: "lg", md: "xl"}}
