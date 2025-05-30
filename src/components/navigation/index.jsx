@@ -6,15 +6,77 @@ import {
   useColorModeValue,
   useDisclosure,
   Image,
+  Button,
+  HStack,
+  Container,
+  useBreakpointValue,
+  Text,
 } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { DesktopNav } from "../../components/navigation/components/DesktopNav";
 import { MobileNav } from "../../components/navigation/components/MobileNav";
 import data71 from "../../assets/data71.png";
 import { Link } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+// Componentes com animação
+const MotionFlex = motion(Flex);
+const MotionBox = motion(Box);
+const MotionButton = motion(Button);
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
+  const [scrolled, setScrolled] = useState(false);
+  
+  // WhatsApp link configuration
+  const whatsappNumber = "+5575999194533";
+  const whatsappMessage = "Olá, gostaria de mais informações sobre seus serviços.";
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+  // Controle de scroll para mudança visual da navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Cores dinâmicas baseadas no tema e estado de scroll
+  const navbarBg = useColorModeValue(
+    scrolled 
+      ? "rgba(255, 255, 255, 0.95)" 
+      : "rgba(255, 255, 255, 0.9)",
+    scrolled 
+      ? "rgba(26, 32, 44, 0.95)" 
+      : "rgba(26, 32, 44, 0.9)"
+  );
+
+  const borderColor = useColorModeValue("gray.100", "whiteAlpha.100");
+
+  // Tamanho responsivo do logo
+  const logoSize = useBreakpointValue({ 
+    base: "40px", 
+    md: scrolled ? "45px" : "50px" 
+  });
+
+  // Tamanho e padding da navbar baseados no scroll
+  const navbarHeight = useBreakpointValue({ 
+    base: scrolled ? "60px" : "70px", 
+    md: scrolled ? "70px" : "80px" 
+  });
+
+  const navbarPadding = scrolled ? 2 : { base: 2, md: 4 };
+  const navbarMargin = scrolled ? 2 : 4;
+  const navbarShadow = scrolled ? "xl" : "lg";
+  const borderRadius = scrolled ? "2xl" : "full";
 
   return (
     <Box
@@ -22,89 +84,141 @@ export default function WithSubnavigation() {
       top={0}
       left={0}
       right={0}
-      rounded={"15px 0px 15px"}
-      //borderRadius={"30px 0px 30px"}
       zIndex={999}
-      margin={4}
+      margin={navbarMargin}
       transition={"all 0.3s ease"}
     >
-      <Box maxW="1100px" mx="auto">
-        <Flex
-          maxH={{ base: "50px", md: "60px" }} // Altura máxima reduzida
-          bg={useColorModeValue(
-            "rgba(255, 255, 255, 0.7)", // Modo claro com mais transparência
-            "rgba(0, 0, 0, 0.5)" // Modo escuro com mais transparência
-          )}
-          color={useColorModeValue("gray.600", "white")}
-          minH={{ base: "40px", md: "50px" }} // Altura mínima reduzida
-          py={{ base: 1, md: 2 }} // Padding vertical reduzido
-          px={{ base: 3, md: 2 }} // Padding lateral mantido
-          borderBottom={1}
+      <Container maxW="1400px" mx="auto">
+        <MotionFlex
+          bg={navbarBg}
+          color={useColorModeValue("gray.700", "white")}
+          minH={navbarHeight}
+          py={navbarPadding}
+          px={{ base: 4, md: 8 }}
+          borderBottom={0}
           borderStyle={"solid"}
-          borderColor={useColorModeValue("gray.200", "gray.900")}
           align={"center"}
-          justify={"center"}
-          rounded={"15px 0px 15px"}
-          //borderRadius={"60px"}
+          justify={"space-between"}
+          backdropFilter="blur(20px)"
+          boxShadow={navbarShadow}
+          borderRadius={borderRadius}
+          transition="all 0.4s ease"
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          _hover={{
+            boxShadow: "2xl",
+            transform: "translateY(2px)",
+          }}
+          border="1px solid"
+          borderColor={borderColor}
         >
-          <Flex
-            flex={{ base: 1 }}
-            justify={{ base: "center", md: "space-between" }}
-            align={"center"}
-            w={"100%"}
+          {/* Logo com animação */}
+          <MotionFlex 
+            align={"center"} 
+            justify={{ base: "start" }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
           >
-            <Flex
-              align={"center"}
-              justify={{ base: "center", md: "start" }}
-              flex={{ base: "auto", md: 1 }}
-            >
-              <Link to="/">
+            <Link to="/">
+              <Flex align="center">
                 <Image
                   src={data71}
-                  alt="Logo"
-                  height={{ base: "80px", md: "150px" }} // Altura da logo ajustada
+                  alt="Logo DATA7"
+                  height={logoSize}
                   objectFit={"contain"}
+                  transition="all 0.3s ease"
                 />
-              </Link>
-            </Flex>
-
-            <Flex
-              flex={{ base: 1, md: "auto" }}
-              ml={{ base: -2 }}
-              display={{ base: "flex", md: "none" }}
-              justify={"flex-end"}
-            >
-              <IconButton
-                onClick={onToggle}
-                icon={
-                  isOpen ? (
-                    <CloseIcon w={5} h={5} />
-                  ) : (
-                    <HamburgerIcon w={6} h={6} />
-                  )
-                }
-                variant={"ghost"}
-                aria-label={"Toggle Navigation"}
-                _hover={{ bg: useColorModeValue("gray.100", "gray.700") }}
-                transition={"background 0.3s ease"}
-              />
-            </Flex>
-
-            <Flex
-              flex={{ base: 1 }}
-              justify={{ base: "center", md: "center" }}
-              align={"center"}
-              display={{ base: "none", md: "flex" }}
-            >
-              <Flex ml={10}>
-                <DesktopNav />
+                <Text
+                  fontWeight="bold"
+                  fontSize={{base: "lg", md: "xl"}}
+                  ml={2}
+                  display={{ base: "none", sm: "block" }}
+                  color={useColorModeValue("blue.600", "blue.300")}
+                  letterSpacing="tight"
+                >
+                  DATA7
+                </Text>
               </Flex>
-            </Flex>
-          </Flex>
-        </Flex>
-      </Box>
+            </Link>
+          </MotionFlex>
+          
+          {/* Desktop Navigation */}
+          <HStack spacing={6} display={{ base: "none", md: "flex" }}>
+            <DesktopNav />
+            
+            {/* Contact button on desktop */}
+            <MotionButton
+              as="a"
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              size={scrolled ? "md" : "md"}
+              fontSize={scrolled ? "sm" : "md"}
+              fontWeight={600}
+              color="white"
+              bg="blue.500"
+              leftIcon={<FaWhatsapp />}
+              _hover={{
+                bg: "blue.600",
+              }}
+              _active={{
+                bg: "blue.700",
+              }}
+              borderRadius="full"
+              px={6}
+              py={scrolled ? 5 : 6}
+              transition="all 0.3s ease"
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+              whileTap={{ scale: 0.95 }}
+              boxShadow="md"
+            >
+              Fale Conosco
+            </MotionButton>
+          </HStack>
+          
+          {/* Mobile Navigation Toggle com animação melhorada */}
+          <MotionBox
+            flex={{ base: "auto", md: "auto" }}
+            display={{ base: "flex", md: "none" }}
+            justify={"flex-end"}
+            whileTap={{ scale: 0.9 }}
+          >
+            <IconButton
+              onClick={onToggle}
+              icon={
+                isOpen ? (
+                  <CloseIcon w={3} h={3} />
+                ) : (
+                  <HamburgerIcon w={5} h={5} />
+                )
+              }
+              variant={"ghost"}
+              aria-label={"Toggle Navigation"}
+              _hover={{ bg: useColorModeValue("gray.200", "gray.700"), transform: "scale(1.1)" }}
+              _active={{ bg: useColorModeValue("gray.300", "gray.600") }}
+              borderRadius="full"
+              size="lg"
+              transition="all 0.2s"
+              boxShadow={isOpen ? "md" : "none"}
+            />
+          </MotionBox>
+        </MotionFlex>
+      </Container>
+
+      {/* Mobile Navigation Menu com animação melhorada */}
       <Collapse in={isOpen} animateOpacity>
-        <MobileNav onToggle={onToggle} />
+        <Box 
+          mx={4}
+          mt={2}
+          bg={useColorModeValue("white", "gray.800")}
+          rounded="lg"
+          boxShadow="xl"
+          overflow="hidden"
+          border="1px solid"
+          borderColor={borderColor}
+        >
+          <MobileNav onToggle={onToggle} />
+        </Box>
       </Collapse>
     </Box>
   );

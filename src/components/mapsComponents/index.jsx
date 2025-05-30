@@ -17,7 +17,7 @@ const CenterMapButton = ({ position }) => {
   };
 
   return (
-    <Button onClick={centerMap} colorScheme="teal">
+    <Button onClick={centerMap} colorScheme="blue" size="md" boxShadow="md">
       Voltar para o marcador
     </Button>
   );
@@ -48,18 +48,18 @@ const MapComponent = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      maxWidth="1000px"
-      width="100%" // Ajusta a largura para ocupar 100% do espaço disponível
-      padding="20px"
-      height="400px"
-      borderRadius="md"
+      width="100%" // Ocupa 100% da largura do container pai
+      height="500px" // Aumentando a altura do mapa para melhor visualização
+      borderRadius="xl"
       overflow="hidden"
       position="relative"
-      margin="0 auto" // Centraliza o Box na página
+      boxShadow="xl"
+      mx={0} // Remove margem horizontal para ocupar toda largura
+      px={0} // Remove padding horizontal
     >
       <MapContainer
         center={position}
-        zoom={15} // Ajuste o zoom conforme necessário
+        zoom={15}
         style={{ height: "100%", width: "100%" }}
         whenCreated={(mapInstance) => {
           mapRef.current = mapInstance;
@@ -87,6 +87,7 @@ const MapComponent = () => {
           borderRadius="md"
           p={2}
           zIndex={1000}
+          boxShadow="md"
         >
           <Text fontSize="lg" fontWeight="bold">
             Localização: Sede da União Médica
@@ -95,7 +96,7 @@ const MapComponent = () => {
 
         <Box
           position="absolute"
-          bottom="10px"
+          bottom="20px"
           left="50%"
           transform="translateX(-50%)"
           zIndex={1000}
