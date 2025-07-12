@@ -66,6 +66,17 @@ export default function Services() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Verificação dos campos obrigatórios
+    if (!form.nome || !form.telefone || !form.email || !form.servico) {
+      toast({
+        title: "Preencha todos os campos obrigatórios.",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+      });
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     emailjs
       .send(
@@ -92,10 +103,12 @@ export default function Services() {
         onClose();
       })
       .catch((error) => {
+        console.error("Erro EmailJS:", error);
         toast({
           title: "Ocorreu um erro ao enviar a solicitação.",
+          description: error?.text || error?.message || "Erro desconhecido.",
           status: "error",
-          duration: 5000,
+          duration: 7000,
           isClosable: true,
         });
         setLoading(false);
