@@ -11,7 +11,22 @@ import {
   Button,
   Divider,
   HStack,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  Select,
+  useToast,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  useDisclosure
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import estruturadaweb from "../../assets/estrutura-da-web.gif";
@@ -32,6 +47,62 @@ const MotionBox = motion(Box);
 const MotionFlex = motion(Flex);
 
 export default function Services() {
+  const toast = useToast();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [form, setForm] = useState({
+    nome: "",
+    telefone: "",
+    email: "",
+    servico: "",
+    mensagem: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      // Envio via Formspree (ou outro serviço de email)
+      const res = await fetch("https://formspree.io/f/xjvnqzqg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nome: form.nome,
+          telefone: form.telefone,
+          email: form.email,
+          servico: form.servico,
+          mensagem: form.mensagem,
+        }),
+      });
+      if (res.ok) {
+        toast({
+          title: "Mensagem enviada!",
+          description: "Seu orçamento foi enviado com sucesso.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+        setForm({ nome: "", telefone: "", email: "", servico: "", mensagem: "" });
+      } else {
+        throw new Error("Erro ao enviar");
+      }
+    } catch (err) {
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente mais tarde.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
   // Configuração do WhatsApp para contato
   const whatsappNumber = "+5575999194533";
   const whatsappMessage = "Olá, gostaria de saber mais sobre seus serviços.";
@@ -96,7 +167,7 @@ export default function Services() {
       minH="100vh"
       backgroundAttachment="fixed"
     >
-      {/* Seção principal com conteúdo sobre serviços */}
+
       <Container maxW="1400px" px={{ base: 4, md: 6, lg: 8 }} pt={{ base: "100px", md: "120px" }}>
         {/* Cabeçalho da página */}
         <MotionBox
@@ -181,7 +252,7 @@ export default function Services() {
             ))}
           </SimpleGrid>
 
-          {/* Botão de contato centralizado */}
+          {/* Botão de contato centralizado que abre o modal */}
           <MotionFlex
             justify="center"
             mt={{ base: 12, md: 16 }}
@@ -190,10 +261,6 @@ export default function Services() {
             transition={{ duration: 0.5, delay: 0.8 }}
           >
             <Button
-              as="a"
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
               bg={accentColor}
               color="white"
               size="lg"
@@ -208,10 +275,65 @@ export default function Services() {
                 bg: "blue.600"
               }}
               transition="all 0.3s ease"
+              onClick={onOpen}
             >
               Solicite um Orçamento
             </Button>
           </MotionFlex>
+
+          {/* Modal com formulário */}
+          <Modal isOpen={isOpen} onClose={onClose} isCentered size="lg">
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader textAlign="center" color={accentColor} fontWeight={800}>
+                Solicite um Orçamento
+              </ModalHeader>
+              <ModalCloseButton />
+              <ModalBody pb={6}>
+                <Box as="form" onSubmit={handleSubmit}>
+                  <FormControl isRequired mb={3}>
+                    <FormLabel>Nome</FormLabel>
+                    <Input name="nome" value={form.nome} onChange={handleChange} placeholder="Seu nome" />
+                  </FormControl>
+                  <FormControl isRequired mb={3}>
+                    <FormLabel>Telefone</FormLabel>
+                    <Input name="telefone" value={form.telefone} onChange={handleChange} placeholder="(99) 99999-9999" />
+                  </FormControl>
+                  <FormControl isRequired mb={3}>
+                    <FormLabel>E-mail</FormLabel>
+                    <Input name="email" type="email" value={form.email} onChange={handleChange} placeholder="seu@email.com" />
+                  </FormControl>
+                  <FormControl isRequired mb={3}>
+                    <FormLabel>Qual serviço deseja orçamento?</FormLabel>
+                    <Select name="servico" value={form.servico} onChange={handleChange} placeholder="Selecione o serviço">
+                      {services.map((s, i) => (
+                        <option key={i} value={s.title}>{s.title}</option>
+                      ))}
+                    </Select>
+                  </FormControl>
+                  <FormControl mb={3}>
+                    <FormLabel>Mensagem</FormLabel>
+                    <Textarea name="mensagem" value={form.mensagem} onChange={handleChange} placeholder="Descreva sua necessidade" rows={3} />
+                  </FormControl>
+                  <ModalFooter px={0} pb={0}>
+                    <Button
+                      type="submit"
+                      colorScheme="blue"
+                      size="lg"
+                      w="100%"
+                      isLoading={loading}
+                      loadingText="Enviando..."
+                      fontWeight={700}
+                      fontSize={{ base: "md", md: "lg" }}
+                      rightIcon={<Icon as={FaArrowRight} />}
+                    >
+                      Enviar Orçamento
+                    </Button>
+                  </ModalFooter>
+                </Box>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
         </MotionBox>
       </Container>
 

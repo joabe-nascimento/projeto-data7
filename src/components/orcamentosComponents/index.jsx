@@ -156,14 +156,14 @@ const Orcamentos = () => {
                   onChange={handleChange}
                 />
               </FormControl>
-              <FormControl id="endDate">
+              {/* <FormControl id="endDate">
                 <FormLabel>Data de Término Desejada</FormLabel>
                 <Input
                   type="date"
                   value={formData.endDate}
                   onChange={handleChange}
                 />
-              </FormControl>
+              </FormControl> */}
               <FormControl id="comments">
                 <FormLabel>Comentários Adicionais</FormLabel>
                 <Textarea
