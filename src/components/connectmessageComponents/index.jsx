@@ -11,7 +11,7 @@ import { Parallax } from "react-parallax";
 export default function Contact() {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
-  const phoneNumber = "+5575991016263"; // Substitua pelo número de telefone desejado
+  const phoneNumber = "+5575998142613"; // Substitua pelo número de telefone desejado
   const whatsappMessage = "Olá, gostaria de conversar sobre os serviços."; // Mensagem padrão do WhatsApp
 
   return (
