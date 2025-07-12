@@ -23,7 +23,7 @@ const images = [carroselimg1, carroselimg2]; // Array com suas imagens
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const whatsappNumber = "+5575999194533";
+  const whatsappNumber = "+5575998142613";
   const whatsappMessage =
     "Olá, gostaria de mais informações sobre seus serviços.";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(

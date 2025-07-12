@@ -48,7 +48,7 @@ export default function SectionAvaliacoes() {
             </Text>
             <Button
               as="a"
-              href="https://wa.me/5575999194533"
+              href="https://wa.me/5575998142613?text=Olá, gostaria de conversar sobre os serviços."
               target="_blank"
               rel="noopener noreferrer"
               colorScheme="whatsapp"

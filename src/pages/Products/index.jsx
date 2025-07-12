@@ -11,7 +11,22 @@ import {
   Button,
   Divider,
   HStack,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  Select,
+  useToast,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  useDisclosure
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaLaptop, FaLifeRing, FaServer, FaDatabase, FaChartLine, FaCode, FaNetworkWired, FaCogs } from "react-icons/fa";
 import Footer from "../Home/components/Footer";
@@ -26,12 +41,72 @@ const MotionBox = motion(Box);
 const MotionFlex = motion(Flex);
 
 export default function Products() {
-  // Configuração do WhatsApp para contato
-  const whatsappNumber = "+5575999194533";
-  const whatsappMessage = "Olá, gostaria de saber mais sobre seus produtos.";
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    whatsappMessage
-  )}`;
+  const toast = useToast();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [form, setForm] = useState({
+    nome: "",
+    telefone: "",
+    email: "",
+    produto: "",
+    mensagem: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Verificação dos campos obrigatórios
+    if (!form.nome || !form.telefone || !form.email || !form.produto) {
+      toast({
+        title: "Preencha todos os campos obrigatórios.",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+      });
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    emailjs
+      .send(
+        "service_vmhaqqw",
+        "template_ltxyr3s",
+        {
+          name: form.nome,
+          phone: form.telefone,
+          email: form.email,
+          service: form.produto,
+          message: form.mensagem,
+        },
+        "DyAJLKDUMpsFJ-M-T"
+      )
+      .then((response) => {
+        toast({
+          title: "Solicitação enviada com sucesso!",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+        setForm({ nome: "", telefone: "", email: "", produto: "", mensagem: "" });
+        setLoading(false);
+        onClose();
+      })
+      .catch((error) => {
+        console.error("Erro EmailJS:", error);
+        toast({
+          title: "Ocorreu um erro ao enviar a solicitação.",
+          description: error?.text || error?.message || "Erro desconhecido.",
+          status: "error",
+          duration: 7000,
+          isClosable: true,
+        });
+        setLoading(false);
+      });
+  };
 
   // Cores dinâmicas baseadas no tema
   const bgGradient = useColorModeValue(
@@ -141,7 +216,6 @@ export default function Products() {
       minH="100vh"
       backgroundAttachment="fixed"
     >
-      {/* Seção principal com conteúdo sobre produtos */}
       <Container maxW="1400px" px={{ base: 4, md: 6, lg: 8 }} pt={{ base: "100px", md: "120px" }}>
         {/* Cabeçalho da página */}
         <MotionBox
@@ -226,8 +300,8 @@ export default function Products() {
               />
             ))}
           </SimpleGrid>
-          
-          {/* Botão de contato centralizado */}
+
+          {/* Botão de contato centralizado que abre o modal */}
           <MotionFlex
             justify="center"
             mt={{ base: 12, md: 16 }}
@@ -236,10 +310,6 @@ export default function Products() {
             transition={{ duration: 0.5, delay: 0.8 }}
           >
             <Button
-              as="a"
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
               bg={accentColor}
               color="white"
               size="lg"
@@ -254,10 +324,65 @@ export default function Products() {
                 bg: "blue.600"
               }}
               transition="all 0.3s ease"
+              onClick={onOpen}
             >
               Solicite um Orçamento
             </Button>
           </MotionFlex>
+
+          {/* Modal com formulário */}
+          <Modal isOpen={isOpen} onClose={onClose} isCentered size="lg">
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader textAlign="center" color={accentColor} fontWeight={800}>
+                Solicite um Orçamento
+              </ModalHeader>
+              <ModalCloseButton />
+              <ModalBody pb={6}>
+                <Box as="form" onSubmit={handleSubmit}>
+                  <FormControl isRequired mb={3}>
+                    <FormLabel>Nome*</FormLabel>
+                    <Input name="nome" value={form.nome} onChange={handleChange} placeholder="Seu nome" required />
+                  </FormControl>
+                  <FormControl isRequired mb={3}>
+                    <FormLabel>Telefone*</FormLabel>
+                    <Input name="telefone" value={form.telefone} onChange={handleChange} placeholder="(99) 99999-9999" required />
+                  </FormControl>
+                  <FormControl isRequired mb={3}>
+                    <FormLabel>E-mail*</FormLabel>
+                    <Input name="email" type="email" value={form.email} onChange={handleChange} placeholder="seu@email.com" required />
+                  </FormControl>
+                  <FormControl isRequired mb={3}>
+                    <FormLabel>Qual produto deseja orçamento?*</FormLabel>
+                    <Select name="produto" value={form.produto} onChange={handleChange} placeholder="Selecione o produto" required>
+                      {products.map((p, i) => (
+                        <option key={i} value={p.title}>{p.title}</option>
+                      ))}
+                    </Select>
+                  </FormControl>
+                  <FormControl mb={3}>
+                    <FormLabel>Mensagem</FormLabel>
+                    <Textarea name="mensagem" value={form.mensagem} onChange={handleChange} placeholder="Descreva sua necessidade" rows={3} />
+                  </FormControl>
+                  <ModalFooter px={0} pb={0}>
+                    <Button
+                      type="submit"
+                      colorScheme="blue"
+                      size="lg"
+                      w="100%"
+                      isLoading={loading}
+                      loadingText="Enviando..."
+                      fontWeight={700}
+                      fontSize={{ base: "md", md: "lg" }}
+                      rightIcon={<Icon as={FaArrowRight} />}
+                    >
+                      Enviar Orçamento
+                    </Button>
+                  </ModalFooter>
+                </Box>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
         </MotionBox>
       </Container>
 

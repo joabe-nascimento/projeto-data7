@@ -35,7 +35,7 @@ const MotionImage = motion(Image);
  */
 export default function AboutPage() {
   // Configuração do WhatsApp para contato
-  const whatsappNumber = "+5575999194533";
+  const whatsappNumber = "+5575998142613";
   const whatsappMessage = "Olá, gostaria de saber mais sobre seus serviços.";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     whatsappMessage
