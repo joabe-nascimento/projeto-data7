@@ -22,8 +22,7 @@ export default function WithSubnavigation() {
       top={0}
       left={0}
       right={0}
-      rounded={"15px 0px 15px"}
-      //borderRadius={"30px 0px 30px"}
+      rounded={"30px"} // Cantos totalmente arredondados
       zIndex={999}
       margin={4}
       transition={"all 0.3s ease"}
@@ -44,8 +43,7 @@ export default function WithSubnavigation() {
           borderColor={useColorModeValue("gray.200", "gray.900")}
           align={"center"}
           justify={"center"}
-          rounded={"15px 0px 15px"}
-          //borderRadius={"60px"}
+          rounded={"30px"} // Cantos totalmente arredondados
         >
           <Flex
             flex={{ base: 1 }}

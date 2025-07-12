@@ -11,7 +11,7 @@ import { Parallax } from "react-parallax";
 export default function Contact() {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
-  const phoneNumber = "+5575991016263"; // Substitua pelo número de telefone desejado
+  const phoneNumber = "+5575998142613"; // Substitua pelo número de telefone desejado
   const whatsappMessage = "Olá, gostaria de conversar sobre os serviços."; // Mensagem padrão do WhatsApp
 
   return (
@@ -53,23 +53,6 @@ export default function Contact() {
               <Stack direction={"column"} align={"center"}>
                 <Button
                   as="a"
-                  href={`tel:${phoneNumber}`}
-                  bgGradient="linear(to-r, blue.300, blue.500)"
-                  rounded={"full"}
-                  color={"white"}
-                  _hover={{ bgGradient: "linear(to-r, blue.400, blue.600)" }}
-                  height={"50px"}
-                  fontSize={"lg"}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    padding: "0 60px",
-                  }}
-                >
-                  Ligue Agora
-                </Button>
-                <Button
-                  as="a"
                   href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(
                     whatsappMessage
                   )}`}
@@ -92,46 +75,12 @@ export default function Contact() {
               <Stack direction={"row"} align={"center"}>
                 <Button
                   as="a"
-                  href={`tel:${phoneNumber}`}
-                  marginRight={"-20px"}
-                  bgGradient="linear(to-r, blue.300, blue.500)"
-                  rounded={"30px 0px 0px 30px"}
-                  color={"white"}
-                  _hover={{ bgGradient: "linear(to-r, blue.400, blue.600)" }}
-                  height={"60px"}
-                  fontSize={"lg"}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    padding: "0 60px",
-                  }}
-                >
-                  Ligue Agora
-                </Button>
-                <Flex
-                  border={"6px solid white"}
-                  zIndex={999}
-                  align={"center"}
-                  justify={"center"}
-                  w={"40px"}
-                  h={"40px"}
-                  bg={"white"}
-                  color={"black"}
-                  rounded={"full"}
-                  fontWeight={"bold"}
-                  mx={-2} // Ajuste de espaço entre os botões
-                >
-                  OU
-                </Flex>
-                <Button
-                  as="a"
                   href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(
                     whatsappMessage
                   )}`}
                   paddingRight={30}
-                  marginLeft={"-20px"}
                   bgGradient="linear(to-r, blue.800, blue.900)"
-                  rounded={"0px 30px 30px 0px"}
+                  rounded={"full"}
                   color={"white"}
                   _hover={{ bgGradient: "linear(to-r, blue.900, blue.700)" }}
                   height={"60px"}
