@@ -27,6 +27,7 @@ import {
   useDisclosure
 } from "@chakra-ui/react";
 import { useState } from "react";
+import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import estruturadaweb from "../../assets/estrutura-da-web.gif";
@@ -63,46 +64,44 @@ export default function Services() {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      // Envio via Formspree (ou outro serviço de email)
-      const res = await fetch("https://formspree.io/f/xjvnqzqg", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nome: form.nome,
-          telefone: form.telefone,
+    emailjs
+      .send(
+        "service_vmhaqqw",
+        "template_ltxyr3s",
+        {
+          name: form.nome,
+          phone: form.telefone,
           email: form.email,
-          servico: form.servico,
-          mensagem: form.mensagem,
-        }),
-      });
-      if (res.ok) {
+          service: form.servico,
+          message: form.mensagem,
+        },
+        "DyAJLKDUMpsFJ-M-T"
+      )
+      .then((response) => {
         toast({
-          title: "Mensagem enviada!",
-          description: "Seu orçamento foi enviado com sucesso.",
+          title: "Solicitação enviada com sucesso!",
           status: "success",
           duration: 5000,
           isClosable: true,
         });
         setForm({ nome: "", telefone: "", email: "", servico: "", mensagem: "" });
-      } else {
-        throw new Error("Erro ao enviar");
-      }
-    } catch (err) {
-      toast({
-        title: "Erro ao enviar",
-        description: "Tente novamente mais tarde.",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
+        setLoading(false);
+        onClose();
+      })
+      .catch((error) => {
+        toast({
+          title: "Ocorreu um erro ao enviar a solicitação.",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+        setLoading(false);
       });
-    } finally {
-      setLoading(false);
-    }
   };
+
   // Configuração do WhatsApp para contato
   const whatsappNumber = "+5575999194533";
   const whatsappMessage = "Olá, gostaria de saber mais sobre seus serviços.";
@@ -292,20 +291,20 @@ export default function Services() {
               <ModalBody pb={6}>
                 <Box as="form" onSubmit={handleSubmit}>
                   <FormControl isRequired mb={3}>
-                    <FormLabel>Nome</FormLabel>
-                    <Input name="nome" value={form.nome} onChange={handleChange} placeholder="Seu nome" />
+                    <FormLabel>Nome*</FormLabel>
+                    <Input name="nome" value={form.nome} onChange={handleChange} placeholder="Seu nome" required />
                   </FormControl>
                   <FormControl isRequired mb={3}>
-                    <FormLabel>Telefone</FormLabel>
-                    <Input name="telefone" value={form.telefone} onChange={handleChange} placeholder="(99) 99999-9999" />
+                    <FormLabel>Telefone*</FormLabel>
+                    <Input name="telefone" value={form.telefone} onChange={handleChange} placeholder="(99) 99999-9999" required />
                   </FormControl>
                   <FormControl isRequired mb={3}>
-                    <FormLabel>E-mail</FormLabel>
-                    <Input name="email" type="email" value={form.email} onChange={handleChange} placeholder="seu@email.com" />
+                    <FormLabel>E-mail*</FormLabel>
+                    <Input name="email" type="email" value={form.email} onChange={handleChange} placeholder="seu@email.com" required />
                   </FormControl>
                   <FormControl isRequired mb={3}>
-                    <FormLabel>Qual serviço deseja orçamento?</FormLabel>
-                    <Select name="servico" value={form.servico} onChange={handleChange} placeholder="Selecione o serviço">
+                    <FormLabel>Qual serviço deseja orçamento?*</FormLabel>
+                    <Select name="servico" value={form.servico} onChange={handleChange} placeholder="Selecione o serviço" required>
                       {services.map((s, i) => (
                         <option key={i} value={s.title}>{s.title}</option>
                       ))}
