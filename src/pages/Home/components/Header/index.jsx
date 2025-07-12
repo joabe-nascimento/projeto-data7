@@ -121,11 +121,7 @@ const HeroSection = () => {
               lineHeight={1.2}
               fontSize={useBreakpointValue({ base: "1xl", md: "2xl" })}
             >
-              A Data7 oferece serviços e produtos de TI para diversas empresas.
-              Vendemos e implantamos sistemas ERP, equipamentos SAT e
-              certificados digitais. Também desenvolvemos sites de alto impacto,
-              aplicativos e bots de atendimento ao cliente. Nenhum projeto é
-              grande ou pequeno demais para nós!
+              Na Data7, oferecemos soluções completas em <span>Business Intelligence e Tecnologia da Informação</span> para clínicas, hospitais e instituições de ensino superior. Nossa missão é transformar dados em decisões inteligentes, impulsionando eficiência, controle e resultados para nossos clientes.
             </Text>
             <Stack direction={"row"}>
               <Button

@@ -11,7 +11,6 @@ import {
   Button,
   Divider,
   HStack,
-  Stack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
@@ -50,60 +49,55 @@ export default function Services() {
   const textColor = useColorModeValue("gray.700", "gray.100");
   const subtitleColor = useColorModeValue("gray.600", "gray.400");
 
-  // Dados dos serviços atualizados
+  // Dados dos serviços
   const services = [
     {
-      title: "Consultoria em BI",
-      icon: estruturadaweb,
-      description:
-        "Painéis personalizados e análises estratégicas para gestores tomarem decisões baseadas em dados concretos.",
-      badge: "Business Intelligence",
-    },
-    {
-      title: "Terceirização de CPD",
-      icon: ferramentasdereparacao,
-      description:
-        "Cuidamos da sua infraestrutura de TI com segurança, agilidade e suporte especializado.",
-      badge: "Infraestrutura",
-    },
-    {
-      title: "Desenvolvimento de APIs",
-      icon: localnaredeinternet,
-      description:
-        "Conectamos sistemas e otimizamos fluxos de trabalho com soluções sob medida.",
-      badge: "Integração",
-    },
-    {
-      title: "Criação de Sites",
+      title: "Criação de Sites e Aplicações Pontuais",
       icon: codificacao,
       description:
-        "Desenvolvemos ferramentas ágeis e eficientes para resolver desafios específicos da sua operação.",
-      badge: "Desenvolvimento",
+        "Oferecemos serviços completos de criação de sites, desenvolvendo páginas responsivas, otimizadas para SEO e com design moderno, atendendo às necessidades específicas do seu negócio.",
     },
     {
       title: "Backup de Dados",
       icon: redenanuvem,
       description:
-        "Garantimos a segurança dos seus dados com soluções avançadas de backup e recuperação.",
-      badge: "Segurança",
+        "Garantimos a segurança dos seus dados com soluções avançadas de backup, oferecendo armazenamento seguro e recuperação rápida em caso de perda ou falha no sistema.",
     },
     {
       title: "Bots de Atendimento",
       icon: botdebatepapo,
       description:
-        "Automatizamos a comunicação com clientes, proporcionando respostas rápidas e precisas.",
-      badge: "Automação",
+        "Desenvolvemos bots de atendimento personalizados que automatizam a comunicação com os clientes, proporcionando respostas rápidas e precisas, melhorando a experiência do usuário e otimizando o atendimento.",
+    },
+    // Novos serviços adicionados
+    {
+      title: "Consultoria em BI",
+      icon: localnaredeinternet, // Você pode substituir por um ícone mais adequado
+      description:
+        "Otimize as decisões da sua empresa de forma ágil, tenha controle financeiro preciso, conhecimento profundo dos seus cliente e monte estratégias que reduzem custos e aumentem suas vendas.",
+    },
+    {
+      title: "Terceirização de CPD",
+      icon: ferramentasdereparacao, // Você pode substituir por um ícone mais adequado
+      description:
+        "Cuidamos da sua infraestrutura de TI com segurança, agilidade e suporte especializado.",
+    },
+    {
+      title: "Desenvolvimento de APIs",
+      icon: estruturadaweb, // Você pode substituir por um ícone mais adequado
+      description:
+        "Conectamos sistemas e otimizamos fluxos de trabalho com soluções de APIs e integrações sob medida.",
     },
   ];
 
   return (
-    <Box bgGradient={bgGradient} minH="100vh" backgroundAttachment="fixed">
+    <Box
+      bgGradient={bgGradient}
+      minH="100vh"
+      backgroundAttachment="fixed"
+    >
       {/* Seção principal com conteúdo sobre serviços */}
-      <Container
-        maxW="1400px"
-        px={{ base: 4, md: 6, lg: 8 }}
-        pt={{ base: "100px", md: "120px" }}
-      >
+      <Container maxW="1400px" px={{ base: 4, md: 6, lg: 8 }} pt={{ base: "100px", md: "120px" }}>
         {/* Cabeçalho da página */}
         <MotionBox
           initial={{ opacity: 0, y: -20 }}
@@ -112,52 +106,52 @@ export default function Services() {
           mb={{ base: 8, md: 12 }}
           textAlign="center"
         >
-          <Stack spacing={3} align="center">
-            <Badge
-              colorScheme="blue"
-              fontSize={{ base: "sm", md: "md" }}
-              px={3}
-              py={1}
-              borderRadius="full"
-            >
-              DATA7 TECNOLOGIA
-            </Badge>
-            <Heading
-              fontSize={{ base: "3xl", md: "4xl", lg: "5xl", xl: "6xl" }}
-              fontWeight="bold"
-              lineHeight="shorter"
-            >
-              <Text as="span" position="relative" zIndex={1}>
-                Nossos{" "}
-                <Text
-                  as="span"
-                  color={accentColor}
-                  position="relative"
-                  _after={{
-                    content: "''",
-                    width: "full",
-                    height: "30%",
-                    position: "absolute",
-                    bottom: 1,
-                    left: 0,
-                    bg: `${accentColor}30`,
-                    zIndex: -1,
-                    borderRadius: "2px",
-                  }}
-                >
-                  Serviços
-                </Text>
+          <Badge
+            colorScheme="blue"
+            fontSize={{ base: "sm", md: "md" }}
+            px={3}
+            py={1}
+            borderRadius="full"
+            mb={3}
+          >
+            DATA7 TECNOLOGIA
+          </Badge>
+          <Heading
+            fontSize={{ base: "3xl", md: "4xl", lg: "5xl", xl: "6xl" }}
+            fontWeight="bold"
+            lineHeight="shorter"
+            mb={4}
+          >
+            <Text as="span" position="relative" zIndex={1}>
+              Nossos{" "}
+              <Text
+                as="span"
+                color={accentColor}
+                position="relative"
+                _after={{
+                  content: "''",
+                  width: "full",
+                  height: "30%",
+                  position: "absolute",
+                  bottom: 1,
+                  left: 0,
+                  bg: `${accentColor}30`,
+                  zIndex: -1,
+                  borderRadius: "2px",
+                }}
+              >
+                Serviços
               </Text>
-            </Heading>
-            <Text
-              fontSize={{ base: "lg", md: "xl" }}
-              color={subtitleColor}
-              maxW="800px"
-            >
-              Soluções completas em Business Intelligence e Tecnologia da
-              Informação para transformar dados em decisões inteligentes.
             </Text>
-          </Stack>
+          </Heading>
+          <Text
+            fontSize={{ base: "lg", md: "xl" }}
+            color={subtitleColor}
+            maxW="800px"
+            mx="auto"
+          >
+            Soluções tecnológicas completas para impulsionar o seu negócio com eficiência e inovação.
+          </Text>
         </MotionBox>
 
         {/* Grid de serviços */}
@@ -178,7 +172,6 @@ export default function Services() {
                 title={service.title}
                 icon={service.icon}
                 description={service.description}
-                badge={service.badge}
                 delay={0.2 + index * 0.1}
                 accentColor={accentColor}
                 cardBg={cardBg}
@@ -212,7 +205,7 @@ export default function Services() {
               _hover={{
                 transform: "translateY(-5px)",
                 boxShadow: "xl",
-                bg: "blue.600",
+                bg: "blue.600"
               }}
               transition="all 0.3s ease"
             >
@@ -236,17 +229,7 @@ export default function Services() {
 /**
  * ServiceCard - Componente de card para serviços
  */
-function ServiceCard({
-  title,
-  icon,
-  description,
-  badge,
-  delay,
-  accentColor,
-  cardBg,
-  textColor,
-  subtitleColor,
-}) {
+function ServiceCard({ title, icon, description, delay, accentColor, cardBg, textColor, subtitleColor }) {
   return (
     <MotionBox
       initial={{ opacity: 0, y: 20 }}
@@ -261,27 +244,10 @@ function ServiceCard({
       height="100%"
       _hover={{
         boxShadow: "xl",
-        transform: "translateY(-5px)",
+        transform: "translateY(-5px)"
       }}
     >
-      {/* Badge no canto superior direito */}
-      {badge && (
-        <Badge
-          position="absolute"
-          top={4}
-          right={4}
-          colorScheme="blue"
-          variant="subtle"
-          px={2}
-          py={1}
-          borderRadius="md"
-          fontSize="xs"
-        >
-          {badge}
-        </Badge>
-      )}
-
-      {/* Elemento decorativo lateral */}
+      {/* Elemento decorativo */}
       <Box
         position="absolute"
         top={0}
