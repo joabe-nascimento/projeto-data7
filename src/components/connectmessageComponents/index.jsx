@@ -53,36 +53,20 @@ export default function Contact() {
               <Stack direction={"column"} align={"center"}>
                 <Button
                   as="a"
-                  href={`tel:${phoneNumber}`}
-                  bgGradient="linear(to-r, blue.300, blue.500)"
-                  rounded={"full"}
-                  color={"white"}
-                  _hover={{ bgGradient: "linear(to-r, blue.400, blue.600)" }}
-                  height={"50px"}
-                  fontSize={"lg"}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    padding: "0 60px",
-                  }}
-                >
-                  Ligue Agora
-                </Button>
-                <Button
-                  as="a"
-                  href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-                    whatsappMessage
-                  )}`}
+                  href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                   bgGradient="linear(to-r, blue.800, blue.900)"
                   rounded={"full"}
                   color={"white"}
                   _hover={{ bgGradient: "linear(to-r, blue.900, blue.700)" }}
-                  height={"50px"}
+                  height={"60px"}
+                  minW={"60px"}
                   fontSize={"lg"}
+                  px={8}
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    padding: "0 30px",
+                    justifyContent: "center",
+                    borderRadius: "999px",
                   }}
                 >
                   Mandar Mensagem
@@ -92,54 +76,20 @@ export default function Contact() {
               <Stack direction={"row"} align={"center"}>
                 <Button
                   as="a"
-                  href={`tel:${phoneNumber}`}
-                  marginRight={"-20px"}
-                  bgGradient="linear(to-r, blue.300, blue.500)"
-                  rounded={"30px 0px 0px 30px"}
-                  color={"white"}
-                  _hover={{ bgGradient: "linear(to-r, blue.400, blue.600)" }}
-                  height={"60px"}
-                  fontSize={"lg"}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    padding: "0 60px",
-                  }}
-                >
-                  Ligue Agora
-                </Button>
-                <Flex
-                  border={"6px solid white"}
-                  zIndex={999}
-                  align={"center"}
-                  justify={"center"}
-                  w={"40px"}
-                  h={"40px"}
-                  bg={"white"}
-                  color={"black"}
-                  rounded={"full"}
-                  fontWeight={"bold"}
-                  mx={-2} // Ajuste de espaço entre os botões
-                >
-                  OU
-                </Flex>
-                <Button
-                  as="a"
-                  href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-                    whatsappMessage
-                  )}`}
-                  paddingRight={30}
-                  marginLeft={"-20px"}
+                  href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                   bgGradient="linear(to-r, blue.800, blue.900)"
-                  rounded={"0px 30px 30px 0px"}
+                  rounded={"full"}
                   color={"white"}
                   _hover={{ bgGradient: "linear(to-r, blue.900, blue.700)" }}
                   height={"60px"}
+                  minW={"60px"}
                   fontSize={"lg"}
+                  px={8}
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    padding: "0 30px",
+                    justifyContent: "center",
+                    borderRadius: "999px",
                   }}
                 >
                   Mandar Mensagem

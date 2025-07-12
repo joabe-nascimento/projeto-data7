@@ -11,6 +11,7 @@ import {
   Button,
   Divider,
   HStack,
+  Stack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
@@ -49,54 +50,60 @@ export default function Services() {
   const textColor = useColorModeValue("gray.700", "gray.100");
   const subtitleColor = useColorModeValue("gray.600", "gray.400");
 
-  // Dados dos serviços
+  // Dados dos serviços atualizados
   const services = [
     {
-      title: "Sistemas ERP",
+      title: "Consultoria em BI",
       icon: estruturadaweb,
       description:
-        "Desenvolvemos e implementamos sistemas ERP (Enterprise Resource Planning) personalizados que otimizam a gestão empresarial, integrando todos os processos da sua empresa em uma única plataforma eficiente.",
+        "Painéis personalizados e análises estratégicas para gestores tomarem decisões baseadas em dados concretos.",
+      badge: "Business Intelligence",
+    },
+    {
+      title: "Terceirização de CPD",
+      icon: ferramentasdereparacao,
+      description:
+        "Cuidamos da sua infraestrutura de TI com segurança, agilidade e suporte especializado.",
+      badge: "Infraestrutura",
+    },
+    {
+      title: "Desenvolvimento de APIs",
+      icon: localnaredeinternet,
+      description:
+        "Conectamos sistemas e otimizamos fluxos de trabalho com soluções sob medida.",
+      badge: "Integração",
     },
     {
       title: "Criação de Sites",
       icon: codificacao,
       description:
-        "Oferecemos serviços completos de criação de sites, desenvolvendo páginas responsivas, otimizadas para SEO e com design moderno, atendendo às necessidades específicas do seu negócio.",
-    },
-    {
-      title: "Manutenção de PC e Notebooks",
-      icon: ferramentasdereparacao,
-      description:
-        "Realizamos manutenção preventiva e corretiva de PCs e notebooks, incluindo a troca de peças, limpeza, formatação, instalação de softwares e solução de problemas técnicos.",
+        "Desenvolvemos ferramentas ágeis e eficientes para resolver desafios específicos da sua operação.",
+      badge: "Desenvolvimento",
     },
     {
       title: "Backup de Dados",
       icon: redenanuvem,
       description:
-        "Garantimos a segurança dos seus dados com soluções avançadas de backup, oferecendo armazenamento seguro e recuperação rápida em caso de perda ou falha no sistema.",
-    },
-    {
-      title: "Rede de Computadores",
-      icon: localnaredeinternet,
-      description:
-        "Projetamos, instalamos e mantemos redes de computadores eficientes e seguras, garantindo conectividade estável e alta performance para sua empresa.",
+        "Garantimos a segurança dos seus dados com soluções avançadas de backup e recuperação.",
+      badge: "Segurança",
     },
     {
       title: "Bots de Atendimento",
       icon: botdebatepapo,
       description:
-        "Desenvolvemos bots de atendimento personalizados que automatizam a comunicação com os clientes, proporcionando respostas rápidas e precisas, melhorando a experiência do usuário e otimizando o atendimento.",
+        "Automatizamos a comunicação com clientes, proporcionando respostas rápidas e precisas.",
+      badge: "Automação",
     },
   ];
 
   return (
-    <Box
-      bgGradient={bgGradient}
-      minH="100vh"
-      backgroundAttachment="fixed"
-    >
+    <Box bgGradient={bgGradient} minH="100vh" backgroundAttachment="fixed">
       {/* Seção principal com conteúdo sobre serviços */}
-      <Container maxW="1400px" px={{ base: 4, md: 6, lg: 8 }} pt={{ base: "100px", md: "120px" }}>
+      <Container
+        maxW="1400px"
+        px={{ base: 4, md: 6, lg: 8 }}
+        pt={{ base: "100px", md: "120px" }}
+      >
         {/* Cabeçalho da página */}
         <MotionBox
           initial={{ opacity: 0, y: -20 }}
@@ -105,52 +112,52 @@ export default function Services() {
           mb={{ base: 8, md: 12 }}
           textAlign="center"
         >
-          <Badge 
-            colorScheme="blue" 
-            fontSize={{ base: "sm", md: "md" }} 
-            px={3} 
-            py={1} 
-            borderRadius="full"
-            mb={3}
-          >
-            DATA7 TECNOLOGIA
-          </Badge>
-          <Heading 
-            fontSize={{ base: "3xl", md: "4xl", lg: "5xl", xl: "6xl" }}
-            fontWeight="bold"
-            lineHeight="shorter"
-            mb={4}
-          >
-            <Text as="span" position="relative" zIndex={1}>
-              Nossos{" "}
-              <Text 
-                as="span" 
-                color={accentColor}
-                position="relative"
-                _after={{
-                  content: "''",
-                  width: "full",
-                  height: "30%",
-                  position: "absolute",
-                  bottom: 1,
-                  left: 0,
-                  bg: `${accentColor}30`,
-                  zIndex: -1,
-                  borderRadius: "2px",
-                }}
-              >
-                Serviços
+          <Stack spacing={3} align="center">
+            <Badge
+              colorScheme="blue"
+              fontSize={{ base: "sm", md: "md" }}
+              px={3}
+              py={1}
+              borderRadius="full"
+            >
+              DATA7 TECNOLOGIA
+            </Badge>
+            <Heading
+              fontSize={{ base: "3xl", md: "4xl", lg: "5xl", xl: "6xl" }}
+              fontWeight="bold"
+              lineHeight="shorter"
+            >
+              <Text as="span" position="relative" zIndex={1}>
+                Nossos{" "}
+                <Text
+                  as="span"
+                  color={accentColor}
+                  position="relative"
+                  _after={{
+                    content: "''",
+                    width: "full",
+                    height: "30%",
+                    position: "absolute",
+                    bottom: 1,
+                    left: 0,
+                    bg: `${accentColor}30`,
+                    zIndex: -1,
+                    borderRadius: "2px",
+                  }}
+                >
+                  Serviços
+                </Text>
               </Text>
+            </Heading>
+            <Text
+              fontSize={{ base: "lg", md: "xl" }}
+              color={subtitleColor}
+              maxW="800px"
+            >
+              Soluções completas em Business Intelligence e Tecnologia da
+              Informação para transformar dados em decisões inteligentes.
             </Text>
-          </Heading>
-          <Text 
-            fontSize={{ base: "lg", md: "xl" }} 
-            color={subtitleColor}
-            maxW="800px"
-            mx="auto"
-          >
-            Soluções tecnológicas completas para impulsionar o seu negócio com eficiência e inovação.
-          </Text>
+          </Stack>
         </MotionBox>
 
         {/* Grid de serviços */}
@@ -160,8 +167,8 @@ export default function Services() {
           transition={{ duration: 0.5, delay: 0.3 }}
           mb={{ base: 16, md: 20 }}
         >
-          <SimpleGrid 
-            columns={{ base: 1, md: 2, lg: 3 }} 
+          <SimpleGrid
+            columns={{ base: 1, md: 2, lg: 3 }}
             spacing={{ base: 8, lg: 10 }}
             mt={10}
           >
@@ -171,6 +178,7 @@ export default function Services() {
                 title={service.title}
                 icon={service.icon}
                 description={service.description}
+                badge={service.badge}
                 delay={0.2 + index * 0.1}
                 accentColor={accentColor}
                 cardBg={cardBg}
@@ -179,7 +187,7 @@ export default function Services() {
               />
             ))}
           </SimpleGrid>
-          
+
           {/* Botão de contato centralizado */}
           <MotionFlex
             justify="center"
@@ -201,10 +209,10 @@ export default function Services() {
               py={7}
               rounded="full"
               rightIcon={<Icon as={FaArrowRight} />}
-              _hover={{ 
+              _hover={{
                 transform: "translateY(-5px)",
                 boxShadow: "xl",
-                bg: "blue.600"
+                bg: "blue.600",
               }}
               transition="all 0.3s ease"
             >
@@ -228,7 +236,17 @@ export default function Services() {
 /**
  * ServiceCard - Componente de card para serviços
  */
-function ServiceCard({ title, icon, description, delay, accentColor, cardBg, textColor, subtitleColor }) {
+function ServiceCard({
+  title,
+  icon,
+  description,
+  badge,
+  delay,
+  accentColor,
+  cardBg,
+  textColor,
+  subtitleColor,
+}) {
   return (
     <MotionBox
       initial={{ opacity: 0, y: 20 }}
@@ -241,12 +259,29 @@ function ServiceCard({ title, icon, description, delay, accentColor, cardBg, tex
       position="relative"
       overflow="hidden"
       height="100%"
-      _hover={{ 
+      _hover={{
         boxShadow: "xl",
-        transform: "translateY(-5px)"
+        transform: "translateY(-5px)",
       }}
     >
-      {/* Elemento decorativo */}
+      {/* Badge no canto superior direito */}
+      {badge && (
+        <Badge
+          position="absolute"
+          top={4}
+          right={4}
+          colorScheme="blue"
+          variant="subtle"
+          px={2}
+          py={1}
+          borderRadius="md"
+          fontSize="xs"
+        >
+          {badge}
+        </Badge>
+      )}
+
+      {/* Elemento decorativo lateral */}
       <Box
         position="absolute"
         top={0}
@@ -256,7 +291,7 @@ function ServiceCard({ title, icon, description, delay, accentColor, cardBg, tex
         bg={accentColor}
         borderRadius="full"
       />
-      
+
       <HStack spacing={4} mb={4} align="center">
         {/* Ícone animado */}
         <Flex
@@ -275,7 +310,7 @@ function ServiceCard({ title, icon, description, delay, accentColor, cardBg, tex
             whileHover={{ rotate: 10, scale: 1.1 }}
           />
         </Flex>
-        
+
         <Box>
           <Heading
             as="h3"
@@ -287,9 +322,9 @@ function ServiceCard({ title, icon, description, delay, accentColor, cardBg, tex
           </Heading>
         </Box>
       </HStack>
-      
+
       <Divider mb={4} opacity={0.2} />
-      
+
       <Text
         fontSize={{ base: "md", md: "lg" }}
         color={subtitleColor}
