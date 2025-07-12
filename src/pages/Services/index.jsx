@@ -80,7 +80,7 @@ export default function Services() {
     setLoading(true);
     emailjs
       .send(
-        "service_vmhaqqw",
+        "service_ddx8gkm",
         "template_ltxyr3s",
         {
           name: form.nome,
