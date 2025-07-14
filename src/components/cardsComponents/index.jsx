@@ -48,9 +48,9 @@ const Card = ({
       border="1px solid rgba(255, 255, 255, 0.3)"
       boxShadow="lg"
       position="relative"
-      zIndex={10} // Aumentado para garantir que fique em primeiro plano
-      mx={0} // Remove margem automática para alinhamento correto
-      height={height || { base: "auto", md: "360px" }} // Usa altura personalizada ou padrão
+      zIndex={10}
+      mx={0}
+      height={height || { base: "auto", md: "360px" }}
       display="flex"
       flexDirection="column"
       initial={{ opacity: 0, y: 20 }}
@@ -71,16 +71,14 @@ const Card = ({
             align={"center"}
             justify={"center"}
             rounded={"full"}
-            bg={useColorModeValue("blue.50", "blue.900")}
             border="none"
-            boxShadow="md"
           >
-            <motion.div
-              whileHover={{ rotate: 15, scale: 1.1 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Image src={iconSrc} alt={heading} boxSize="50px" objectFit="cover" />
-            </motion.div>
+            <Image 
+              src={iconSrc} 
+              alt={heading} 
+              boxSize="50px" 
+              objectFit="cover" 
+            />
           </Flex>
         )}
         <Box flex="1" display="flex" flexDirection="column">
@@ -95,7 +93,7 @@ const Card = ({
             fontSize={"md"}
             color={textColor}
             opacity={0.9}
-            flex="1" // Faz a descrição ocupar o espaço disponível
+            flex="1"
           >
             {description}
           </Box>
@@ -114,7 +112,7 @@ const Card = ({
             color="blue.400"
             rounded={"15px 0px 15px 0px"}
             px={6}
-            mt="auto" // Coloca o botão no final do card
+            mt="auto"
             _hover={{ bg: "gray.100", color: "blue.500", transform: "translateY(-2px)" }}
             transition="all 0.3s ease"
           >
@@ -162,20 +160,18 @@ export default function GridListWith() {
     <Box 
       p={{ base: 4, md: 0 }} 
       position="relative" 
-      zIndex={10} // Aumentado para garantir que fique em primeiro plano
-      mt={{ base: "-40px", md: "-60px", lg: "-150px" }} // Ajustado para posicionar corretamente
+      zIndex={10}
+      mt={{ base: "-40px", md: "-60px", lg: "-150px" }}
     >
       <Container maxW={"1400px"}>
         <Box position="relative">
-          {/* Cards principais em grade - incluindo o Agendar uma Reunião na mesma linha */}
           <HStack
             spacing={{ base: 8, lg: 4 }} 
-            alignItems="flex-start" // Alinha ao topo para melhor posicionamento
+            alignItems="flex-start"
             width="full" 
             justifyContent="center"
             flexWrap={{ base: "wrap", lg: "nowrap" }}
           >
-            {/* Coluna dos 3 cards principais */}
             <Box width={{ base: "100%", lg: "75%" }}>
               <HStack 
                 spacing={0} 
@@ -206,13 +202,12 @@ export default function GridListWith() {
               </HStack>
             </Box>
             
-            {/* Botão "Agendar uma Reunião" ao lado */}
             <Box 
               width={{ base: "100%", lg: "25%" }}
               display="flex"
               justifyContent="center"
               alignItems={{ base: "center", lg: "flex-start" }}
-              mt={{ base: 0, lg: "30px" }} // Ajuste fino para alinhar verticalmente
+              mt={{ base: 0, lg: "30px" }}
             >
               <MotionBox
                 initial={{ opacity: 0, y: 20 }}
@@ -220,7 +215,7 @@ export default function GridListWith() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.5 }}
                 width={{ base: "250px", md: "250px" }}
-                zIndex={10} // Garantindo que fique em primeiro plano
+                zIndex={10}
               >
                 <Card
                   heading={
@@ -237,7 +232,7 @@ export default function GridListWith() {
                   description=""
                   showButton={true}
                   isCenterAligned={true}
-                  height={{ base: "auto", md: "220px" }} // Altura menor para este card
+                  height={{ base: "auto", md: "220px" }}
                 />
               </MotionBox>
             </Box>
