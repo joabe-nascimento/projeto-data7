@@ -121,7 +121,7 @@ const HeroSection = () => {
               lineHeight={1.2}
               fontSize={useBreakpointValue({ base: "1xl", md: "2xl" })}
             >
-              Na Data7, oferecemos soluções completas em <span>Business Intelligence e Tecnologia da Informação</span> para clínicas, hospitais e instituições de ensino superior. Nossa missão é transformar dados em decisões inteligentes, impulsionando eficiência, controle e resultados para nossos clientes.
+             Na Data7, oferecemos soluções completas em Business Intelligence e Tecnologia da Informação (BI), Consultoria de Ti, Analise de dados e integrações de sistemas, na medida certa para sua empresa. Nossa missão é transformar dados em decisões inteligentes, impulsionando a eficiência, o controle e os resultados dos nossos clientes.
             </Text>
             <Stack direction={"row"}>
               <Button
